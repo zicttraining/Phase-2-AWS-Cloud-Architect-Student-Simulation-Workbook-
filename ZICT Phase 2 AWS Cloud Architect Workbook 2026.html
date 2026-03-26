@@ -1,0 +1,2789 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 2 AWS Cloud Architect — Student Workbook 2026 | ZICT</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+      :root {
+        --zict-blue: #1a3c6e;
+        --zict-gold: #f5a623;
+        --zict-light: #f0f4f8;
+        --week1: #1a6fa8;
+        --week2: #27ae60;
+        --week3: #d4890a;
+        --week4: #7d3c98;
+        --week5: #c0392b;
+        --week6: #16a085;
+        --text-dark: #1a1a2e;
+        --text-mid: #333;
+        --border: #dde3ea;
+        --code-bg: #1e2235;
+        --code-text: #e8f0fe;
+        --hint-bg: #fff3cd;
+        --hint-border: #f0ad4e;
+        --scenario-bg: #e8f4fd;
+        --scenario-border: #2980b9;
+        --evidence-bg: #eafaf1;
+        --evidence-border: #27ae60;
+        --ai-bg: #f3e5f5;
+        --ai-border: #8e44ad;
+        --warn-bg: #fff0f0;
+        --warn-border: #e74c3c;
+        --step-bg: #f8f9fa;
+      }
+
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 40px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        color: var(--text-mid);
+        line-height: 1.6;
+        background: #fff;
+        font-size: 15px;
+      }
+
+      /* Reset some Pico styles for document feel */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        margin-bottom: 0.5em;
+        font-weight: 700;
+      }
+      p {
+        margin-bottom: 1em;
+      }
+
+      /* Cover */
+      .cover {
+        background: linear-gradient(135deg, var(--zict-blue) 0%, #0d2644 100%);
+        color: #fff;
+        padding: 60px 40px;
+        min-height: 380px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 8px;
+        margin-bottom: 30px;
+      }
+      .cover-badge {
+        background: var(--zict-gold);
+        color: #1a1a1a;
+        display: inline-block;
+        padding: 5px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+        width: fit-content;
+      }
+      .cover h1 {
+        font-size: 2.4em;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 12px;
+        color: white;
+      }
+      .cover h2 {
+        font-size: 1.3em;
+        font-weight: 400;
+        opacity: 0.9;
+        margin-bottom: 30px;
+        color: #eee;
+      }
+      .cover-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 10px;
+      }
+      .cover-meta-item {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 6px;
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+      .cover-meta-item strong {
+        display: block;
+        font-size: 11px;
+        opacity: 0.8;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+        color: #ddd;
+      }
+      .cover a {
+        color: var(--zict-gold);
+        text-decoration: none;
+      }
+
+      /* Schedule banner */
+      .schedule-banner {
+        background: var(--zict-blue);
+        color: #fff;
+        display: flex;
+        gap: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+      .schedule-slot {
+        flex: 1;
+        padding: 18px 24px;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .schedule-slot:last-child {
+        border-right: none;
+      }
+      .schedule-slot .time {
+        font-size: 1.2em;
+        font-weight: 800;
+        color: var(--zict-gold);
+        display: block;
+        margin-bottom: 4px;
+      }
+      .schedule-slot .label {
+        font-size: 0.95em;
+        font-weight: 600;
+        display: block;
+      }
+      .schedule-slot .desc {
+        font-size: 0.8em;
+        opacity: 0.85;
+        margin-top: 4px;
+        line-height: 1.4;
+      }
+
+      /* Navigation */
+      .toc {
+        background: var(--zict-light);
+        border-bottom: 3px solid var(--zict-gold);
+        padding: 24px 30px;
+        border-radius: 8px;
+        margin-bottom: 40px;
+      }
+      .toc h3 {
+        font-size: 1em;
+        font-weight: 700;
+        color: var(--zict-blue);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 14px;
+      }
+      .toc ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 24px;
+      }
+      .toc ul li a {
+        color: var(--zict-blue);
+        text-decoration: none;
+        font-size: 14px;
+        border-bottom: 1px solid transparent;
+      }
+      .toc ul li a:hover {
+        border-bottom-color: var(--zict-blue);
+      }
+
+      /* Sections */
+      .section {
+        padding: 30px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 24px;
+      }
+      .section-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4em;
+        flex-shrink: 0;
+      }
+      .section h2 {
+        font-size: 1.5em;
+        font-weight: 700;
+        color: var(--zict-blue);
+        margin: 0;
+      }
+
+      /* Week headers */
+      .week-header {
+        padding: 16px 24px;
+        color: #fff;
+        font-size: 1.1em;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        border-radius: 6px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+      .week-1 {
+        background: var(--week1);
+      }
+      .week-2 {
+        background: var(--week2);
+      }
+      .week-3 {
+        background: var(--week3);
+      }
+      .week-4 {
+        background: var(--week4);
+      }
+      .week-5 {
+        background: var(--week5);
+      }
+      .week-6 {
+        background: var(--week6);
+      }
+
+      /* Assessment card */
+      .assessment {
+        padding: 24px 0;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 10px;
+      }
+      .assessment-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+      .assessment-badge {
+        padding: 6px 12px;
+        border-radius: 16px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: #fff;
+        flex-shrink: 0;
+        margin-top: 4px;
+      }
+      .w1 {
+        background: var(--week1);
+      }
+      .w2 {
+        background: var(--week2);
+      }
+      .w3 {
+        background: var(--week3);
+      }
+      .w4 {
+        background: var(--week4);
+      }
+      .w5 {
+        background: var(--week5);
+      }
+      .w6 {
+        background: var(--week6);
+      }
+      .assessment-title {
+        font-size: 1.2em;
+        font-weight: 700;
+        color: var(--text-dark);
+        line-height: 1.3;
+      }
+      .assessment-subtitle {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 4px;
+      }
+
+      /* Info boxes */
+      .scenario-box,
+      .solution-box,
+      .evidence-box,
+      .ai-box,
+      .warn-box,
+      .hint-box {
+        border-radius: 8px;
+        padding: 18px 22px;
+        margin: 16px 0;
+        font-size: 14.5px;
+      }
+      .scenario-box {
+        background: var(--scenario-bg);
+        border-left: 5px solid var(--scenario-border);
+      }
+      .scenario-box .box-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--scenario-border);
+        margin-bottom: 8px;
+        display: block;
+      }
+      .solution-box {
+        background: var(--step-bg);
+        border: 1px solid var(--border);
+        border-top: 4px solid var(--zict-blue);
+      }
+      .solution-box .box-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--zict-blue);
+        margin-bottom: 12px;
+        display: block;
+      }
+      .evidence-box {
+        background: var(--evidence-bg);
+        border-left: 5px solid var(--evidence-border);
+      }
+      .evidence-box .box-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #1a7a42;
+        margin-bottom: 10px;
+        display: block;
+      }
+      .ai-box {
+        background: var(--ai-bg);
+        border-left: 5px solid var(--ai-border);
+      }
+      .ai-box .box-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #6c3483;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .warn-box {
+        background: var(--warn-bg);
+        border-left: 5px solid var(--warn-border);
+      }
+      .warn-box .box-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #c0392b;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .hint-box {
+        background: var(--hint-bg);
+        border-left: 5px solid var(--hint-border);
+      }
+      .hint-box .box-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #856404;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      /* Code blocks */
+      pre,
+      code.block {
+        background: var(--code-bg);
+        color: var(--code-text);
+        border-radius: 6px;
+        padding: 16px 20px;
+        overflow-x: hidden;
+        font-family: 'Courier New', monospace;
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 14px 0;
+        white-space: pre-wrap;
+        word-break: break-all;
+        border: 1px solid #333;
+      }
+      code {
+        background: #e8f0fe;
+        color: #1a3c6e;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        font-size: 13px;
+      }
+      pre code {
+        background: none;
+        color: inherit;
+        padding: 0;
+        border-radius: 0;
+        font-size: inherit;
+        border: none;
+      }
+
+      /* Steps list */
+      ol.steps {
+        list-style: none;
+        counter-reset: step;
+        padding: 0;
+      }
+      ol.steps li {
+        counter-increment: step;
+        position: relative;
+        padding: 8px 0 8px 40px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 0;
+      }
+      ol.steps li:last-child {
+        border-bottom: none;
+      }
+      ol.steps li::before {
+        content: counter(step);
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 26px;
+        height: 26px;
+        background: var(--zict-blue);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 700;
+        text-align: center;
+        line-height: 26px;
+      }
+
+      /* Checklist */
+      ul.checklist {
+        list-style: none;
+        padding: 0;
+      }
+      ul.checklist li {
+        padding: 5px 0 5px 24px;
+        position: relative;
+        margin-bottom: 2px;
+      }
+      ul.checklist li::before {
+        content: '☐';
+        position: absolute;
+        left: 0;
+        color: var(--zict-blue);
+        font-size: 1.2em;
+        line-height: 1;
+      }
+
+      /* Tables */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 16px 0;
+        font-size: 14px;
+      }
+      th {
+        background: var(--zict-blue);
+        color: #fff;
+        padding: 10px 14px;
+        text-align: left;
+        font-size: 13px;
+        font-weight: 600;
+      }
+      td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+        vertical-align: top;
+      }
+      tr:nth-child(even) td {
+        background: #f8f9fa;
+      }
+
+      /* Diagram section */
+      .diagram-section {
+        background: #f8faff;
+        border: 2px solid #c5d8f5;
+        border-radius: 8px;
+        padding: 24px;
+        margin: 20px 0;
+      }
+      .diagram-section h4 {
+        color: var(--zict-blue);
+        font-size: 1.05em;
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+      .diagram-section .diagram-label {
+        background: var(--zict-blue);
+        color: #fff;
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+      .diagram-img-wrap {
+        text-align: center;
+        margin: 16px 0;
+        background: white;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #eee;
+      }
+      .diagram-img-wrap img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto;
+      }
+      .diagram-caption {
+        font-size: 12px;
+        color: #666;
+        margin-top: 10px;
+        font-style: italic;
+        text-align: center;
+      }
+
+      /* Lucidchart guide */
+      ol.lucid-steps {
+        list-style: decimal;
+        padding-left: 20px;
+      }
+      ol.lucid-steps li {
+        padding: 4px 0;
+        font-size: 14px;
+        margin-bottom: 4px;
+        border: none;
+      }
+      ol.lucid-steps li::before {
+        content: none;
+      }
+
+      /* Role cards */
+      .roles-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+        margin-top: 18px;
+      }
+      .role-card {
+        background: var(--zict-light);
+        border: 1px solid var(--border);
+        border-top: 3px solid var(--zict-blue);
+        border-radius: 6px;
+        padding: 16px;
+      }
+      .role-card h4 {
+        font-size: 0.95em;
+        color: var(--zict-blue);
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .role-card p {
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 0;
+        line-height: 1.4;
+      }
+
+      /* Project cards */
+      .project-card {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin: 24px 0;
+        overflow: hidden;
+      }
+      .project-card-header {
+        padding: 14px 24px;
+        color: #fff;
+        font-weight: 700;
+        background: #555;
+      }
+      .week-5 {
+        background: var(--week5);
+      }
+      .week-6 {
+        background: var(--week6);
+      }
+
+      .project-card-body {
+        padding: 20px 24px;
+      }
+
+      /* Headers */
+      h3 {
+        font-size: 1.1em;
+        color: var(--zict-blue);
+        font-weight: 700;
+        margin: 24px 0 12px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 6px;
+      }
+      h4 {
+        font-size: 1em;
+        color: var(--text-dark);
+        font-weight: 700;
+        margin: 18px 0 8px;
+      }
+      p {
+        margin: 0 0 12px 0;
+      }
+      ul,
+      ol {
+        padding-left: 20px;
+        margin: 12px 0;
+      }
+      li {
+        margin-bottom: 6px;
+      }
+      strong {
+        color: var(--text-dark);
+        font-weight: 600;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--zict-blue);
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 30px;
+        font-size: 13px;
+        margin-top: 60px;
+        border-radius: 8px;
+      }
+      footer strong {
+        color: #fff;
+      }
+      footer a {
+        color: var(--zict-gold);
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body style="">
+    <!-- ===== COVER ===== -->
+    <div class="cover">
+      <div class="cover-badge">ZICT Training Program</div>
+      <h1>Phase 2 AWS Cloud Architect</h1>
+      <h2>Student Simulation Workbook — All Assessments, Solutions &amp; Projects</h2>
+      <div class="cover-meta">
+        <div class="cover-meta-item"><strong>Client</strong>Best Music Entertainment (BME)</div>
+        <div class="cover-meta-item"><strong>Your Role</strong>Cloud Engineer, ZICT</div>
+        <div class="cover-meta-item"><strong>Duration</strong>6 Weeks · Mon–Thu</div>
+        <div class="cover-meta-item"><strong>Schedule</strong>6:00 PM – 9:00 PM Daily</div>
+        <div class="cover-meta-item"><strong>Year</strong>2026</div>
+        <div class="cover-meta-item">
+          <strong>GitHub</strong><a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">zicttraining/DevOps-cloud-training-</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== DAILY SCHEDULE BANNER ===== -->
+    <div class="schedule-banner">
+      <div class="schedule-slot">
+        <span class="time">6:00 PM – 7:00 PM</span>
+        <span class="label">🛠 Hands-On Work Session</span>
+        <div class="desc">
+          Independent work on previous assessment with instructor guidance, troubleshooting &amp; peer review
+        </div>
+      </div>
+      <div class="schedule-slot">
+        <span class="time">7:00 PM – 9:00 PM</span>
+        <span class="label">📡 Instructor-Led Session</span>
+        <div class="desc">
+          New concept delivery, live demos, architecture walkthroughs, Q&amp;A, and new assessment briefing
+        </div>
+      </div>
+      <div class="schedule-slot" style="flex: 0.6">
+        <span class="time">Mon – Thu</span>
+        <span class="label">3 Hours / Day</span>
+        <div class="desc">6 weeks · 24 assessment days · Projects in Weeks 5–6</div>
+      </div>
+    </div>
+
+    <!-- ===== TABLE OF CONTENTS ===== -->
+    <div class="toc" id="top">
+      <h3>Contents</h3>
+      <ul>
+        <li><a href="#how-it-works">How This Program Works</a></li>
+        <li><a href="#client-profile">BME Client Profile</a></li>
+        <li><a href="#syllabus">Full Syllabus</a></li>
+        <li><a href="#week1">Week 1 — Architecture &amp; Design</a></li>
+        <li><a href="#week2">Week 2 — Infrastructure Build</a></li>
+        <li><a href="#week3">Week 3 — Services, UAT &amp; Terraform</a></li>
+        <li><a href="#week4">Week 4 — CI/CD Pipelines</a></li>
+        <li><a href="#week5">Week 5 — Capstone Projects 1–3</a></li>
+        <li><a href="#week6">Week 6 — Capstone Projects 4–6 &amp; Presentations</a></li>
+        <li><a href="#career-roles">Career Roles After This Program</a></li>
+        <li><a href="#why-simulation">Why Simulation-Based Learning</a></li>
+        <li><a href="#tools">Tools &amp; Setup</a></li>
+        <li><a href="#submission">Assessment &amp; Submission Guide</a></li>
+      </ul>
+    </div>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <div class="section" id="how-it-works">
+      <div class="section-header">
+        <div class="section-icon" style="background: #e8f4fd; color: var(--zict-blue)">🎯</div>
+        <h2>How This Program Works</h2>
+      </div>
+      <div class="scenario-box">
+        <span class="box-label">Your Workplace</span>
+        <p>
+          You are a <strong>Cloud Engineer at ZICT</strong>. Your team has been contracted by
+          <strong>Best Music Entertainment (BME)</strong> — a growing events and ticketing company — to design, build,
+          and deploy their full AWS cloud infrastructure. Every assessment is a real deliverable to that client.
+        </p>
+      </div>
+      <h3>Every Assessment Follows This Format</h3>
+      <table>
+        <tbody><tr>
+          <th>Section</th>
+          <th>Description</th>
+        </tr>
+        <tr>
+          <td><strong>Client Scenario</strong></td>
+          <td>A real work request — an email, ticket, or briefing from your BME project lead</td>
+        </tr>
+        <tr>
+          <td><strong>Your Role</strong></td>
+          <td>What you are responsible for delivering as a Cloud Engineer</td>
+        </tr>
+        <tr>
+          <td><strong>Client Request</strong></td>
+          <td>The specific deliverable BME needs from ZICT</td>
+        </tr>
+        <tr>
+          <td><strong>Guided Solution</strong></td>
+          <td>Step-by-step instructions to complete the task professionally</td>
+        </tr>
+        <tr>
+          <td><strong>Evidence Required</strong></td>
+          <td>Screenshots, files, or URLs you must submit to prove delivery</td>
+        </tr>
+        <tr>
+          <td><strong>Claude AI Prompt</strong></td>
+          <td>A ready-to-use prompt to get support when you are stuck</td>
+        </tr>
+      </tbody></table>
+      <h3>What You Will Use</h3>
+      <ul>
+        <li>AWS Console (your sandbox account)</li>
+        <li>Lucidchart (for all architecture diagrams)</li>
+        <li>
+          GitHub:
+          <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank"><strong>github.com/zicttraining/DevOps-cloud-training-</strong></a>
+        </li>
+        <li>Terraform (HashiCorp)</li>
+        <li>Docker Desktop</li>
+        <li>VS Code</li>
+        <li>AWS CLI</li>
+        <li>Claude AI (for explanation and documentation support)</li>
+      </ul>
+      <div class="warn-box" style="margin-top: 18px">
+        <span class="box-label">Important Policy</span>
+        <p>
+          Claude AI is a support tool only. All AWS console actions, code, and architecture decisions must be completed
+          by you. Claude may be used to explain concepts, check your work, and help write documentation — but not to
+          replace your hands-on work.
+        </p>
+      </div>
+    </div>
+
+    <!-- ===== CLIENT PROFILE ===== -->
+    <div class="section" id="client-profile">
+      <div class="section-header">
+        <div class="section-icon" style="background: #fff3cd; color: #856404">🏢</div>
+        <h2>BME Client Profile — Best Music Entertainment</h2>
+      </div>
+      <table>
+        <tbody><tr>
+          <th>Field</th>
+          <th>Details</th>
+        </tr>
+        <tr>
+          <td>Client Name</td>
+          <td>Best Music Entertainment (BME)</td>
+        </tr>
+        <tr>
+          <td>Industry</td>
+          <td>Events &amp; Ticketing / E-Commerce</td>
+        </tr>
+        <tr>
+          <td>Platform</td>
+          <td>Online event ticketing system with payment gateway integration</td>
+        </tr>
+        <tr>
+          <td>Users</td>
+          <td>100,000+ concurrent users during peak events</td>
+        </tr>
+        <tr>
+          <td>Environments Needed</td>
+          <td>Development · UAT/Staging · Production</td>
+        </tr>
+        <tr>
+          <td>Core Requirements</td>
+          <td>High availability, scalability, security, disaster recovery, cost efficiency</td>
+        </tr>
+        <tr>
+          <td>AWS Region</td>
+          <td>us-east-1 (primary) with multi-AZ deployment</td>
+        </tr>
+        <tr>
+          <td>Your Team</td>
+          <td>Cloud Engineers at ZICT</td>
+        </tr>
+        <tr>
+          <td>Project Manager</td>
+          <td>ZICT Project Lead (your instructor)</td>
+        </tr>
+      </tbody></table>
+      <h3>What BME Needs</h3>
+      <ul>
+        <li>A fully designed AWS cloud architecture covering all domains</li>
+        <li>Separate Dev, UAT, and Production environments</li>
+        <li>Infrastructure as Code using Terraform</li>
+        <li>Automated CI/CD pipeline using GitHub Actions</li>
+        <li>Container deployment via Amazon ECS or EKS</li>
+        <li>Security hardening: IAM, KMS, WAF, Shield, GuardDuty, CloudTrail</li>
+        <li>Monitoring and alerting: CloudWatch, SNS, CloudTrail</li>
+        <li>Final presentation ready for client sign-off</li>
+      </ul>
+    </div>
+
+    <!-- ===== SYLLABUS ===== -->
+    <div class="section" id="syllabus">
+      <div class="section-header">
+        <div class="section-icon" style="background: #eafaf1; color: #1a7a42">📋</div>
+        <h2>Full Program Syllabus</h2>
+      </div>
+      <table>
+        <tbody><tr>
+          <th>Week</th>
+          <th>Focus</th>
+          <th>Assessments</th>
+          <th>Key Deliverables</th>
+        </tr>
+        <tr>
+          <td><strong>Week 1</strong></td>
+          <td>Architecture &amp; Design</td>
+          <td>1–4</td>
+          <td>Requirements doc, service recommendations, architecture diagrams, technical documentation</td>
+        </tr>
+        <tr>
+          <td><strong>Week 2</strong></td>
+          <td>Infrastructure Build</td>
+          <td>5–8</td>
+          <td>Architecture docs, VPC/EC2/Apache, Auto Scaling, ALB, HTTPS setup</td>
+        </tr>
+        <tr>
+          <td><strong>Week 3</strong></td>
+          <td>Services, UAT &amp; Terraform Intro</td>
+          <td>9–12</td>
+          <td>S3/RDS/IAM/CloudTrail/SNS/CloudFront, UAT recommendations, Terraform multi-env, Production Terraform</td>
+        </tr>
+        <tr>
+          <td><strong>Week 4</strong></td>
+          <td>GitHub Actions CI/CD</td>
+          <td>13–16</td>
+          <td>GitHub Actions pipelines, CI/CD write-up, review &amp; capstone prep</td>
+        </tr>
+        <tr>
+          <td><strong>Week 5</strong></td>
+          <td>Capstone Projects 1–3</td>
+          <td>17–20</td>
+          <td>GitHub setup, Docker/ECR/ECS, capstone planning &amp; Week 5 presentations</td>
+        </tr>
+        <tr>
+          <td><strong>Week 6</strong></td>
+          <td>Capstone Projects 4–6 &amp; Final Demo</td>
+          <td>21–24</td>
+          <td>ECS/EKS production, CI/CD capstone, final presentations, portfolio</td>
+        </tr>
+      </tbody></table>
+      <h3>Assessment Overview</h3>
+      <table>
+        <tbody><tr>
+          <th>Component</th>
+          <th>Weight</th>
+          <th>How Assessed</th>
+        </tr>
+        <tr>
+          <td>Daily Lab Evidence (Assessments 1–14)</td>
+          <td>30%</td>
+          <td>Screenshots, console evidence, submitted files</td>
+        </tr>
+        <tr>
+          <td>Architecture Diagram &amp; Documentation</td>
+          <td>15%</td>
+          <td>Lucidchart export, written documentation</td>
+        </tr>
+        <tr>
+          <td>Terraform Deployment</td>
+          <td>20%</td>
+          <td>Working code, GitHub repo, applied state</td>
+        </tr>
+        <tr>
+          <td>CI/CD Pipeline</td>
+          <td>15%</td>
+          <td>GitHub Actions YAML, workflow runs</td>
+        </tr>
+        <tr>
+          <td>Capstone Project Presentation</td>
+          <td>20%</td>
+          <td>Live demo, presentation slides, GitHub repo</td>
+        </tr>
+      </tbody></table>
+      <h3>Prerequisites</h3>
+      <ul>
+        <li>AWS account (provided or your own Free Tier account)</li>
+        <li>
+          GitHub account — use:
+          <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">github.com/zicttraining/DevOps-cloud-training-</a>
+        </li>
+        <li>VS Code installed with Terraform and AWS CLI extensions</li>
+        <li>Lucidchart account (free tier sufficient)</li>
+        <li>Docker Desktop installed</li>
+        <li>Basic understanding of Linux commands</li>
+      </ul>
+    </div>
+
+    <!-- ============================== WEEK 1 ============================== -->
+    <div class="week-header week-1" id="week1">📐 Week 1 — Architecture &amp; Design | Assessments 1–4</div>
+
+    <!-- ASSESSMENT 1 -->
+    <div class="assessment" id="a1">
+      <div class="assessment-header">
+        <span class="assessment-badge w1">Week 1 — Day 1</span>
+        <div>
+          <div class="assessment-title">Assessment 1 — Client Discovery &amp; Requirement Gathering</div>
+          <div class="assessment-subtitle">AWS Application Design for Best Music Entertainment</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📧 Client Scenario — Email from BME Project Lead</span>
+        <p>
+          <em>"Hi ZICT Team, We're ready to kick off the cloud migration. Before we talk architecture, we need your team
+            to run a full discovery session with us. Please document our requirements across every AWS domain —
+            geography, identity, compute, security, storage, networking, database, monitoring, and cost. We need this as
+            a formal requirement document by end of week. — BME Technology Director"</em>
+        </p>
+      </div>
+
+      <h3>Your Role</h3>
+      <p>
+        As Cloud Engineer at ZICT, you will conduct a structured client discovery session and produce a formal
+        requirements document for BME's AWS environment.
+      </p>
+
+      <h3>Client Request</h3>
+      <p>Produce a completed AWS Application Design Requirements document covering all nine domains.</p>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — Requirement Gathering Answers</span>
+
+        <h4>Domain 1: Geography</h4>
+        <ul>
+          <li>
+            <strong>Primary Region:</strong> us-east-1 (N. Virginia) — closest to majority of BME's customer base and
+            event venues
+          </li>
+          <li><strong>Secondary Region (DR):</strong> us-west-2 (Oregon) — for disaster recovery</li>
+          <li><strong>Multi-AZ:</strong> Yes — us-east-1a and us-east-1b minimum</li>
+          <li>
+            <strong>Justification:</strong> High event traffic requires low latency; two AZs ensure availability during
+            single AZ failure
+          </li>
+        </ul>
+
+        <h4>Domain 2: Identity &amp; Access Management (IAM)</h4>
+        <ul>
+          <li><strong>IAM Roles:</strong> Admin, Developer, ReadOnly, DeploymentRole</li>
+          <li><strong>MFA:</strong> Required for all human users</li>
+          <li><strong>Principle of Least Privilege:</strong> Yes — custom policies per role</li>
+          <li><strong>Service Accounts:</strong> EC2 instance roles, ECS task roles, Lambda execution roles</li>
+        </ul>
+
+        <h4>Domain 3: Compute</h4>
+        <ul>
+          <li><strong>Service:</strong> Amazon EC2 (web/app tier), Auto Scaling Group for dynamic scaling</li>
+          <li><strong>Instance Type:</strong> t3.medium (dev), t3.large (UAT), c5.xlarge (production web)</li>
+          <li><strong>Containers:</strong> Amazon ECS Fargate (final project)</li>
+          <li><strong>Justification:</strong> Auto Scaling handles 100k+ peak event traffic automatically</li>
+        </ul>
+
+        <h4>Domain 4: Security</h4>
+        <ul>
+          <li><strong>WAF:</strong> AWS WAF on ALB — block OWASP top 10, rate limiting</li>
+          <li><strong>DDoS:</strong> AWS Shield Standard (free tier) on all public endpoints</li>
+          <li><strong>Encryption:</strong> KMS for S3, RDS, EBS — all at rest</li>
+          <li><strong>SSL/TLS:</strong> ACM certificates on ALB — HTTPS only in production</li>
+          <li><strong>Threat Detection:</strong> Amazon GuardDuty enabled on all accounts</li>
+          <li><strong>Secrets:</strong> AWS Secrets Manager for DB credentials and API keys</li>
+        </ul>
+
+        <h4>Domain 5: Storage</h4>
+        <ul>
+          <li><strong>Object Storage:</strong> Amazon S3 — media files, static assets, Terraform state, logs</li>
+          <li><strong>Block Storage:</strong> Amazon EBS gp3 — attached to EC2 instances</li>
+          <li><strong>Versioning:</strong> S3 versioning enabled on all buckets</li>
+          <li><strong>Lifecycle:</strong> S3 lifecycle rules — move to Glacier after 90 days</li>
+        </ul>
+
+        <h4>Domain 6: Networking</h4>
+        <ul>
+          <li><strong>VPC:</strong> Custom VPC per environment (10.0.0.0/16 dev, 10.1.0.0/16 UAT, 10.2.0.0/16 prod)</li>
+          <li><strong>Subnets:</strong> Public (web), Private App, Private DB — in each AZ</li>
+          <li><strong>Internet Gateway:</strong> For public subnets</li>
+          <li><strong>NAT Gateway:</strong> For private subnets to access internet</li>
+          <li><strong>ALB:</strong> Internet-facing Application Load Balancer</li>
+          <li><strong>Route 53:</strong> DNS management, health checks, failover routing</li>
+          <li><strong>CloudFront:</strong> CDN for static assets and ticket pages</li>
+        </ul>
+
+        <h4>Domain 7: Database</h4>
+        <ul>
+          <li><strong>Service:</strong> Amazon RDS MySQL Multi-AZ</li>
+          <li><strong>Engine:</strong> MySQL 8.0</li>
+          <li><strong>Instance:</strong> db.t3.medium (dev/UAT), db.r5.large (production)</li>
+          <li><strong>Backup:</strong> Automated daily backups, 7-day retention</li>
+          <li><strong>Read Replica:</strong> Production environment — 1 read replica for reporting</li>
+        </ul>
+
+        <h4>Domain 8: Monitoring &amp; Alerting</h4>
+        <ul>
+          <li><strong>CloudWatch:</strong> Metrics, alarms, dashboards for EC2, ALB, RDS, Lambda</li>
+          <li><strong>CloudTrail:</strong> API audit logging — all regions, all accounts</li>
+          <li><strong>SNS:</strong> Alert notifications to engineering team email</li>
+          <li><strong>Config:</strong> AWS Config for compliance monitoring</li>
+        </ul>
+
+        <h4>Domain 9: Cost Management</h4>
+        <ul>
+          <li><strong>AWS Budgets:</strong> Monthly budget alerts at 80% and 100% threshold</li>
+          <li><strong>Cost Explorer:</strong> Weekly review by ZICT project lead</li>
+          <li><strong>Reserved Instances:</strong> Production EC2 and RDS — 1-year term after 3 months</li>
+          <li><strong>Auto Scaling:</strong> Scale down during off-peak hours (2am–6am)</li>
+        </ul>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Completed requirements document (Word or PDF) with all 9 domains answered</li>
+          <li>Screenshot showing your document is saved and named correctly</li>
+          <li>Naming format: <code>Assessment1_Requirements_[YourName].pdf</code></li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p>
+          <em>"I am a Cloud Engineer at ZICT. My client BME is an event ticketing company with 100,000 peak users. Help
+            me write a professional justification for using Amazon RDS Multi-AZ instead of a single-AZ setup for their
+            database domain."</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT 2 -->
+    <div class="assessment" id="a2">
+      <div class="assessment-header">
+        <span class="assessment-badge w1">Week 1 — Day 2</span>
+        <div>
+          <div class="assessment-title">Assessment 2 — AWS Technical Recommendations</div>
+          <div class="assessment-subtitle">Formal Service Selection &amp; Justification for BME</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📋 Client Scenario — Project Ticket</span>
+        <p>
+          <em>"ZICT-TICKET-002: Based on the requirements document, please produce a formal Technical Recommendations
+            report selecting one AWS service per domain with a clear business justification. This will be reviewed by
+            the BME CTO on Friday."</em>
+        </p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — Technical Recommendations Table</span>
+        <table>
+          <tbody><tr>
+            <th>Domain</th>
+            <th>Recommended AWS Service</th>
+            <th>Business Justification</th>
+          </tr>
+          <tr>
+            <td>Geography</td>
+            <td>us-east-1 + Multi-AZ (us-east-1a/1b)</td>
+            <td>Lowest latency for eastern US market; Multi-AZ ensures 99.99% uptime during AZ failures</td>
+          </tr>
+          <tr>
+            <td>Identity (IAM)</td>
+            <td>AWS IAM with custom roles + AWS SSO</td>
+            <td>Least privilege access enforced; MFA required; centralized access management</td>
+          </tr>
+          <tr>
+            <td>Compute</td>
+            <td>Amazon EC2 + Auto Scaling Group</td>
+            <td>Handles 100k+ peak users; automatically scales to match event demand; cost-efficient</td>
+          </tr>
+          <tr>
+            <td>Security</td>
+            <td>AWS WAF + Shield + ACM + KMS + GuardDuty</td>
+            <td>Full security stack: DDoS protection, encrypted traffic, encrypted data, threat detection</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>Amazon S3 + EBS gp3</td>
+            <td>S3 for scalable media/asset storage; EBS for EC2 block storage; both encrypted at rest</td>
+          </tr>
+          <tr>
+            <td>Networking</td>
+            <td>Custom VPC + ALB + Route 53 + CloudFront + NAT Gateway</td>
+            <td>Full network isolation; global CDN; intelligent DNS routing; secure private subnets</td>
+          </tr>
+          <tr>
+            <td>Database</td>
+            <td>Amazon RDS MySQL Multi-AZ</td>
+            <td>Managed DB with automatic failover; supports BME's relational ticketing data model</td>
+          </tr>
+          <tr>
+            <td>Monitoring</td>
+            <td>CloudWatch + CloudTrail + SNS</td>
+            <td>Real-time metrics, full API audit trail, automated alerting to team</td>
+          </tr>
+          <tr>
+            <td>Cost</td>
+            <td>AWS Budgets + Cost Explorer</td>
+            <td>Budget guardrails with alerts; visibility into spend by service and environment</td>
+          </tr>
+        </tbody></table>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Technical Recommendations document (table format) — all 9 domains</li>
+          <li>Submit as: <code>Assessment2_TechRecommendations_[YourName].pdf</code></li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p>
+          <em>"Review my technical recommendations for BME's AWS architecture. For the networking domain, I chose ALB
+            over NLB. Is this the right choice for an HTTP/HTTPS web application, and what is the one-line business
+            justification?"</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT 3 — WITH DEVELOPMENT DIAGRAM -->
+    <div class="assessment" id="a3">
+      <div class="assessment-header">
+        <span class="assessment-badge w1">Week 1 — Day 3</span>
+        <div>
+          <div class="assessment-title">Assessment 3 — Development Architecture Diagram</div>
+          <div class="assessment-subtitle">Lucidchart Architecture Diagram · Development Environment</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📧 Client Scenario — Email from BME Project Lead</span>
+        <p>
+          <em>"Hi Team, The CTO approved your recommendations — great work. Now we need a visual. Please create a
+            professional AWS architecture diagram showing the Development environment. Use standard AWS icons. Label
+            every component. We will use this in our board presentation next week."</em>
+        </p>
+      </div>
+
+      <div class="diagram-section">
+        <div class="diagram-label">📐 Reference Diagram — Development Environment</div>
+        <h4>Study this diagram before you begin building yours in Lucidchart</h4>
+        <div class="diagram-img-wrap">
+          <img src="https://www.genspark.ai/api/files/s/FipOxUSm" alt="Development Architecture Diagram — BME AWS Cloud" loading="lazy" data-height-listener-added="true">
+        </div>
+        <div class="diagram-caption">
+          Development Architecture · Client: Best Music Entertainment (BME) · Environment: Development · Cloud Engineer,
+          ZICT · 2026
+        </div>
+        <h4>What This Diagram Shows</h4>
+        <ul>
+          <li><strong>AWS Cloud boundary</strong> wrapping the entire infrastructure</li>
+          <li><strong>Custom VPC</strong> (10.0.0.0/16) with clear boundaries</li>
+          <li><strong>Two Availability Zones</strong> — us-east-1a and us-east-1b</li>
+          <li><strong>Public Subnets</strong> — ALB, Internet Gateway, NAT Gateway</li>
+          <li><strong>Private Subnets</strong> — EC2 web/app servers, RDS database</li>
+          <li>
+            <strong>Supporting Services</strong> — Route 53, CloudFront, IAM, S3, ACM, Shield, CloudWatch, CloudTrail,
+            AWS Budgets
+          </li>
+          <li><strong>Traffic Flow</strong> — User → Route 53 → CloudFront → ALB → EC2 → RDS</li>
+        </ul>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ How to Build This in Lucidchart — Step by Step</span>
+        <ol class="lucid-steps">
+          <li>Log in to <strong>lucidchart.com</strong> → New Document → select AWS Architecture shape library</li>
+          <li>Add a large rectangle: label it <strong>"AWS Cloud"</strong> with a light blue fill</li>
+          <li>Inside, add another rectangle: label it <strong>"VPC — 10.0.0.0/16"</strong></li>
+          <li>
+            Create two vertical columns inside the VPC: label <strong>"us-east-1a"</strong> and
+            <strong>"us-east-1b"</strong>
+          </li>
+          <li>
+            In each AZ, create three horizontal rows:
+            <strong>Public Subnet, Private App Subnet, Private DB Subnet</strong>
+          </li>
+          <li>Place <strong>Internet Gateway</strong> at the top of the VPC connecting to the public subnets</li>
+          <li>Place <strong>ALB</strong> icon spanning both AZs in the public layer</li>
+          <li>Place <strong>EC2</strong> icons in each Private App Subnet (one per AZ)</li>
+          <li>Add <strong>Auto Scaling Group</strong> bracket around the EC2 instances</li>
+          <li>Place <strong>NAT Gateway</strong> in each Public Subnet</li>
+          <li>Place <strong>RDS MySQL</strong> in each Private DB Subnet (Primary in 1a, Standby in 1b)</li>
+          <li>Above the VPC, place: <strong>Route 53</strong> → <strong>CloudFront</strong></li>
+          <li>
+            Add supporting service icons around the VPC:
+            <strong>IAM, ACM, Shield, S3, CloudWatch, CloudTrail, Budgets</strong>
+          </li>
+          <li>Draw arrows showing traffic flow: User → Route 53 → CloudFront → ALB → EC2 → RDS</li>
+          <li>
+            Add a <strong>title block</strong> (top right):<br>Title: Development Architecture Diagram<br>Client:
+            Best Music Entertainment (BME)<br>Environment: Development<br>Prepared by: [Your Name] | Cloud Engineer,
+            ZICT | 2026
+          </li>
+          <li>Export as PNG — name: <code>Assessment3_DevDiagram_[YourName].png</code></li>
+        </ol>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Exported PNG of your Development architecture diagram</li>
+          <li>Lucidchart share link (View only)</li>
+          <li>Title block visible: your name, ZICT, 2026, Development Environment, Client: BME</li>
+          <li>All major services labeled with CIDR ranges on subnets</li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p>
+          <em>"I am building a Lucidchart AWS architecture diagram for a Development environment. Can you explain what
+            traffic flow arrows I need, and what label I should put on each arrow between Route 53, CloudFront, the ALB,
+            EC2 instances, and the RDS database?"</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT 4 -->
+    <div class="assessment" id="a4">
+      <div class="assessment-header">
+        <span class="assessment-badge w1">Week 1 — Day 4</span>
+        <div>
+          <div class="assessment-title">Assessment 4 — Architecture Documentation</div>
+          <div class="assessment-subtitle">Written Technical Documentation for the Development Architecture</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📋 Client Scenario — Project Ticket</span>
+        <p>
+          <em>"ZICT-TICKET-004: The board loved the diagram. Now we need the supporting technical write-up. Please
+            document how each service in the Development diagram contributes to performance, scalability, and security.
+            This goes into our client-facing technical brief."</em>
+        </p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — Architecture Documentation Template</span>
+        <h4>Section 1: Executive Summary</h4>
+        <p>
+          The BME Development environment is hosted on AWS in the us-east-1 region using a multi-AZ architecture. It is
+          designed to validate application code in a cost-efficient environment that mirrors the production topology
+          while using smaller instance sizes. The environment uses a three-tier model (web, application, database) with
+          full network isolation via a custom VPC.
+        </p>
+
+        <h4>Section 2: Network Layer</h4>
+        <ul>
+          <li>
+            <strong>VPC (10.0.0.0/16):</strong> Provides complete network isolation for the BME development workload
+          </li>
+          <li>
+            <strong>Public Subnets:</strong> Host the ALB and NAT Gateways — no application logic exposed directly
+          </li>
+          <li><strong>Private Subnets:</strong> Host EC2 (app) and RDS (db) — inaccessible from internet</li>
+          <li><strong>Route Tables:</strong> Public routes to IGW; Private routes to NAT Gateway</li>
+        </ul>
+
+        <h4>Section 3: Compute &amp; Scaling</h4>
+        <ul>
+          <li><strong>EC2 (t3.medium):</strong> Runs the BME web application — cost-appropriate for development</li>
+          <li>
+            <strong>Auto Scaling Group:</strong> Maintains at least 1 instance; scales to 3 during peak test loads
+          </li>
+          <li><strong>ALB:</strong> Routes HTTP/HTTPS traffic to healthy EC2 instances; enables path-based routing</li>
+        </ul>
+
+        <h4>Section 4: Data Layer</h4>
+        <ul>
+          <li>
+            <strong>RDS MySQL:</strong> Managed relational database for BME ticketing data — dev uses single-AZ to
+            reduce cost
+          </li>
+          <li><strong>EBS gp3:</strong> High-performance block storage attached to EC2 instances</li>
+          <li><strong>S3:</strong> Stores static assets, media files, and Terraform state</li>
+        </ul>
+
+        <h4>Section 5: Security Layer</h4>
+        <ul>
+          <li><strong>IAM Roles:</strong> EC2 instance profile with least-privilege S3 and CloudWatch access</li>
+          <li>
+            <strong>Security Groups:</strong> ALB SG (80, 443 inbound); EC2 SG (80 from ALB only); RDS SG (3306 from EC2
+            only)
+          </li>
+          <li><strong>ACM:</strong> SSL certificate for HTTPS on ALB</li>
+          <li><strong>KMS:</strong> Server-side encryption on S3 and RDS</li>
+        </ul>
+
+        <h4>Section 6: Monitoring</h4>
+        <ul>
+          <li><strong>CloudWatch:</strong> EC2 CPU, memory, network alarms; RDS connection count and storage</li>
+          <li><strong>CloudTrail:</strong> All API calls logged to S3 bucket for audit trail</li>
+          <li><strong>SNS:</strong> Email alerts when CloudWatch alarms trigger</li>
+        </ul>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Written documentation covering all 6 sections above</li>
+          <li>Submit as: <code>Assessment4_ArchDocs_[YourName].pdf</code></li>
+          <li>Minimum 1 page, professional formatting</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============================== WEEK 2 ============================== -->
+    <div class="week-header week-2" id="week2">🔧 Week 2 — Infrastructure Build | Assessments 5–8</div>
+
+    <!-- ASSESSMENT 5 -->
+    <div class="assessment" id="a5">
+      <div class="assessment-header">
+        <span class="assessment-badge w2">Week 2 — Day 1</span>
+        <div>
+          <div class="assessment-title">Assessment 5 — Extended Architecture Documentation</div>
+          <div class="assessment-subtitle">Multi-Domain Technical Write-Up Linking Services to Business Outcomes</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📧 Client Scenario</span>
+        <p>
+          <em>"The CTO needs a deeper technical brief linking each AWS service choice to performance, scalability, and
+            security outcomes for BME. Update the architecture documentation with specific KPIs and service relationship
+            mapping."</em>
+        </p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — Service Relationship Mapping</span>
+        <table>
+          <tbody><tr>
+            <th>AWS Service</th>
+            <th>Performance Contribution</th>
+            <th>Scalability Contribution</th>
+            <th>Security Contribution</th>
+          </tr>
+          <tr>
+            <td>CloudFront</td>
+            <td>Reduces latency via edge caching</td>
+            <td>Absorbs traffic at global edge nodes</td>
+            <td>HTTPS termination + WAF integration</td>
+          </tr>
+          <tr>
+            <td>ALB</td>
+            <td>Distributes traffic across healthy EC2s</td>
+            <td>Supports Auto Scaling target tracking</td>
+            <td>Integrates with WAF and ACM</td>
+          </tr>
+          <tr>
+            <td>Auto Scaling</td>
+            <td>Ensures consistent response times</td>
+            <td>Dynamically adds/removes EC2 capacity</td>
+            <td>Isolates instances in private subnets</td>
+          </tr>
+          <tr>
+            <td>RDS Multi-AZ</td>
+            <td>Fast failover (60–120s) on AZ failure</td>
+            <td>Read Replica for reporting queries</td>
+            <td>Encrypted at rest with KMS; VPC-isolated</td>
+          </tr>
+          <tr>
+            <td>CloudWatch</td>
+            <td>Identifies bottlenecks before user impact</td>
+            <td>Triggers Auto Scaling policies</td>
+            <td>Detects anomalous API patterns</td>
+          </tr>
+        </tbody></table>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Updated architecture documentation with service relationship table</li>
+          <li>Submit as: <code>Assessment5_ExtendedDocs_[YourName].pdf</code></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT 6 -->
+    <div class="assessment" id="a6">
+      <div class="assessment-header">
+        <span class="assessment-badge w2">Week 2 — Day 2</span>
+        <div>
+          <div class="assessment-title">Assessment 6 — Documentation Finalisation</div>
+          <div class="assessment-subtitle">Final Client-Ready Technical Brief with Complete Architecture Package</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📋 Client Scenario — Slack Message from PM</span>
+        <p>
+          <em>"@ZICTTeam Please consolidate all architecture documents into one clean client-ready package. Include
+            diagram, service table, security notes, and your team's recommendation summary. Sending to BME board
+            Monday."</em>
+        </p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — Final Documentation Package</span>
+        <p>Compile your work from Assessments 1–5 into a single professional document with these sections:</p>
+        <ol>
+          <li><strong>Executive Summary</strong> — 1 paragraph describing BME's cloud architecture</li>
+          <li><strong>Architecture Diagram</strong> — embed your Lucidchart export</li>
+          <li><strong>Requirements Summary</strong> — condensed 9-domain table from Assessment 1</li>
+          <li><strong>Service Recommendations</strong> — table from Assessment 2</li>
+          <li><strong>Technical Documentation</strong> — network, compute, data, security, monitoring sections</li>
+          <li><strong>ZICT Team Sign-off</strong> — your name, date, program, ZICT</li>
+        </ol>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Complete consolidated document — PDF or Word</li>
+          <li>Architecture diagram embedded in document</li>
+          <li>Submit as: <code>Assessment6_FinalArchPackage_[YourName].pdf</code></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT 7 -->
+    <div class="assessment" id="a7">
+      <div class="assessment-header">
+        <span class="assessment-badge w2">Week 2 — Day 3</span>
+        <div>
+          <div class="assessment-title">Assessment 7 — VPC, Subnets, EC2 &amp; Apache Setup</div>
+          <div class="assessment-subtitle">Build BME's Development Network Infrastructure in AWS Console</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📧 Client Scenario</span>
+        <p>
+          <em>"Time to build. Start with the network layer for Development. Create the VPC, subnets, IGW, route tables,
+            and launch one EC2 instance running Apache to confirm the web server is reachable."</em>
+        </p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — Step by Step</span>
+
+        <h4>Step 1: Create VPC</h4>
+        <ol class="steps">
+          <li>Go to AWS Console → VPC → Your VPCs → Create VPC</li>
+          <li>Name tag: <code>BME-Dev-VPC</code></li>
+          <li>IPv4 CIDR: <code>10.0.0.0/16</code></li>
+          <li>Click Create VPC</li>
+        </ol>
+
+        <h4>Step 2: Create Subnets</h4>
+        <ol class="steps">
+          <li>VPC → Subnets → Create Subnet → select BME-Dev-VPC</li>
+          <li>
+            Public Subnet 1a: Name <code>BME-Dev-Public-1a</code>, AZ <code>us-east-1a</code>, CIDR
+            <code>10.0.1.0/24</code>
+          </li>
+          <li>
+            Public Subnet 1b: Name <code>BME-Dev-Public-1b</code>, AZ <code>us-east-1b</code>, CIDR
+            <code>10.0.2.0/24</code>
+          </li>
+          <li>
+            Private App 1a: Name <code>BME-Dev-Private-App-1a</code>, AZ <code>us-east-1a</code>, CIDR
+            <code>10.0.3.0/24</code>
+          </li>
+          <li>
+            Private App 1b: Name <code>BME-Dev-Private-App-1b</code>, AZ <code>us-east-1b</code>, CIDR
+            <code>10.0.4.0/24</code>
+          </li>
+          <li>
+            Private DB 1a: Name <code>BME-Dev-Private-DB-1a</code>, AZ <code>us-east-1a</code>, CIDR
+            <code>10.0.5.0/24</code>
+          </li>
+          <li>
+            Private DB 1b: Name <code>BME-Dev-Private-DB-1b</code>, AZ <code>us-east-1b</code>, CIDR
+            <code>10.0.6.0/24</code>
+          </li>
+        </ol>
+
+        <h4>Step 3: Internet Gateway</h4>
+        <ol class="steps">
+          <li>VPC → Internet Gateways → Create IGW → Name: <code>BME-Dev-IGW</code></li>
+          <li>Select IGW → Actions → Attach to VPC → select BME-Dev-VPC</li>
+        </ol>
+
+        <h4>Step 4: Route Tables</h4>
+        <ol class="steps">
+          <li>VPC → Route Tables → Create Route Table → Name: <code>BME-Dev-Public-RT</code> → VPC: BME-Dev-VPC</li>
+          <li>Edit Routes → Add Route: Destination <code>0.0.0.0/0</code>, Target: BME-Dev-IGW</li>
+          <li>Subnet Associations → Edit → associate both Public subnets</li>
+          <li>Create another RT: <code>BME-Dev-Private-RT</code> → associate both Private subnets</li>
+        </ol>
+
+        <h4>Step 5: Security Group for EC2</h4>
+        <ol class="steps">
+          <li>EC2 → Security Groups → Create → Name: <code>BME-Dev-EC2-SG</code>, VPC: BME-Dev-VPC</li>
+          <li>Inbound Rules: SSH (22) from My IP; HTTP (80) from Anywhere (0.0.0.0/0)</li>
+          <li>Outbound: All traffic — Anywhere</li>
+        </ol>
+
+        <h4>Step 6: Launch EC2 and Install Apache</h4>
+        <ol class="steps">
+          <li>EC2 → Launch Instance → Name: <code>BME-Dev-Web-01</code></li>
+          <li>AMI: Amazon Linux 2023 · Instance type: t2.micro</li>
+          <li>Key Pair: create or select existing</li>
+          <li>Network: BME-Dev-VPC · Subnet: BME-Dev-Public-1a · Enable Auto-assign Public IP</li>
+          <li>Security Group: BME-Dev-EC2-SG</li>
+          <li>User Data (paste this):</li>
+        </ol>
+        <pre>#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+cat &gt; /var/www/html/index.html &lt;&lt;EOF
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;BME Dev Environment&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Best Music Entertainment&lt;/h1&gt;
+  &lt;p&gt;Development Environment — Powered by ZICT Cloud Engineering&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+EOF</pre>
+        <ol class="steps" start="7">
+          <li>Launch Instance → wait 2-3 minutes for initialization</li>
+          <li>Copy Public IP → open in browser — you should see the BME Dev page</li>
+        </ol>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Screenshot of VPC created with name BME-Dev-VPC and CIDR 10.0.0.0/16</li>
+          <li>Screenshot of 6 subnets created with correct CIDRs</li>
+          <li>Screenshot of Internet Gateway attached to VPC</li>
+          <li>Screenshot of route table showing 0.0.0.0/0 → IGW</li>
+          <li>Screenshot of EC2 running (green check) in public subnet</li>
+          <li>Screenshot of browser showing Apache/BME page with EC2 public IP in URL bar</li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p>
+          <em>"My EC2 instance is running in a public subnet but I cannot access the Apache page in my browser. What are
+            the 5 most common reasons an EC2 instance in a public subnet with Apache installed is not reachable via
+            HTTP, and how do I check each one?"</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- ASSESSMENT 8 -->
+    <div class="assessment" id="a8">
+      <div class="assessment-header">
+        <span class="assessment-badge w2">Week 2 — Day 4</span>
+        <div>
+          <div class="assessment-title">Assessment 8 — ALB, Auto Scaling &amp; HTTPS Setup</div>
+          <div class="assessment-subtitle">High-Availability Web Layer with Load Balancing and SSL</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📧 Client Scenario</span>
+        <p>
+          <em>"BME's platform needs to handle event spikes. Configure an Application Load Balancer across both AZs, set
+            up Auto Scaling so we scale automatically, and apply an HTTPS certificate. Security team requires no plain
+            HTTP in production."</em>
+        </p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — ALB, ASG &amp; HTTPS</span>
+
+        <h4>Step 1: Create Launch Template</h4>
+        <pre>EC2 → Launch Templates → Create Launch Template
+Name: BME-Dev-LT
+AMI: Amazon Linux 2023
+Instance Type: t2.micro
+Security Group: BME-Dev-EC2-SG
+User Data: (same Apache install script as Assessment 7)</pre>
+
+        <h4>Step 2: Create Auto Scaling Group</h4>
+        <ol class="steps">
+          <li>EC2 → Auto Scaling Groups → Create ASG</li>
+          <li>Name: <code>BME-Dev-ASG</code> · Launch Template: BME-Dev-LT</li>
+          <li>VPC: BME-Dev-VPC · Subnets: Private-App-1a, Private-App-1b</li>
+          <li>Group size: Min 1, Desired 2, Max 4</li>
+          <li>Scaling policy: Target tracking · CPU utilization 50%</li>
+        </ol>
+
+        <h4>Step 3: Create Application Load Balancer</h4>
+        <ol class="steps">
+          <li>EC2 → Load Balancers → Create ALB</li>
+          <li>Name: <code>BME-Dev-ALB</code> · Scheme: Internet-facing · IP type: IPv4</li>
+          <li>VPC: BME-Dev-VPC · Subnets: Public-1a, Public-1b</li>
+          <li>Security Group: create <code>BME-Dev-ALB-SG</code> (inbound HTTP 80, HTTPS 443 from 0.0.0.0/0)</li>
+          <li>Listeners: HTTP :80</li>
+          <li>Target Group: create <code>BME-Dev-TG</code> (HTTP, port 80) → Register your EC2 instances</li>
+        </ol>
+
+        <h4>Step 4: Generate Self-Signed SSL Certificate &amp; Import to ACM</h4>
+        <pre># Run in terminal (Git Bash, Mac Terminal, or AWS CloudShell)
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout bme-dev.key \
+  -out bme-dev.crt \
+  -subj "/C=US/ST=NY/L=NewYork/O=ZICT/OU=CloudEngineering/CN=bme-dev.example.com"</pre>
+        <ol class="steps">
+          <li>AWS Console → Certificate Manager → Import Certificate</li>
+          <li>Certificate body: paste contents of <code>bme-dev.crt</code></li>
+          <li>Private key: paste contents of <code>bme-dev.key</code></li>
+          <li>Click Import</li>
+        </ol>
+
+        <h4>Step 5: Add HTTPS Listener to ALB</h4>
+        <ol class="steps">
+          <li>Load Balancers → BME-Dev-ALB → Listeners → Add Listener</li>
+          <li>Protocol: HTTPS · Port: 443</li>
+          <li>Default Action: Forward to BME-Dev-TG</li>
+          <li>SSL Certificate: select the BME-Dev certificate from ACM</li>
+          <li>Edit HTTP :80 listener → Redirect to HTTPS :443</li>
+        </ol>
+
+        <h4>Step 6: Test</h4>
+        <p>
+          Open the ALB DNS name in your browser. You should see the BME page served over HTTPS. (Browser will show
+          security warning for self-signed cert — click proceed.)
+        </p>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Screenshot of ALB in Active state with DNS name visible</li>
+          <li>Screenshot of Auto Scaling Group with min/desired/max settings</li>
+          <li>Screenshot of Target Group showing healthy instances</li>
+          <li>Screenshot of ACM certificate imported successfully</li>
+          <li>Screenshot of browser with HTTPS ALB URL showing BME page (HTTPS padlock or warning)</li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p>
+          <em>"My ALB shows healthy targets but when I access the HTTPS URL I get a connection timeout. I have a security
+            group on the ALB allowing 443 inbound. What other things should I check?"</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- ============================== WEEK 3 ============================== -->
+    <div class="week-header week-3" id="week3">☁️ Week 3 — Services, UAT &amp; Terraform | Assessments 9–12</div>
+
+    <!-- ASSESSMENT 9 -->
+    <div class="assessment" id="a9">
+      <div class="assessment-header">
+        <span class="assessment-badge w3">Week 3 — Day 1</span>
+        <div>
+          <div class="assessment-title">Assessment 9 — S3, RDS, IAM, CloudTrail, SNS &amp; CloudFront</div>
+          <div class="assessment-subtitle">Configure Core BME Platform Services in AWS Console</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📧 Client Scenario</span>
+        <p>
+          <em>"BME needs all core platform services running before UAT testing begins. Set up the S3 bucket for assets,
+            the RDS database for ticketing data, an IAM role for EC2, CloudTrail for audit logging, SNS for alerts, and
+            CloudFront for content delivery."</em>
+        </p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution</span>
+
+        <h4>1. S3 Bucket Setup</h4>
+        <ol class="steps">
+          <li>S3 → Create Bucket → Name: <code>bme-dev-assets-[your-initials]</code> · Region: us-east-1</li>
+          <li>Block all public access: ON</li>
+          <li>Enable Versioning: ON</li>
+          <li>Enable Server-side encryption: SSE-S3</li>
+          <li>Create folder structure: <code>media/</code>, <code>uploads/</code>, <code>terraform-state/</code></li>
+          <li>Upload a test file → verify it appears in bucket</li>
+        </ol>
+
+        <h4>2. RDS MySQL Setup</h4>
+        <ol class="steps">
+          <li>RDS → Create Database → Standard Create → MySQL 8.0</li>
+          <li>Template: Free Tier · DB identifier: <code>bme-dev-db</code></li>
+          <li>Master username: <code>admin</code> · Password: store in AWS Secrets Manager</li>
+          <li>DB instance class: db.t3.micro</li>
+          <li>Storage: 20 GB gp2 · No storage autoscaling (dev)</li>
+          <li>VPC: BME-Dev-VPC · Subnet Group: create new with Private DB subnets</li>
+          <li>Security Group: create <code>BME-Dev-RDS-SG</code> (inbound MySQL 3306 from EC2 SG only)</li>
+          <li>Click Create database → wait 5-10 minutes</li>
+        </ol>
+
+        <h4>3. IAM Role for EC2</h4>
+        <ol class="steps">
+          <li>IAM → Roles → Create Role → AWS Service → EC2</li>
+          <li>Attach policies: AmazonS3ReadOnlyAccess, CloudWatchAgentServerPolicy</li>
+          <li>Role name: <code>BME-Dev-EC2-Role</code></li>
+          <li>Attach to your EC2 instance: EC2 → Actions → Security → Modify IAM Role</li>
+        </ol>
+
+        <h4>4. CloudTrail Setup</h4>
+        <ol class="steps">
+          <li>CloudTrail → Create Trail → Name: <code>BME-Dev-Trail</code></li>
+          <li>Apply to all regions: Yes</li>
+          <li>S3 Bucket: create new bucket <code>bme-dev-cloudtrail-[initials]</code></li>
+          <li>Log file validation: Enabled</li>
+          <li>Create trail</li>
+        </ol>
+
+        <h4>5. SNS Alert Topic</h4>
+        <ol class="steps">
+          <li>SNS → Topics → Create Topic → Standard → Name: <code>BME-Dev-Alerts</code></li>
+          <li>Create Subscription → Protocol: Email → Endpoint: your email address</li>
+          <li>Confirm subscription via email link</li>
+          <li>CloudWatch → Alarms → Create Alarm → select EC2 CPUUtilization metric → set threshold 80%</li>
+          <li>Set notification: BME-Dev-Alerts SNS topic</li>
+        </ol>
+
+        <h4>6. CloudFront Distribution</h4>
+        <ol class="steps">
+          <li>CloudFront → Create Distribution</li>
+          <li>Origin domain: select your S3 bucket (bme-dev-assets)</li>
+          <li>Viewer Protocol Policy: Redirect HTTP to HTTPS</li>
+          <li>Price class: Use North America and Europe</li>
+          <li>Create distribution → wait 5-10 minutes to deploy</li>
+          <li>Test by accessing the CloudFront URL for a file you uploaded to S3</li>
+        </ol>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>S3 bucket screenshot — versioning enabled, encryption enabled</li>
+          <li>RDS instance screenshot — Available status, endpoint visible</li>
+          <li>IAM Role screenshot — policies attached, EC2 associated</li>
+          <li>CloudTrail screenshot — trail active, delivering to S3</li>
+          <li>SNS subscription — confirmed status</li>
+          <li>CloudFront distribution — Deployed status, domain name visible</li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p><em>"I created an RDS security group but my EC2 cannot connect to RDS on port 3306. What are the steps to check and fix connectivity between an EC2 instance and RDS MySQL in the same VPC?"</em></p>
+      </div>
+    </div>
+
+    <!-- ===== ASSESSMENT 10 — UAT DIAGRAM ===== -->
+    <div class="assessment" id="a10">
+      <div class="assessment-header">
+        <span class="assessment-badge w3">Week 3 — Day 2</span>
+        <div>
+          <div class="assessment-title">Assessment 10 — UAT Recommendations &amp; Terraform Intro</div>
+          <div class="assessment-subtitle">UAT Architecture Diagram + First Terraform EC2 Deployment</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📧 Client Scenario — Email from BME Technology Director</span>
+        <p><em>"We are moving into UAT phase. The UAT environment needs to be more production-like — add three-tier separation, enhanced security services, and start using Terraform for infrastructure deployment. Please provide the UAT architecture diagram and deploy a simple EC2 via Terraform to prove the tooling works."</em></p>
+      </div>
+
+      <div class="diagram-section">
+        <div class="diagram-label">📐 Reference Diagram — UAT/Staging Environment</div>
+        <h4>Study what changes from Development to UAT</h4>
+        <div class="diagram-img-wrap">
+          <img src="https://www.genspark.ai/api/files/s/NsLbWka6" alt="UAT Architecture Diagram — BME AWS Cloud" loading="lazy" data-height-listener-added="true">
+        </div>
+        <div class="diagram-caption">UAT/Staging Architecture · Client: Best Music Entertainment (BME) · Environment: UAT/Staging · Cloud Engineer, ZICT · 2026</div>
+        <h4>What's New in UAT Compared to Development</h4>
+        <ul>
+          <li><strong>Three-tier separation</strong> — explicit Web Tier, Application Tier, Database Tier</li>
+          <li><strong>Amazon Cognito</strong> — user authentication for UAT testing</li>
+          <li><strong>Amazon EFS</strong> — shared file system for application tier</li>
+          <li><strong>AWS Lambda</strong> — serverless functions for event processing</li>
+          <li><strong>AWS Secrets Manager</strong> — replaces hard-coded credentials</li>
+          <li><strong>Amazon GuardDuty</strong> — threat detection enabled</li>
+          <li><strong>Enhanced security group labeling</strong> and subnet naming</li>
+        </ul>
+        <h4>Lucidchart Build Notes for UAT Diagram</h4>
+        <ol class="lucid-steps">
+          <li>Start from your Dev diagram — duplicate it in Lucidchart</li>
+          <li>Change title block: "UAT/Staging Architecture Diagram" | Environment: UAT/Staging</li>
+          <li>Change VPC CIDR to <code>10.1.0.0/16</code></li>
+          <li>Add explicit tier labels: <strong>Web Tier</strong> (top), <strong>Application Tier</strong> (middle), <strong>Database Tier</strong> (bottom)</li>
+          <li>Add Lambda icon in Application Tier beside EC2 app servers</li>
+          <li>Add EFS icon connecting to Application Tier</li>
+          <li>Add Secrets Manager, GuardDuty, Cognito as supporting service icons</li>
+          <li>Use amber/orange color accents to distinguish from Dev (blue)</li>
+          <li>Export as: <code>Assessment10_UATDiagram_[YourName].png</code></li>
+        </ol>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — Terraform EC2 Deployment</span>
+        <p>Reference: <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">github.com/zicttraining/DevOps-cloud-training-</a></p>
+
+        <h4>Folder Structure</h4>
+        <pre>bme-terraform/
+└── dev/
+    ├── main.tf
+    ├── variables.tf
+    └── outputs.tf</pre>
+
+        <h4>main.tf</h4>
+        <pre>terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~&gt; 5.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "bme_dev_web" {
+  ami           = "ami-0c02fb55956c7d316"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name        = "BME-Dev-Terraform-Web"
+    Environment = "Development"
+    Client      = "BME"
+    ManagedBy   = "Terraform"
+  }
+}
+
+output "instance_public_ip" {
+  value = aws_instance.bme_dev_web.public_ip
+}</pre>
+
+        <h4>Deploy Steps</h4>
+        <ol class="steps">
+          <li>Configure AWS CLI: <code>aws configure</code> — enter your Access Key, Secret Key, region us-east-1</li>
+          <li><code>terraform init</code></li>
+          <li><code>terraform plan</code> — review the plan output</li>
+          <li><code>terraform apply</code> — type <code>yes</code> to confirm</li>
+          <li>Verify in AWS Console: EC2 → check for BME-Dev-Terraform-Web instance</li>
+          <li>Clean up after verification: <code>terraform destroy</code></li>
+        </ol>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>UAT Lucidchart diagram exported PNG</li>
+          <li>Terminal screenshot of <code>terraform apply</code> success output</li>
+          <li>AWS Console screenshot showing Terraform-created EC2 instance</li>
+          <li>Submit as: <code>Assessment10_UAT_[YourName]</code></li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p><em>"I ran terraform apply and got the error 'Error: No valid credential sources found'. I configured aws configure but Terraform still cannot authenticate. What are the steps to fix Terraform AWS authentication on Windows and Mac?"</em></p>
+      </div>
+    </div>
+
+    <!-- ===== ASSESSMENT 11 ===== -->
+    <div class="assessment" id="a11">
+      <div class="assessment-header">
+        <span class="assessment-badge w3">Week 3 — Day 3</span>
+        <div>
+          <div class="assessment-title">Assessment 11 — AWS Organizations &amp; Multi-Environment Terraform</div>
+          <div class="assessment-subtitle">Three-Environment Folder Structure with Remote State Backend</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📋 Client Scenario — Project Ticket</span>
+        <p><em>"ZICT-TICKET-011: BME requires strict environment separation. Set up an AWS Organizations structure for Dev/UAT/Prod accounts. Then create a Terraform folder structure that manages all three environments with a remote S3 backend for state management."</em></p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution</span>
+
+        <h4>AWS Organizations Setup</h4>
+        <ol class="steps">
+          <li>AWS Console → AWS Organizations → Create Organization</li>
+          <li>Create Organizational Units: <strong>Development</strong>, <strong>UAT</strong>, <strong>Production</strong></li>
+          <li>If using a single account: create separate IAM users/roles per environment with naming convention</li>
+        </ol>
+
+        <h4>Terraform Multi-Environment Folder Structure</h4>
+        <pre>bme-terraform/
+├── modules/
+│   ├── vpc/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   ├── ec2/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   └── rds/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+├── environments/
+│   ├── dev/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── backend.tf
+│   ├── uat/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── backend.tf
+│   └── prod/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── backend.tf</pre>
+
+        <h4>backend.tf (Dev Environment)</h4>
+        <pre>terraform {
+  backend "s3" {
+    bucket = "bme-dev-assets-[your-initials]"
+    key    = "dev/terraform.tfstate"
+    region = "us-east-1"
+  }
+}</pre>
+
+        <h4>Deploy Dev Environment</h4>
+        <pre>cd environments/dev
+terraform init
+terraform plan
+terraform apply</pre>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Screenshot of folder structure in VS Code</li>
+          <li>Screenshot of S3 backend terraform.tfstate file in S3 bucket</li>
+          <li>Screenshot of <code>terraform apply</code> completion for dev environment</li>
+          <li>AWS Console EC2 screenshot showing environment-tagged instance</li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p><em>"Explain the benefit of using a Terraform S3 backend for state management compared to local state. What happens if two engineers run terraform apply at the same time without a state backend?"</em></p>
+      </div>
+    </div>
+
+    <!-- ===== ASSESSMENT 12 — PRODUCTION DIAGRAM ===== -->
+    <div class="assessment" id="a12">
+      <div class="assessment-header">
+        <span class="assessment-badge w3">Week 3 — Day 4</span>
+        <div>
+          <div class="assessment-title">Assessment 12 — Production Terraform Deployment</div>
+          <div class="assessment-subtitle">Three-Tier Production Infrastructure for BME</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📧 Client Scenario — BME CTO Direct Message</span>
+        <p><em>"We're ready to build production. Deploy the full three-tier production environment using Terraform. Priority: availability, security, cost efficiency, and disaster recovery. No shortcuts — this goes live."</em></p>
+      </div>
+
+      <div class="diagram-section">
+        <div class="diagram-label">📐 Reference Diagram — Production Environment</div>
+        <h4>This is your target architecture for the Production Terraform deployment</h4>
+        <div class="diagram-img-wrap">
+          <img src="https://www.genspark.ai/api/files/s/x8ij1euU" alt="Production Architecture Diagram — BME AWS Cloud" loading="lazy" data-height-listener-added="true">
+        </div>
+        <div class="diagram-caption">Production Architecture · Client: Best Music Entertainment (BME) · Environment: Production · Cloud Engineer, ZICT · 2026</div>
+        <h4>What's Different in Production</h4>
+        <ul>
+          <li><strong>RDS Multi-AZ</strong> — automatic failover, no single point of failure</li>
+          <li><strong>Enhanced GuardDuty + Secrets Manager</strong> — full threat detection and secret rotation</li>
+          <li><strong>Lambda</strong> — serverless processing for ticket events and notifications</li>
+          <li><strong>All traffic HTTPS only</strong> — no HTTP in production</li>
+          <li><strong>Production-grade instance sizes</strong> — c5.large for web, r5.large for DB</li>
+          <li><strong>No Cognito in production</strong> — replaced by production-grade auth solution</li>
+        </ul>
+        <h4>Lucidchart Notes for Production Diagram</h4>
+        <ol class="lucid-steps">
+          <li>Duplicate UAT diagram in Lucidchart</li>
+          <li>Change title: "Production Architecture Diagram" | Environment: Production</li>
+          <li>Change VPC CIDR to <code>10.2.0.0/16</code></li>
+          <li>Mark RDS as <strong>Multi-AZ</strong> — show Primary in AZ-1a, Standby in AZ-1b</li>
+          <li>Remove Cognito — production uses external auth</li>
+          <li>Add red color accents / Production labels</li>
+          <li>Export as: <code>Assessment12_ProdDiagram_[YourName].png</code></li>
+        </ol>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — Production main.tf</span>
+        <pre>terraform {
+  required_providers {
+    aws = { source = "hashicorp/aws", version = "~&gt; 5.0" }
+  }
+  backend "s3" {
+    bucket = "bme-prod-state-[your-initials]"
+    key    = "prod/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_vpc" "prod" {
+  cidr_block           = "10.2.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+  tags = { Name = "BME-Prod-VPC", Environment = "Production", Client = "BME" }
+}
+
+resource "aws_subnet" "public_1a" {
+  vpc_id            = aws_vpc.prod.id
+  cidr_block        = "10.2.1.0/24"
+  availability_zone = "us-east-1a"
+  map_public_ip_on_launch = true
+  tags = { Name = "BME-Prod-Public-1a" }
+}
+resource "aws_subnet" "public_1b" {
+  vpc_id            = aws_vpc.prod.id
+  cidr_block        = "10.2.2.0/24"
+  availability_zone = "us-east-1b"
+  map_public_ip_on_launch = true
+  tags = { Name = "BME-Prod-Public-1b" }
+}
+resource "aws_subnet" "private_app_1a" {
+  vpc_id            = aws_vpc.prod.id
+  cidr_block        = "10.2.3.0/24"
+  availability_zone = "us-east-1a"
+  tags = { Name = "BME-Prod-Private-App-1a" }
+}
+resource "aws_subnet" "private_app_1b" {
+  vpc_id            = aws_vpc.prod.id
+  cidr_block        = "10.2.4.0/24"
+  availability_zone = "us-east-1b"
+  tags = { Name = "BME-Prod-Private-App-1b" }
+}
+resource "aws_subnet" "private_db_1a" {
+  vpc_id            = aws_vpc.prod.id
+  cidr_block        = "10.2.5.0/24"
+  availability_zone = "us-east-1a"
+  tags = { Name = "BME-Prod-Private-DB-1a" }
+}
+resource "aws_subnet" "private_db_1b" {
+  vpc_id            = aws_vpc.prod.id
+  cidr_block        = "10.2.6.0/24"
+  availability_zone = "us-east-1b"
+  tags = { Name = "BME-Prod-Private-DB-1b" }
+}
+
+resource "aws_internet_gateway" "prod" {
+  vpc_id = aws_vpc.prod.id
+  tags   = { Name = "BME-Prod-IGW" }
+}
+resource "aws_route_table" "public" {
+  vpc_id = aws_vpc.prod.id
+  route { cidr_block = "0.0.0.0/0", gateway_id = aws_internet_gateway.prod.id }
+  tags = { Name = "BME-Prod-Public-RT" }
+}
+resource "aws_route_table_association" "pub_1a" {
+  subnet_id      = aws_subnet.public_1a.id
+  route_table_id = aws_route_table.public.id
+}
+resource "aws_route_table_association" "pub_1b" {
+  subnet_id      = aws_subnet.public_1b.id
+  route_table_id = aws_route_table.public.id
+}
+
+resource "aws_security_group" "alb_sg" {
+  name   = "BME-Prod-ALB-SG"
+  vpc_id = aws_vpc.prod.id
+  ingress { from_port = 443, to_port = 443, protocol = "tcp", cidr_blocks = ["0.0.0.0/0"] }
+  egress  { from_port = 0,   to_port = 0,   protocol = "-1",  cidr_blocks = ["0.0.0.0/0"] }
+  tags = { Name = "BME-Prod-ALB-SG" }
+}
+resource "aws_security_group" "ec2_sg" {
+  name   = "BME-Prod-EC2-SG"
+  vpc_id = aws_vpc.prod.id
+  ingress { from_port = 80, to_port = 80, protocol = "tcp", security_groups = [aws_security_group.alb_sg.id] }
+  egress  { from_port = 0,  to_port = 0,  protocol = "-1",  cidr_blocks = ["0.0.0.0/0"] }
+  tags = { Name = "BME-Prod-EC2-SG" }
+}
+
+resource "aws_launch_template" "prod" {
+  name_prefix   = "BME-Prod-LT-"
+  image_id      = "ami-0c02fb55956c7d316"
+  instance_type = "t3.large"
+  tag_specifications {
+    resource_type = "instance"
+    tags = { Name = "BME-Prod-Web", Environment = "Production" }
+  }
+}
+
+resource "aws_autoscaling_group" "prod" {
+  name                = "BME-Prod-ASG"
+  desired_capacity    = 2
+  min_size            = 2
+  max_size            = 6
+  vpc_zone_identifier = [aws_subnet.private_app_1a.id, aws_subnet.private_app_1b.id]
+  launch_template {
+    id      = aws_launch_template.prod.id
+    version = "$Latest"
+  }
+  tag { key = "Environment", value = "Production", propagate_at_launch = true }
+}
+
+resource "aws_db_subnet_group" "prod" {
+  name       = "bme-prod-db-subnet-group"
+  subnet_ids = [aws_subnet.private_db_1a.id, aws_subnet.private_db_1b.id]
+  tags = { Name = "BME-Prod-DB-Subnet-Group" }
+}
+resource "aws_db_instance" "prod" {
+  identifier        = "bme-prod-db"
+  engine            = "mysql"
+  engine_version    = "8.0"
+  instance_class    = "db.t3.medium"
+  allocated_storage = 50
+  storage_encrypted = true
+  multi_az          = true
+  username          = "admin"
+  password          = "Change_Me_Now_123!"
+  db_subnet_group_name   = aws_db_subnet_group.prod.name
+  skip_final_snapshot    = true
+  tags = { Name = "BME-Prod-RDS", Environment = "Production" }
+}</pre>
+
+        <h4>Deploy</h4>
+        <pre>cd environments/prod
+terraform init
+terraform plan -out=prod.tfplan
+terraform apply prod.tfplan</pre>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Production Lucidchart diagram exported PNG</li>
+          <li>Terminal screenshot: <code>terraform apply</code> complete</li>
+          <li>AWS Console: VPC, subnets, ASG, RDS all running with Prod tags</li>
+          <li>S3 screenshot: prod/terraform.tfstate file in state bucket</li>
+          <li>Run <code>terraform destroy</code> after evidence captured (cost management)</li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p><em>"My Terraform apply for production failed with: 'Error creating DB Instance: DBSubnetGroupDoesNotCoverEnoughAZs'. I have two DB subnets in different AZs. What is the most likely cause and how do I fix it?"</em></p>
+      </div>
+    </div>
+
+    <!-- ===== WEEK 4 HEADER ===== -->
+    <div class="week-header week-4" id="week4">⚙️ Week 4 — GitHub Actions CI/CD Pipelines | Assessments 13–16</div>
+
+    <!-- ===== ASSESSMENT 13 ===== -->
+    <div class="assessment" id="a13">
+      <div class="assessment-header">
+        <span class="assessment-badge w4">Week 4 — Day 1</span>
+        <div>
+          <div class="assessment-title">Assessment 13 — GitHub Actions CI/CD Pipeline Setup</div>
+          <div class="assessment-subtitle">Automated Terraform Deployment for Dev, UAT &amp; Production</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📧 Client Scenario</span>
+        <p><em>"BME requires that all infrastructure changes go through an automated pipeline — no more manual Terraform applies. Set up GitHub Actions to run terraform plan on every PR and terraform apply on merge to main. Use the ZICT training repo as your starting point."</em></p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution</span>
+
+        <h4>Step 1: Clone the ZICT Training Repo</h4>
+        <pre>git clone https://github.com/zicttraining/DevOps-cloud-training-
+cd DevOps-cloud-training-</pre>
+
+        <h4>Step 2: Set GitHub Secrets</h4>
+        <p>GitHub → Your Repo → Settings → Secrets and Variables → Actions → New repository secret</p>
+        <ul>
+          <li><code>AWS_ACCESS_KEY_ID</code> — your AWS access key</li>
+          <li><code>AWS_SECRET_ACCESS_KEY</code> — your AWS secret key</li>
+          <li><code>AWS_REGION</code> — us-east-1</li>
+        </ul>
+
+        <h4>Step 3: Create GitHub Actions Workflow File</h4>
+        <p>Create: <code>.github/workflows/terraform-deploy.yml</code></p>
+        <pre>name: BME Terraform CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  AWS_REGION: us-east-1
+  TF_VERSION: 1.7.0
+
+jobs:
+  terraform-plan:
+    name: Terraform Plan
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: environments/dev
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+      - name: Terraform Init
+        run: terraform init
+      - name: Terraform Validate
+        run: terraform validate
+      - name: Terraform Plan
+        run: terraform plan -no-color
+
+  terraform-apply:
+    name: Terraform Apply
+    runs-on: ubuntu-latest
+    needs: terraform-plan
+    if: github.ref == 'refs/heads/main' &amp;&amp; github.event_name == 'push'
+    defaults:
+      run:
+        working-directory: environments/dev
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: ${{ env.TF_VERSION }}
+      - name: Terraform Init
+        run: terraform init
+      - name: Terraform Apply
+        run: terraform apply -auto-approve</pre>
+
+        <h4>Step 4: Push and Trigger Pipeline</h4>
+        <pre>git add .github/workflows/terraform-deploy.yml
+git commit -m "feat: add BME Terraform CI/CD pipeline"
+git push origin main</pre>
+
+        <h4>Step 5: Monitor Pipeline</h4>
+        <p>GitHub → Actions tab → watch the workflow run. Check for green checks on each step.</p>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Screenshot of GitHub Secrets configured (names visible, not values)</li>
+          <li>Screenshot of GitHub Actions workflow YAML in repo</li>
+          <li>Screenshot of GitHub Actions run — all steps green</li>
+          <li>Screenshot of EC2 in AWS Console deployed by pipeline</li>
+          <li>Link to your GitHub Actions workflow run</li>
+        </ul>
+      </div>
+
+      <div class="ai-box">
+        <span class="box-label">🤖 Claude AI Support Prompt</span>
+        <p><em>"My GitHub Actions terraform plan step failed with 'Error: No valid credential sources found for AWS Provider'. I added AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as GitHub secrets. What is the most common mistake in the workflow YAML that causes this error?"</em></p>
+      </div>
+    </div>
+
+    <!-- ===== ASSESSMENT 14 ===== -->
+    <div class="assessment" id="a14">
+      <div class="assessment-header">
+        <span class="assessment-badge w4">Week 4 — Day 2</span>
+        <div>
+          <div class="assessment-title">Assessment 14 — CI/CD Pipeline Write-Up &amp; Documentation</div>
+          <div class="assessment-subtitle">Professional Documentation of the CI/CD Architecture for BME</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📋 Client Scenario — Handover Document Request</span>
+        <p><em>"BME's DevOps team needs a written handover document explaining the CI/CD pipeline. They need to understand how it works, how to add new environments, and how to troubleshoot pipeline failures."</em></p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Guided Solution — CI/CD Documentation</span>
+
+        <h4>Section 1: Pipeline Overview</h4>
+        <p>The BME CI/CD pipeline uses GitHub Actions to automate Terraform-based infrastructure deployments across Dev, UAT, and Production environments. All infrastructure changes are version-controlled in the ZICT GitHub repository at <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">github.com/zicttraining/DevOps-cloud-training-</a>.</p>
+
+        <h4>Section 2: How the Pipeline Works</h4>
+        <ol>
+          <li><strong>Developer creates feature branch</strong> → makes Terraform changes</li>
+          <li><strong>Opens Pull Request to main</strong> → triggers Terraform Plan (no changes applied)</li>
+          <li><strong>Reviewer approves PR</strong> → merge to main</li>
+          <li><strong>Merge triggers Terraform Apply</strong> → infrastructure deployed to Dev</li>
+          <li><strong>Promotion to UAT/Prod</strong> — via branch protection rules and manual approval gates</li>
+        </ol>
+
+        <h4>Section 3: Common Pipeline Errors &amp; Fixes</h4>
+        <table>
+          <tbody><tr><th>Error</th><th>Cause</th><th>Fix</th></tr>
+          <tr><td>No valid credential sources</td><td>Secrets not configured or wrong name</td><td>Verify GitHub Secrets names match YAML exactly</td></tr>
+          <tr><td>Backend initialization error</td><td>S3 bucket doesn't exist</td><td>Create the S3 bucket first; check bucket name in backend.tf</td></tr>
+          <tr><td>Terraform plan shows unexpected changes</td><td>State file out of sync</td><td>Run <code>terraform refresh</code> locally first</td></tr>
+          <tr><td>Resource already exists</td><td>Manual changes not tracked by Terraform</td><td>Import resource: <code>terraform import</code></td></tr>
+        </tbody></table>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>CI/CD documentation — all sections completed</li>
+          <li>GitHub Actions workflow YAML screenshot</li>
+          <li>Submit as: <code>Assessment14_CICD_WriteUp_[YourName].pdf</code></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== ASSESSMENTS 15-16 ===== -->
+    <div class="assessment" id="a15-16">
+      <div class="assessment-header">
+        <span class="assessment-badge w4">Week 4 — Days 3 &amp; 4</span>
+        <div>
+          <div class="assessment-title">Assessments 15 &amp; 16 — Review, Troubleshooting &amp; Capstone Planning</div>
+          <div class="assessment-subtitle">Consolidate Weeks 1–4 · Begin Capstone Design</div>
+        </div>
+      </div>
+
+      <div class="scenario-box">
+        <span class="box-label">📋 Client Scenario</span>
+        <p><em>"ZICT-TICKET-015/016: Before the capstone begins, BME wants a review of all work completed, confirmation that all environments are documented and deployable, and a brief capstone project plan."</em></p>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">✅ Activities for Days 3 &amp; 4</span>
+        <ul>
+          <li>Review and fix any outstanding issues from Assessments 1–14</li>
+          <li>Ensure all diagrams are exported and submitted</li>
+          <li>Ensure GitHub repo is pushed with all Terraform code</li>
+          <li>Choose your capstone project track: <strong>ECS (containerized)</strong> or <strong>EKS (Kubernetes)</strong></li>
+          <li>Write a 1-page capstone project plan: client objective, chosen services, architecture, timeline for Weeks 5–6</li>
+          <li>Push all code to: <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">github.com/zicttraining/DevOps-cloud-training-</a></li>
+        </ul>
+      </div>
+
+      <div class="evidence-box">
+        <span class="box-label">📸 Evidence Required</span>
+        <ul class="checklist">
+          <li>Capstone project plan — 1 page (PDF)</li>
+          <li>GitHub repo link with all Terraform code pushed</li>
+          <li>Confirmation all Assessments 1–14 evidence submitted</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ===== WEEK 5 HEADER ===== -->
+    <div class="week-header week-5" id="week5">🚀 Week 5 — Capstone Projects 1–3 | Assessments 17–20</div>
+
+    <div class="section" style="background:#fff0f0; border-top: 4px solid var(--week5); margin-bottom:20px; padding:20px 30px; border-radius:8px;">
+      <h3 style="color:var(--week5)">📌 Week 5 Instructions</h3>
+      <p>In Weeks 5 and 6, you work as a full ZICT Cloud Engineer delivering real client projects for BME. <strong>No step-by-step solutions are provided</strong> — use your skills from Weeks 1–4, the ZICT GitHub repo, Claude AI, and your instructor during hands-on sessions.</p>
+      <ul>
+        <li><strong>Week 5 Presentations:</strong> Present Projects 1, 2, and 3 to the class at end of Week 5</li>
+        <li><strong>Week 6 Presentations:</strong> Present Projects 4, 5, and 6 as final capstone demos</li>
+      </ul>
+    </div>
+
+    <!-- Project 1 -->
+    <div class="project-card" id="proj1">
+      <div class="project-card-header week-5">Project 1 — GitHub Account Setup &amp; Repository Push | Week 5 Day 1 (Assessment 17)</div>
+      <div class="project-card-body">
+        <div class="scenario-box">
+          <span class="box-label">📧 Client Brief</span>
+          <p><em>"BME requires that all ZICT engineers have their own GitHub accounts linked to the project repo. Set up your GitHub account, configure Git credentials, clone the training repo, make a meaningful update, and push without conflicts."</em></p>
+        </div>
+        <h4>Your Role</h4>
+        <p>Cloud Engineer — repository management and version control setup</p>
+        <h4>Deliverables</h4>
+        <ul>
+          <li>Active GitHub account</li>
+          <li>Repository forked from: <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">github.com/zicttraining/DevOps-cloud-training-</a></li>
+          <li>At least one meaningful commit pushed</li>
+          <li>No merge conflicts — clean push history</li>
+        </ul>
+        <div class="hint-box">
+          <span class="box-label">💡 Milestone Hints</span>
+          <ul>
+            <li>Generate SSH keys and add to GitHub if push is failing</li>
+            <li>Use <code>git config --global user.name</code> and <code>user.email</code> before your first commit</li>
+            <li>Create a meaningful branch name: <code>feature/add-bme-terraform-dev</code></li>
+            <li>Write a descriptive commit message: <em>"feat: add BME Dev environment Terraform modules"</em></li>
+          </ul>
+        </div>
+        <div class="evidence-box">
+          <span class="box-label">📸 Week 5 Presentation Evidence</span>
+          <ul class="checklist">
+            <li>GitHub profile with your name and repo visible</li>
+            <li>Commit history showing your contributions</li>
+            <li>Explain to the class: what is a commit, what is a branch, why we use version control</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card" id="proj2">
+      <div class="project-card-header week-5">Project 2 — Docker Build, Push &amp; Deploy to Amazon ECS | Week 5 Day 2 (Assessment 18)</div>
+      <div class="project-card-body">
+        <div class="scenario-box">
+          <span class="box-label">📧 Client Brief</span>
+          <p><em>"BME's development team wants to containerize the ticketing application. Build a Docker image, push it to Amazon ECR, and deploy it to Amazon ECS Fargate."</em></p>
+        </div>
+        <h4>Deliverables</h4>
+        <ul>
+          <li>Dockerfile created for a simple web application</li>
+          <li>Docker image built and tested locally</li>
+          <li>Amazon ECR repository created and image pushed</li>
+          <li>Amazon ECS Fargate service deployed and running</li>
+        </ul>
+        <div class="hint-box">
+          <span class="box-label">💡 Milestone Hints</span>
+          <ul>
+            <li>Use <code>aws ecr get-login-password</code> to authenticate Docker to ECR</li>
+            <li>Tag your image before push: <code>docker tag bme-app:latest [account].dkr.ecr.us-east-1.amazonaws.com/bme-app:latest</code></li>
+            <li>ECS task definition: use Fargate launch type, assign task role with ECR and CloudWatch permissions</li>
+            <li>Check CloudWatch logs if container fails to start</li>
+          </ul>
+        </div>
+        <div class="evidence-box">
+          <span class="box-label">📸 Week 5 Presentation Evidence</span>
+          <ul class="checklist">
+            <li>Docker build and run locally — browser screenshot</li>
+            <li>ECR repository with pushed image and tag</li>
+            <li>ECS service running — Tasks tab showing RUNNING status</li>
+            <li>Browser screenshot of deployed application</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card" id="proj3">
+      <div class="project-card-header week-5">Project 3 — ECS Production Project | Week 5 Days 3–4 (Assessments 19–20)</div>
+      <div class="project-card-body">
+        <div class="scenario-box">
+          <span class="box-label">📧 Client Brief</span>
+          <p><em>"Scale up. Deploy the BME application to a production-grade ECS environment with Terraform. Include ALB, auto-scaling, HTTPS, CloudWatch logging, and IAM roles."</em></p>
+        </div>
+        <h4>Deliverables</h4>
+        <ul>
+          <li>Terraform code for ECS cluster, task definition, service, ALB, IAM roles</li>
+          <li>ECS service with minimum 2 tasks running across 2 AZs</li>
+          <li>ALB with HTTPS listener, ACM certificate</li>
+          <li>All infrastructure in GitHub: <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">github.com/zicttraining/DevOps-cloud-training-</a></li>
+        </ul>
+        <div class="hint-box">
+          <span class="box-label">💡 Milestone Hints</span>
+          <ul>
+            <li>ECS task definition needs: container image URI from ECR, port mappings, log configuration pointing to CloudWatch</li>
+            <li>ECS auto-scaling: <code>aws_appautoscaling_target</code> + <code>aws_appautoscaling_policy</code> in Terraform</li>
+            <li>Add slide deck: 5 slides — architecture, services chosen, live demo, challenges, what you learned</li>
+          </ul>
+        </div>
+        <div class="evidence-box">
+          <span class="box-label">📸 Week 5 Presentations (Projects 1, 2, 3)</span>
+          <ul class="checklist">
+            <li>Present all three projects at end of Week 5</li>
+            <li>5-slide deck minimum for Project 3</li>
+            <li>Live demo of application running on ECS</li>
+            <li>GitHub repo link shared with instructor</li>
+            <li>LinkedIn post draft: describe your ECS deployment as a Cloud Engineer at ZICT</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== WEEK 6 HEADER ===== -->
+    <div class="week-header week-6" id="week6">🏆 Week 6 — Capstone Projects 4–6 &amp; Final Demo | Assessments 21–24</div>
+
+    <!-- Project 4 -->
+    <div class="project-card" id="proj4">
+      <div class="project-card-header week-6">Project 4 — Amazon EKS Production Deployment | Week 6 Day 1 (Assessment 21)</div>
+      <div class="project-card-body">
+        <div class="scenario-box">
+          <span class="box-label">📧 Client Brief</span>
+          <p><em>"BME's CTO wants to evaluate Kubernetes for the long-term container strategy. Deploy the same BME application using Amazon EKS. Show us how Kubernetes manages scaling, health checks, and rolling deployments."</em></p>
+        </div>
+        <h4>Deliverables</h4>
+        <ul>
+          <li>EKS cluster created (eksctl or Terraform)</li>
+          <li>Kubernetes Deployment and Service manifests</li>
+          <li>Application pods running and healthy</li>
+          <li>Demonstrate rolling update</li>
+        </ul>
+        <div class="hint-box">
+          <span class="box-label">💡 Milestone Hints</span>
+          <ul>
+            <li>Install <code>eksctl</code> and <code>kubectl</code> on your machine</li>
+            <li>Create cluster: <code>eksctl create cluster --name bme-prod --region us-east-1 --nodes 2</code></li>
+            <li>Deploy: <code>kubectl apply -f deployment.yaml</code></li>
+            <li>Rolling update: change image tag and apply — watch pods cycle with <code>kubectl rollout status</code></li>
+          </ul>
+        </div>
+        <div class="evidence-box">
+          <span class="box-label">📸 Evidence Required</span>
+          <ul class="checklist">
+            <li>EKS cluster screenshot — Active status</li>
+            <li><code>kubectl get pods</code> showing Running pods</li>
+            <li>Browser screenshot of application served from EKS</li>
+            <li>Rolling update terminal output</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 5 -->
+    <div class="project-card" id="proj5">
+      <div class="project-card-header week-6">Project 5 — EKS Production with Full Observability | Week 6 Day 2 (Assessment 22)</div>
+      <div class="project-card-body">
+        <div class="scenario-box">
+          <span class="box-label">📧 Client Brief</span>
+          <p><em>"Add observability to the EKS deployment. BME needs to see pod health, resource usage, and alerts when something fails. Add CloudWatch Container Insights and configure SNS alerts."</em></p>
+        </div>
+        <h4>Deliverables</h4>
+        <ul>
+          <li>CloudWatch Container Insights enabled on EKS cluster</li>
+          <li>CloudWatch dashboard showing pod metrics</li>
+          <li>SNS alert triggered by pod failure simulation</li>
+          <li>CloudTrail logging EKS API calls</li>
+        </ul>
+        <div class="hint-box">
+          <span class="box-label">💡 Milestone Hints</span>
+          <ul>
+            <li>Enable Container Insights: <code>aws eks update-cluster-config --enable-logging</code></li>
+            <li>Create CloudWatch dashboard for: pod CPU, memory, network</li>
+            <li>Simulate failure: delete a pod manually — watch self-healing and alert trigger</li>
+          </ul>
+        </div>
+        <div class="evidence-box">
+          <span class="box-label">📸 Evidence Required</span>
+          <ul class="checklist">
+            <li>CloudWatch dashboard screenshot with EKS metrics</li>
+            <li>SNS email received for alert</li>
+            <li>Pod restart screenshot after manual deletion</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 6 -->
+    <div class="project-card" id="proj6">
+      <div class="project-card-header week-6">Project 6 — Terraform CI/CD: Dev → UAT → Prod with GitHub Actions | Week 6 Days 3–4 (Assessments 23–24)</div>
+      <div class="project-card-body">
+        <div class="scenario-box">
+          <span class="box-label">📧 Client Brief — Final Delivery</span>
+          <p><em>"This is the final deliverable. BME wants a fully automated pipeline that deploys infrastructure through Dev, UAT, and Production using GitHub Actions and Terraform — with manual approval gates before UAT and Production."</em></p>
+        </div>
+        <h4>Deliverables</h4>
+        <ul>
+          <li>GitHub Actions multi-environment pipeline (Dev → UAT → Prod)</li>
+          <li>Manual approval gate before UAT deploy</li>
+          <li>Manual approval gate before Prod deploy</li>
+          <li>All code in: <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">github.com/zicttraining/DevOps-cloud-training-</a></li>
+        </ul>
+        <div class="hint-box">
+          <span class="box-label">💡 Milestone Hints</span>
+          <ul>
+            <li>Use GitHub Environments with required reviewers for approval gates</li>
+            <li>GitHub → Repo Settings → Environments → Create "uat-approval" and "prod-approval" with required reviewers</li>
+            <li>Reference in YAML: <code>environment: uat-approval</code> on the UAT apply job</li>
+            <li>Use <code>needs:</code> in YAML to chain jobs sequentially</li>
+          </ul>
+        </div>
+        <div class="evidence-box">
+          <span class="box-label">📸 Final Capstone Presentation (Week 6)</span>
+          <ul class="checklist">
+            <li>Live demo of full pipeline running — Dev → UAT → Prod with approval gates</li>
+            <li>GitHub Actions run showing all jobs in sequence</li>
+            <li>AWS Console: resources deployed in all 3 environments</li>
+            <li>10-slide presentation: problem, solution, architecture, pipeline, security, monitoring, challenges, lessons learned, what's next, portfolio</li>
+            <li>GitHub repo link with all code</li>
+            <li>LinkedIn post announcing your completion of Phase 2 AWS Cloud Architect at ZICT</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CAREER ROLES ===== -->
+    <div class="section" id="career-roles">
+      <div class="section-header">
+        <div class="section-icon" style="background:#e8f4fd; color:var(--zict-blue)">💼</div>
+        <h2>Career Roles After This Program</h2>
+      </div>
+      <p>By completing Phase 2 AWS Cloud Architect at ZICT, you are qualified to apply for these roles:</p>
+      <div class="roles-grid">
+        <div class="role-card"><h4>☁️ Cloud Engineer</h4><p>Design and operate cloud infrastructure on AWS — the core role you practiced throughout this program</p></div>
+        <div class="role-card"><h4>⚙️ DevOps Engineer</h4><p>Build and maintain CI/CD pipelines, automate deployments, and bridge development and operations</p></div>
+        <div class="role-card"><h4>🏗️ Solutions Architect</h4><p>Design complete cloud architectures for clients — matching business requirements to AWS services</p></div>
+        <div class="role-card"><h4>🔧 Infrastructure Engineer</h4><p>Manage infrastructure as code using Terraform and automate provisioning at scale</p></div>
+        <div class="role-card"><h4>🚀 Platform Engineer</h4><p>Build internal developer platforms and tooling on cloud infrastructure</p></div>
+        <div class="role-card"><h4>🛡️ Site Reliability Engineer (SRE)</h4><p>Maintain uptime and reliability using observability, alerting, and automation</p></div>
+        <div class="role-card"><h4>☁️ AWS Specialist</h4><p>AWS-specific technical expert — consult on migrations, cost optimization, and service selection</p></div>
+        <div class="role-card"><h4>🤝 Cloud Consultant</h4><p>Advise client organizations on cloud strategy — like you did for BME</p></div>
+        <div class="role-card"><h4>🆘 Cloud Support Engineer</h4><p>Diagnose and resolve cloud infrastructure issues — strong troubleshooting foundation required</p></div>
+        <div class="role-card"><h4>📦 Container &amp; Kubernetes Engineer</h4><p>Specialize in Docker, Amazon ECS, and Amazon EKS — container orchestration at scale</p></div>
+        <div class="role-card"><h4>🔁 CI/CD Pipeline Engineer</h4><p>Build, maintain, and optimize GitHub Actions, Terraform, and deployment automation pipelines</p></div>
+        <div class="role-card"><h4>🔐 Cloud Security Engineer</h4><p>Secure AWS environments using IAM, GuardDuty, WAF, KMS, CloudTrail, and compliance frameworks</p></div>
+      </div>
+      <div class="scenario-box" style="margin-top: 24px">
+        <span class="box-label">💡 Portfolio Advice</span>
+        <p>Every deliverable you produced in this program — diagrams, Terraform code, GitHub repos, CI/CD pipelines, written documentation — is portfolio evidence. Publish your GitHub repository, export your diagrams, write a LinkedIn post about each project. You have done real engineering work. Show it.</p>
+      </div>
+    </div>
+
+    <!-- ===== WHY SIMULATION ===== -->
+    <div class="section" id="why-simulation">
+      <div class="section-header">
+        <div class="section-icon" style="background:#eafaf1; color:#1a7a42">🧠</div>
+        <h2>Why This Program Is Simulation-Based</h2>
+      </div>
+      <table>
+        <tbody><tr><th>Reason</th><th>What It Means for You</th></tr>
+        <tr><td><strong>Muscle Memory</strong></td><td>Doing real tasks — not watching demos — builds skills that stick</td></tr>
+        <tr><td><strong>Professional Communication</strong></td><td>Every assessment is framed as a client request — the same way you will work in your first cloud job</td></tr>
+        <tr><td><strong>Portfolio Building</strong></td><td>Every deliverable is something you can show an employer — proof of real work</td></tr>
+        <tr><td><strong>Real-World Readiness</strong></td><td>Cloud jobs expect you to figure things out, troubleshoot, and deliver without hand-holding</td></tr>
+        <tr><td><strong>Client Thinking</strong></td><td>Understanding why a client needs high availability, security, and cost control separates good from great engineers</td></tr>
+      </tbody></table>
+    </div>
+
+    <!-- ===== TOOLS ===== -->
+    <div class="section" id="tools">
+      <div class="section-header">
+        <div class="section-icon" style="background:#f3e5f5; color:#6c3483">🛠</div>
+        <h2>Tools &amp; Setup</h2>
+      </div>
+      <table>
+        <tbody><tr><th>Tool</th><th>Purpose</th><th>Where to Get It</th></tr>
+        <tr><td>AWS Account</td><td>All hands-on work</td><td>Provided by ZICT or create Free Tier at aws.amazon.com</td></tr>
+        <tr><td>GitHub</td><td>Version control, CI/CD</td><td><a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">github.com/zicttraining/DevOps-cloud-training-</a></td></tr>
+        <tr><td>Lucidchart</td><td>All architecture diagrams</td><td>lucidchart.com — free account sufficient</td></tr>
+        <tr><td>VS Code</td><td>Code editor for Terraform &amp; YAML</td><td>code.visualstudio.com</td></tr>
+        <tr><td>AWS CLI</td><td>Command-line AWS access</td><td>docs.aws.amazon.com/cli</td></tr>
+        <tr><td>Terraform</td><td>Infrastructure as Code</td><td>developer.hashicorp.com/terraform/install</td></tr>
+        <tr><td>Docker Desktop</td><td>Build and run containers</td><td>docker.com/products/docker-desktop</td></tr>
+        <tr><td>Claude AI</td><td>Support, documentation, explanation</td><td>claude.ai — free account</td></tr>
+        <tr><td>kubectl</td><td>Kubernetes CLI (Week 6)</td><td>kubernetes.io/docs/tasks/tools</td></tr>
+        <tr><td>eksctl</td><td>Create EKS clusters (Week 6)</td><td>eksctl.io</td></tr>
+      </tbody></table>
+    </div>
+
+    <!-- ===== SUBMISSION ===== -->
+    <div class="section" id="submission">
+      <div class="section-header">
+        <div class="section-icon" style="background:#fff3cd; color:#856404">📤</div>
+        <h2>Assessment &amp; Submission Guide</h2>
+      </div>
+
+      <h3>File Naming Convention</h3>
+      <p>Always name files: <code>Assessment[Number]_[Topic]_[YourFullName].[extension]</code></p>
+      <p>Example: <code>Assessment7_VPC_EC2_Apache_JohnDoe.pdf</code></p>
+
+      <h3>Daily Scoring (Assessments 1–14)</h3>
+      <table>
+        <tbody><tr><th>Score</th><th>Criteria</th></tr>
+        <tr><td>10/10</td><td>All evidence submitted, all steps correct, professional naming, bonus completed</td></tr>
+        <tr><td>8–9/10</td><td>All required evidence submitted, minor issues only</td></tr>
+        <tr><td>6–7/10</td><td>Most evidence submitted, some steps incomplete or incorrect</td></tr>
+        <tr><td>4–5/10</td><td>Partial evidence, significant steps missing</td></tr>
+        <tr><td>Below 4</td><td>Little or no evidence submitted</td></tr>
+      </tbody></table>
+
+      <h3>GitHub Submission</h3>
+      <p>All Terraform code, YAML pipelines, Dockerfiles, and Kubernetes manifests must be pushed to:</p>
+      <p><a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank" style="font-weight:700; font-size:1.05em">github.com/zicttraining/DevOps-cloud-training-</a></p>
+      <p>Create a folder with your name: <code>students/[YourName]/</code> and push all code there.</p>
+
+      <h3>Submission Rules</h3>
+      <ul>
+        <li>Submit by the start of the next Hands-On session (6:00 PM the following day)</li>
+        <li>Late submissions lose 2 points per day</li>
+        <li>All Assessments must be submitted before Week 5 begins for capstone eligibility</li>
+      </ul>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <strong>© 2026 ZICT | Phase 2 AWS Cloud Architect</strong><br>
+      Student Simulation Workbook — All Assessments, Guided Solutions &amp; Projects<br>
+      Client: Best Music Entertainment (BME) · GitHub:
+      <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank" style="color:var(--zict-gold)">github.com/zicttraining/DevOps-cloud-training-</a>
+    </footer>
+  
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>
