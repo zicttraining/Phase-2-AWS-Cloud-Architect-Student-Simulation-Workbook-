@@ -1,0 +1,1971 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZICT Student Lab Manual - AWS Cloud Engineering Program</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 40px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #333;
+        line-height: 1.6;
+        background-color: #ffffff;
+      }
+
+      header {
+        background-color: #1a2744;
+        color: white;
+        padding: 40px;
+        margin-bottom: 40px;
+        border-bottom: 5px solid #3b82f6;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        color: white;
+      }
+
+      h2 {
+        color: #1a2744;
+        border-bottom: 2px solid #e5e7eb;
+        padding-bottom: 10px;
+        margin-top: 40px;
+      }
+
+      h3 {
+        color: #2563eb;
+        margin-top: 30px;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        margin-top: 10px;
+      }
+
+      .session-container {
+        border: 1px solid #e5e7eb;
+        padding: 30px;
+        margin-bottom: 40px;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .client-brief {
+        background-color: #f8fafc;
+        border-left: 4px solid #1a2744;
+        padding: 20px;
+        margin-bottom: 25px;
+      }
+
+      .role-card {
+        background-color: #eff6ff;
+        border: 1px solid #bfdbfe;
+        padding: 15px;
+        margin-bottom: 25px;
+        border-radius: 4px;
+        font-weight: 500;
+        color: #1e40af;
+      }
+
+      .step-box {
+        background-color: #f0fdf4;
+        border-left: 4px solid #22c55e;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .step-title {
+        color: #15803d;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      .note-box {
+        background-color: #eff6ff;
+        border-left: 4px solid #3b82f6;
+        padding: 15px;
+        margin: 15px 0;
+        font-size: 0.95rem;
+      }
+
+      .warning-box {
+        background-color: #fff7ed;
+        border-left: 4px solid #f97316;
+        padding: 15px;
+        margin: 15px 0;
+        font-size: 0.95rem;
+      }
+
+      .ai-prompt {
+        background-color: #f3e8ff;
+        border: 1px solid #d8b4fe;
+        padding: 20px;
+        margin-top: 30px;
+        border-radius: 6px;
+      }
+
+      .ai-title {
+        color: #7e22ce;
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .checklist {
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+        padding: 20px;
+        margin-top: 30px;
+      }
+
+      code,
+      pre {
+        background-color: #1e293b;
+        color: #e2e8f0;
+        padding: 15px;
+        border-radius: 4px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+        margin: 15px 0;
+      }
+
+      .inline-code {
+        background-color: #f1f5f9;
+        color: #0f172a;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: 'Courier New', Courier, monospace;
+        display: inline;
+        font-size: 0.9em;
+      }
+
+      /* Week Colors */
+      .week-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 20px;
+        color: white;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+
+      .week-1 {
+        background-color: #3b82f6;
+      }
+      .week-2 {
+        background-color: #10b981;
+      }
+      .week-3 {
+        background-color: #f59e0b;
+      }
+      .week-4 {
+        background-color: #8b5cf6;
+      }
+      .week-5 {
+        background-color: #ec4899;
+      }
+
+      .toc {
+        background-color: #f8fafc;
+        padding: 30px;
+        border-radius: 4px;
+        margin-bottom: 50px;
+      }
+
+      .toc h3 {
+        margin-top: 0;
+        color: #1a2744;
+      }
+
+      .toc ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .toc li {
+        margin-bottom: 10px;
+        border-bottom: 1px solid #e2e8f0;
+        padding-bottom: 10px;
+      }
+
+      .toc a {
+        text-decoration: none;
+        color: #475569;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .toc a:hover {
+        color: #2563eb;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #e2e8f0;
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f1f5f9;
+        color: #1e293b;
+      }
+
+      .portfolio-note {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #fffbeb;
+        border: 1px dashed #f59e0b;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>ZICT AWS Cloud Engineering Program</h1>
+      <div class="subtitle">Student Lab Manual & Guided Solutions (Sessions 1-14)</div>
+    </header>
+
+    <div class="toc">
+      <h3>Table of Contents</h3>
+      <ul>
+        <li>
+          <a href="#session1"
+            >Session 1: Client Discovery & Requirement Gathering
+            <span class="week-badge week-1" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 1</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session2"
+            >Session 2: Technical Recommendations
+            <span class="week-badge week-1" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 1</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session3"
+            >Session 3 & 4: Architecture Diagram Design
+            <span class="week-badge week-1" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 1</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session5"
+            >Session 5 & 6: Architecture Documentation
+            <span class="week-badge week-1" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 1</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session7"
+            >Session 7: Build Network & Web Server (VPC+EC2)
+            <span class="week-badge week-2" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 2</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session8"
+            >Session 8: ALB + HTTPS + Auto Scaling
+            <span class="week-badge week-2" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 2</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session9"
+            >Session 9: S3, RDS, IAM & Security Stack
+            <span class="week-badge week-3" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 3</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session10"
+            >Session 10: UAT Recommendations + Terraform Intro
+            <span class="week-badge week-3" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 3</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session11"
+            >Session 11: Multi-Env Terraform & AWS Organizations
+            <span class="week-badge week-3" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 3</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session12"
+            >Session 12: Production Terraform Deployment
+            <span class="week-badge week-3" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 3</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session13"
+            >Session 13: GitHub Actions CI/CD Setup
+            <span class="week-badge week-4" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 4</span
+            ></a
+          >
+        </li>
+        <li>
+          <a href="#session14"
+            >Session 14: CI/CD Pipeline Completion
+            <span class="week-badge week-4" style="margin-left: 10px; font-size: 0.7em; padding: 2px 8px"
+              >Week 4</span
+            ></a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- SESSION 1 -->
+    <div id="session1" class="session-container">
+      <span class="week-badge week-1">Week 1</span>
+      <h2>Session 1: Client Discovery & Requirement Gathering</h2>
+
+      <div class="client-brief">
+        <strong>Client Brief: Best Music Entertainment (BME)</strong><br />
+        BME is launching a new event ticketing and e-commerce platform. They expect high traffic spikes during ticket
+        sales and need a secure, scalable solution on AWS. They are unsure about specific technical requirements and
+        need guidance.
+      </div>
+
+      <div class="role-card">
+        <strong>Your Role: Cloud Engineer @ ZICT</strong><br />
+        Your first task is to conduct a discovery session to gather technical requirements across 9 key domains to
+        inform your architecture design.
+      </div>
+
+      <h3>Guided Solution: Discovery Questions</h3>
+      <p>Below are the model questions you should ask the client for each domain.</p>
+
+      <div class="step-box">
+        <span class="step-title">Domain 1: Geographic Location & Availability</span>
+        <ul>
+          <li>
+            <strong>Q1:</strong> Where is your primary customer base located? (Justification: Determines AWS Region for
+            lowest latency)
+          </li>
+          <li>
+            <strong>Q2:</strong> Do you require failover capabilities if a data center goes down? (Justification:
+            Determines Multi-AZ requirements)
+          </li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Domain 2: Compute</span>
+        <ul>
+          <li>
+            <strong>Q1:</strong> What is the expected traffic volume during ticket sales vs. normal days?
+            (Justification: Sizing EC2 and Auto Scaling policies)
+          </li>
+          <li>
+            <strong>Q2:</strong> Is the application monolithic or microservices-based? (Justification: EC2 vs ECS/Lambda
+            decision)
+          </li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Domain 3: Storage</span>
+        <ul>
+          <li>
+            <strong>Q1:</strong> Do you need to store static assets like event images/videos? (Justification: S3
+            requirement)
+          </li>
+          <li>
+            <strong>Q2:</strong> Do these assets need to be publicly accessible or private? (Justification: S3 bucket
+            policies/CloudFront)
+          </li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Domain 4: Database</span>
+        <ul>
+          <li>
+            <strong>Q1:</strong> Is your data structured (SQL) or unstructured (NoSQL)? (Justification: RDS vs DynamoDB)
+          </li>
+          <li>
+            <strong>Q2:</strong> How critical is data consistency for ticket sales? (Justification: ACID compliance
+            requirement)
+          </li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Domain 5: Networking</span>
+        <ul>
+          <li>
+            <strong>Q1:</strong> Do you need a private network for your database? (Justification: VPC Private Subnets)
+          </li>
+          <li><strong>Q2:</strong> Do you need a custom domain name (e.g., bme.com)? (Justification: Route 53)</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Domain 6: Security</span>
+        <ul>
+          <li><strong>Q1:</strong> Do you handle credit card or personally identifiable information (PII)? (Justification: Determines PCI-DSS/GDPR compliance and encryption needs — WAF, KMS, Shield)</li>
+          <li><strong>Q2:</strong> Do you need protection from DDoS attacks or bot traffic? (Justification: Determines need for AWS WAF and AWS Shield)</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Domain 7: IAM — Identity and Access Management</span>
+        <ul>
+          <li><strong>Q1:</strong> How many developers, admins, and teams need access to your AWS environment? (Justification: Determines IAM users, roles, and groups required)</li>
+          <li><strong>Q2:</strong> Do different teams need different levels of access (read-only vs full admin)? (Justification: Determines least-privilege policies)</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Domain 8: Monitoring &amp; Compliance</span>
+        <ul>
+          <li><strong>Q1:</strong> Do you need real-time alerts when your server goes down or CPU spikes? (Justification: CloudWatch alarms + SNS email/SMS alerts)</li>
+          <li><strong>Q2:</strong> Do you need an audit log of who accessed or changed what in your environment? (Justification: CloudTrail for compliance logging)</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Domain 9: Cost</span>
+        <ul>
+          <li><strong>Q1:</strong> What is your monthly cloud budget? (Justification: Determines AWS Budgets threshold and alerts)</li>
+          <li><strong>Q2:</strong> Do you need to track costs per team, environment, or project? (Justification: Cost allocation tags + Cost Explorer)</li>
+        </ul>
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 1 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Document with company name (BME) clearly stated</li>
+          <li>☐ At least 2 questions per domain (minimum 18 questions total)</li>
+          <li>☐ Each question has a written justification explaining why it's important</li>
+          <li>☐ Document saved in Word, PDF, or Markdown format</li>
+          <li>☐ Shared via Google Drive link or class folder</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "I am a Cloud Engineer conducting a discovery session for a new AWS application for an event ticketing company. Help me improve these requirement-gathering questions for the [domain] domain and explain why each question matters."
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Conducted technical requirement-gathering sessions for cloud architecture design using AWS domain framework." — Add to CV under Skills or Project Experience.
+      </div>
+    </div>
+
+    <!-- SESSION 2 -->
+    <div id="session2" class="session-container">
+      <span class="week-badge week-1">Week 1</span>
+      <h2>Session 2: Technical Recommendations</h2>
+
+      <div class="client-brief">
+        <strong>Client Brief:</strong> Based on your discovery findings, BME leadership needs a formal recommendation of AWS services across all 9 domains. Each service must be justified in terms of business impact, not just technical capability.
+      </div>
+
+      <div class="role-card">
+        <strong>Your Role:</strong> Map the BME requirements to specific AWS services with a one-line business justification for each. This document will form the foundation for the architecture diagram.
+      </div>
+
+      <h3>Model Recommendations — Full Answer</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Domain</th>
+            <th>Recommended AWS Service</th>
+            <th>Business Justification (Why BME needs this)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Geographic Location &amp; AZs</strong></td>
+            <td>us-east-1 (N. Virginia) — AZs: us-east-1a, us-east-1b</td>
+            <td>Closest region to BME's customer base with broadest service availability and lowest latency for US fans.</td>
+          </tr>
+          <tr>
+            <td><strong>IAM</strong></td>
+            <td>AWS IAM — Roles, Policies, Groups</td>
+            <td>Controls which developers and services can access which resources, enforcing least-privilege to prevent unauthorized changes.</td>
+          </tr>
+          <tr>
+            <td><strong>Compute</strong></td>
+            <td>EC2 t3.medium + Auto Scaling Group</td>
+            <td>Handles high traffic during ticket sales by automatically scaling EC2 instances up and back down to manage cost.</td>
+          </tr>
+          <tr>
+            <td><strong>Security</strong></td>
+            <td>Security Groups, AWS WAF, KMS, ACM, AWS Shield (Standard)</td>
+            <td>Protects BME from DDoS attacks, SQL injection, and unauthorized access, and encrypts customer payment data at rest and in transit.</td>
+          </tr>
+          <tr>
+            <td><strong>Storage</strong></td>
+            <td>Amazon S3 (assets/logs) + EBS (OS volumes)</td>
+            <td>S3 stores event images and logs durably with versioning; EBS provides fast block storage for each EC2 instance.</td>
+          </tr>
+          <tr>
+            <td><strong>Networking</strong></td>
+            <td>VPC, ALB (Application Load Balancer), Route 53, CloudFront</td>
+            <td>Isolated private network; load balancing across web servers; custom domain; global CDN to accelerate content delivery.</td>
+          </tr>
+          <tr>
+            <td><strong>Database</strong></td>
+            <td>Amazon RDS for MySQL — Multi-AZ</td>
+            <td>Relational database for structured ticket/order data with automatic failover to standby replica in a second AZ.</td>
+          </tr>
+          <tr>
+            <td><strong>Monitoring &amp; Compliance</strong></td>
+            <td>CloudWatch (metrics + alarms), CloudTrail (audit log), SNS (alerts)</td>
+            <td>Real-time alerts notify operations team if servers fail; CloudTrail provides compliance audit trail of all AWS actions.</td>
+          </tr>
+          <tr>
+            <td><strong>Cost</strong></td>
+            <td>AWS Budgets + Cost Explorer</td>
+            <td>Monthly budget alerts prevent unexpected bills; Cost Explorer shows spend trends per service.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note-box">
+        <strong>Tip:</strong> After writing your recommendations, save this document. You will use this exact service list as the basis for your architecture diagram in Sessions 3 &amp; 4.
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 2 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Document covers all 9 domains (no domain missing)</li>
+          <li>☐ Each domain lists at least 1 specific AWS service with the service name clearly stated</li>
+          <li>☐ Each recommendation has a one-line business justification (not just a definition)</li>
+          <li>☐ Document references BME's specific needs (traffic spikes, payment data, availability)</li>
+          <li>☐ Saved and shared via Google Drive / class folder link</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "Review these AWS technical recommendations for an event ticketing platform. Tell me if the justifications explain why each service helps the business, or if they are just describing what the service is. Suggest improvements."
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Prepared formal AWS technical recommendations for a cloud migration project, mapping business requirements to 9 AWS service domains with business-focused justifications."
+      </div>
+    </div>
+
+    <!-- SESSION 2 checklist -->
+    <!-- SESSION 3 & 4 -->
+    <div id="session3" class="session-container">
+      <span class="week-badge week-1">Week 1</span>
+      <h2>Session 3 &amp; 4: Architecture Diagram Design</h2>
+
+      <div class="client-brief">
+        <strong>Client Brief:</strong> Visualizing the infrastructure is critical for the engineering team before
+        building starts.
+      </div>
+
+      <h3>Step-by-Step Diagramming Guide</h3>
+
+      <div class="step-box">
+        <span class="step-title">Step 1: Setup Draw.io</span>
+        <ul>
+          <li>Go to <a href="https://draw.io" target="_blank">draw.io</a></li>
+          <li>Select "Create New Diagram" > Blank Diagram</li>
+          <li>In search bar, type "AWS" to load AWS 2024 icon set</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Step 2: Draw the Region & VPC</span>
+        <ul>
+          <li>Drag a large box label it "AWS Cloud (us-east-1)"</li>
+          <li>Inside, drag a box for "VPC (10.0.0.0/16)"</li>
+          <li>Divide VPC into 2 Availability Zones (AZ1, AZ2)</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Step 3: Define Subnets</span>
+        <ul>
+          <li><strong>Public Subnets:</strong> Place at top of AZs. Contains: NAT Gateway, Load Balancer (ALB).</li>
+          <li>
+            <strong>Private Subnets (App):</strong> Place in middle. Contains: EC2 Instances (Auto Scaling Group).
+          </li>
+          <li><strong>Private Subnets (Data):</strong> Place at bottom. Contains: RDS Primary & Standby.</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Step 4: Connect the Flow</span>
+        <ul>
+          <li>User -> Route 53 -> Internet Gateway -> ALB -> EC2 -> RDS</li>
+          <li>Add S3 Bucket outside VPC but inside Region</li>
+          <li>Add CloudFront pointing to ALB</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Step 5: Add Supporting Services</span>
+        <ul>
+          <li><strong>WAF:</strong> Place in front of ALB (edge protection)</li>
+          <li><strong>ACM Certificate:</strong> Show attached to ALB (HTTPS)</li>
+          <li><strong>CloudTrail:</strong> Add outside the VPC — connects to an S3 log bucket</li>
+          <li><strong>SNS:</strong> Add beside CloudWatch — shows alert notifications</li>
+          <li><strong>IAM:</strong> Usually shown as a global service (outside Region box)</li>
+          <li><strong>Naming all resources:</strong> Right-click each icon > Edit > Add a name label</li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Step 6: Export Your Diagram</span>
+        <ol>
+          <li>File > Export As > PNG (High Quality)</li>
+          <li>Name it: <code>BME-Architecture-Diagram-v1.png</code></li>
+          <li>Save to your assignment folder</li>
+          <li>Also export as XML (File > Export As > XML) as backup</li>
+          <li>Upload to Google Drive or class folder and copy the shareable link</li>
+        </ol>
+      </div>
+
+      <div class="note-box">
+        <strong>Common diagram layout (top to bottom):</strong><br/>
+        User → Route 53 → CloudFront → WAF → [Internet Gateway] → ALB (Public Subnets) → EC2 Auto Scaling Group (Private App Subnets) → RDS MySQL (Private Data Subnets) + S3 (Regional, outside VPC)
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 3 &amp; 4 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Architecture diagram created using Draw.io or Lucidchart</li>
+          <li>☐ Diagram shows AWS Region and both Availability Zones (us-east-1a, us-east-1b)</li>
+          <li>☐ VPC box containing subnets clearly drawn</li>
+          <li>☐ Public subnets contain: ALB</li>
+          <li>☐ Private app subnets contain: EC2 Auto Scaling Group</li>
+          <li>☐ Private data subnets contain: RDS (Primary + Standby)</li>
+          <li>☐ S3 bucket shown outside VPC (within Region)</li>
+          <li>☐ CloudFront shown at edge (before Route 53 or ALB)</li>
+          <li>☐ All services from Session 2 recommendations are represented</li>
+          <li>☐ Diagram exported as PNG and shared via link</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "Describe a standard 3-tier AWS architecture for a web application and list which icons I should place in the public subnets vs the private app subnets vs the private data subnets."
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Designed a multi-tier AWS architecture diagram using Draw.io, representing a production-ready event platform with VPC, multi-AZ redundancy, ALB, Auto Scaling, RDS, and security services."
+      </div>
+    </div>
+
+    <!-- SESSION 5 & 6 -->
+    <div id="session5" class="session-container">
+      <span class="week-badge week-1">Week 1</span>
+      <h2>Session 5 &amp; 6: Architecture Documentation</h2>
+
+      <div class="client-brief">
+        <strong>Client Brief:</strong> BME's executive team needs a written explanation — not just a diagram — of how all the AWS services work together to deliver high availability, performance, and security for their platform.
+      </div>
+
+      <div class="role-card">
+        <strong>Your Role:</strong> Write professional technical documentation explaining the relationships between AWS services, not just their definitions.
+      </div>
+
+      <div class="note-box">
+        <strong>Important:</strong> Do not write service definitions. Write how each service relates to and supports the others. Focus on performance, scalability, security, and availability in context of BME's needs.
+      </div>
+
+      <h3>Model Documentation — Full Answer</h3>
+
+      <div class="step-box">
+        <span class="step-title">Region &amp; Availability Zones</span>
+        <p>BME's infrastructure is deployed in <strong>us-east-1 (N. Virginia)</strong> across two Availability Zones: <strong>us-east-1a</strong> and <strong>us-east-1b</strong>. This dual-AZ setup ensures that if one data center experiences an outage, all traffic automatically routes to the second AZ — delivering high availability without manual intervention. The region was selected for its proximity to BME's primary customer base and the broadest availability of AWS services.</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">VPC &amp; Networking</span>
+        <p>BME's application runs inside a <strong>Virtual Private Cloud (VPC)</strong> with a CIDR of 10.0.0.0/16. The VPC contains four subnets: two public subnets (hosting the ALB) and two private subnets (hosting EC2 instances and RDS). This separation ensures no external user can directly reach the web servers or database without first passing through the load balancer, which acts as the single controlled entry point. The <strong>Internet Gateway</strong> allows inbound traffic to reach the public subnets, while the <strong>NAT Gateway</strong> allows private subnet resources (EC2) to reach the internet for updates without being publicly exposed.</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Compute — EC2 &amp; Auto Scaling</span>
+        <p>BME's web application runs on <strong>EC2 t3.medium instances</strong> configured with <strong>Auto Scaling</strong>. During high-traffic events like ticket sales, Auto Scaling automatically launches additional instances to handle demand. When traffic drops, it scales back to prevent unnecessary cost. Each EC2 instance runs Apache as the web server and serves the BME front-end application. The Auto Scaling Group is distributed across both Availability Zones to maintain uptime even if one AZ goes offline.</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Load Balancing</span>
+        <p>The <strong>Application Load Balancer (ALB)</strong> sits in the public subnets and receives all inbound HTTP/HTTPS traffic. It distributes requests evenly across all healthy EC2 instances in the Auto Scaling Group using round-robin routing. The ALB's health checks ensure traffic is only sent to instances that are running and responding correctly. This prevents a single failing server from degrading the user experience during a live ticket sale event.</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Security Layer</span>
+        <p><strong>Security Groups</strong> act as virtual firewalls controlling what traffic can reach each resource. The ALB security group allows only HTTP (80) and HTTPS (443). The EC2 security group allows only traffic from the ALB security group — not from the public internet directly. The RDS security group allows only MySQL traffic (port 3306) from the EC2 security group. <strong>AWS WAF</strong> is attached to the ALB to block SQL injection, XSS, and common attack patterns. <strong>KMS</strong> encrypts data at rest for RDS and S3. <strong>ACM</strong> provides the SSL certificate for HTTPS termination at the ALB.</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Storage</span>
+        <p><strong>Amazon S3</strong> stores BME's event images, marketing assets, and application logs. Versioning is enabled so accidental deletions can be recovered. S3 is not publicly accessible directly — instead, <strong>CloudFront</strong> distributes content from S3 globally via edge locations, reducing load on the origin server and accelerating content delivery for fans across different locations. <strong>EBS volumes</strong> provide block storage for each EC2 instance's operating system and local application files.</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Database</span>
+        <p><strong>Amazon RDS for MySQL</strong> stores all transactional data: ticket orders, customer accounts, and payment records. RDS runs in Multi-AZ mode, maintaining an automatic standby replica in the second availability zone. If the primary database fails, RDS automatically fails over to the standby — typically within 60–120 seconds — with no data loss. Automated backups are enabled with a 7-day retention period. The database is in a private subnet with no public IP, accessible only from EC2 instances.</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Monitoring &amp; Compliance</span>
+        <p><strong>CloudWatch</strong> monitors all resources — CPU, memory, request count, error rate — and triggers <strong>SNS</strong> alerts to the operations team if thresholds are breached. <strong>CloudTrail</strong> logs every API action in the AWS account, providing a complete audit trail of who did what and when. This is essential for compliance reporting and incident investigation.</p>
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 5 &amp; 6 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Architecture diagram (from Sessions 3 &amp; 4) included or referenced</li>
+          <li>☐ Written explanation covers all required domains</li>
+          <li>☐ Each section explains relationships, not just definitions</li>
+          <li>☐ Document is professional (no grammar errors, properly structured)</li>
+          <li>☐ Saved and shared via cloud storage link</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "Review this architecture documentation I wrote for an AWS web application. Tell me if I am describing how services work together, or just defining them. Give me suggestions to make it more business-relevant."
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Produced client-facing AWS architecture documentation explaining multi-tier infrastructure design decisions for high availability and security." — Add to CV project description.
+      </div>
+    </div>
+
+    <!-- SESSION 7 -->
+    <div id="session7" class="session-container">
+      <span class="week-badge week-2">Week 2</span>
+      <h2>Session 7: Build Network & Web Server</h2>
+
+      <div class="role-card">
+        <strong>Your Role:</strong> Implement the foundational network and first web server for the BME platform.
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 1: Create VPC</span>
+        <ol>
+          <li>Go to <strong>VPC Dashboard</strong> > <strong>Create VPC</strong></li>
+          <li>Select <strong>VPC only</strong></li>
+          <li>Name tag: <code>bme-vpc</code></li>
+          <li>IPv4 CIDR: <code>10.0.0.0/16</code></li>
+          <li>Click <strong>Create VPC</strong></li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 2: Create Subnets</span>
+        <p>Go to <strong>Subnets</strong> > <strong>Create subnet</strong>. Select <code>bme-vpc</code>.</p>
+        <ul>
+          <li>
+            <strong>Subnet 1:</strong> Name: <code>bme-public-1a</code> | AZ: <code>us-east-1a</code> | CIDR:
+            <code>10.0.1.0/24</code>
+          </li>
+          <li>
+            <strong>Subnet 2:</strong> Name: <code>bme-public-1b</code> | AZ: <code>us-east-1b</code> | CIDR:
+            <code>10.0.2.0/24</code>
+          </li>
+          <li>
+            <strong>Subnet 3:</strong> Name: <code>bme-private-1a</code> | AZ: <code>us-east-1a</code> | CIDR:
+            <code>10.0.3.0/24</code>
+          </li>
+          <li>
+            <strong>Subnet 4:</strong> Name: <code>bme-private-1b</code> | AZ: <code>us-east-1b</code> | CIDR:
+            <code>10.0.4.0/24</code>
+          </li>
+        </ul>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 3: Internet Gateway & Routes</span>
+        <ol>
+          <li>Create IGW named <code>bme-igw</code> and attach to <code>bme-vpc</code></li>
+          <li>Create Route Table named <code>bme-public-rt</code></li>
+          <li>Add Route: <code>0.0.0.0/0</code> -> Target: <code>bme-igw</code></li>
+          <li><strong>Subnet Associations:</strong> Edit associations > Select both public subnets > Save</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 4: Launch Web Server</span>
+        <ol>
+          <li>Go to <strong>EC2</strong> > <strong>Launch Instance</strong></li>
+          <li>Name: <code>bme-web-01</code></li>
+          <li>OS: Amazon Linux 2023</li>
+          <li>Instance Type: t2.micro or t3.micro</li>
+          <li>Key Pair: Create new <code>bme-key</code></li>
+          <li>
+            Network Settings: <code>bme-vpc</code>, <code>bme-public-1a</code>,
+            <strong>Auto-assign Public IP: Enable</strong>
+          </li>
+          <li>Security Group: Allow SSH (22) and HTTP (80) from Anywhere</li>
+          <li>
+            <strong>User Data:</strong> (Advanced details)
+            <pre>
+#!/bin/bash
+yum update -y
+yum install httpd -y
+systemctl start httpd
+systemctl enable httpd
+echo "&lt;h1&gt;Welcome to BME Platform - Server 1&lt;/h1&gt;" > /var/www/html/index.html</pre
+            >
+          </li>
+          <li>Launch Instance</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 5: Create Launch Template &amp; Auto Scaling Group</span>
+        <ol>
+          <li>EC2 > Instances > Select <code>bme-web-01</code> > Actions > Image and templates > <strong>Create template from instance</strong></li>
+          <li>Name: <code>bme-launch-template</code></li>
+          <li>Confirm the User Data script is included (check Advanced details section)</li>
+          <li>Create launch template</li>
+          <li>Go to <strong>Auto Scaling Groups</strong> > Create</li>
+          <li>Name: <code>bme-asg</code> | Launch Template: <code>bme-launch-template</code></li>
+          <li>Network: <code>bme-vpc</code> | Subnets: Select BOTH public subnets</li>
+          <li>Group size: Desired <strong>2</strong>, Minimum <strong>2</strong>, Maximum <strong>4</strong></li>
+          <li>Create Auto Scaling Group</li>
+          <li>Wait 2–3 minutes. Verify new instances appear in EC2 console.</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 6: Verify Everything</span>
+        <p>Copy the <strong>Public IPv4 address</strong> of your instance and paste it into a browser tab.</p>
+        <p><strong>Expected Output:</strong> You should see a white page with "Welcome to BME Platform - Server 1".</p>
+        <p>Verify Auto Scaling: Go to EC2 Instances and confirm 2 instances launched from the template are running.</p>
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 7 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Screenshot of VPC created with correct CIDR (10.0.0.0/16)</li>
+          <li>☐ Screenshot showing 4 subnets in correct AZs</li>
+          <li>☐ Screenshot of Internet Gateway attached to VPC</li>
+          <li>☐ Screenshot of Route Table with 0.0.0.0/0 route to IGW</li>
+          <li>☐ Screenshot of EC2 instance running (green status)</li>
+          <li>☐ Browser screenshot showing Apache web page from EC2 public IP</li>
+          <li>☐ Screenshot of Auto Scaling Group with min 2, max 4</li>
+          <li>☐ Screenshot of 2 instances launched by ASG</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "My EC2 instance in a public subnet has a public IP and security group allows HTTP on port 80, but the browser is showing 'This site can't be reached'. What should I check first?"
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Designed and deployed a multi-subnet AWS VPC with EC2 web servers and Auto Scaling in a production simulation environment."
+      </div>
+    </div>
+
+    <!-- SESSION 8 -->
+    <div id="session8" class="session-container">
+      <span class="week-badge week-2">Week 2</span>
+      <h2>Session 8: ALB + HTTPS + Auto Scaling</h2>
+
+      <div class="step-box">
+        <span class="step-title">STEP 1: Create Application Load Balancer</span>
+        <ol>
+          <li>EC2 Dashboard > Load Balancers > Create Load Balancer</li>
+          <li>Select <strong>Application Load Balancer</strong></li>
+          <li>Name: <code>bme-alb</code> | Scheme: Internet-facing</li>
+          <li>Network: Select <code>bme-vpc</code> and BOTH public subnets (1a & 1b)</li>
+          <li>Security Group: Create new <code>bme-alb-sg</code> (Allow HTTP 80 & HTTPS 443 from Anywhere)</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 2: Create Target Group</span>
+        <ol>
+          <li>Go to Target Groups > Create Target Group</li>
+          <li>Type: Instances | Name: <code>bme-tg</code> | Protocol: HTTP 80</li>
+          <li>VPC: <code>bme-vpc</code></li>
+          <li>Health Check: Path <code>/</code></li>
+          <li>Next > Select your running instance <code>bme-web-01</code> > Include as pending below > Create</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 3: HTTPS Setup (Self-Signed)</span>
+        <p><em>Note: Since we don't have a real domain, we use a self-signed cert for testing.</em></p>
+        <ol>
+          <li>
+            On local terminal (Linux/Mac) or Git Bash:
+            <pre>openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout bme.key -out bme.crt</pre>
+          </li>
+          <li>Go to AWS <strong>ACM (Certificate Manager)</strong> > Import Certificate</li>
+          <li>Paste body of <code>bme.crt</code> into Certificate body</li>
+          <li>Paste body of <code>bme.key</code> into Private key</li>
+          <li>Import. Copy the ARN.</li>
+          <li>
+            Go back to ALB > Listeners > Add Listener > Protocol HTTPS (443) > Default Action: Forward to
+            <code>bme-tg</code> > Select imported certificate.
+          </li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 4: Configure Auto Scaling with ALB</span>
+        <ol>
+          <li>Go to <strong>Auto Scaling Groups</strong> > Edit <code>bme-asg</code> (or create new if not done yet)</li>
+          <li>Under Load Balancing, select: <strong>Attach to an existing load balancer</strong></li>
+          <li>Choose from existing target groups: <code>bme-tg</code></li>
+          <li>Health check type: ELB (uses ALB health checks)</li>
+          <li>Update</li>
+          <li>Wait 2–3 minutes, then visit the ALB DNS name in browser</li>
+        </ol>
+        <p><strong>Expected Output:</strong> You should see the BME web page. Each browser refresh may show a different server IP if you added it to the HTML.</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 5: Add HTTP to HTTPS Redirect</span>
+        <ol>
+          <li>ALB > Listeners > Select HTTP:80 listener > Edit</li>
+          <li>Change default action to: <strong>Redirect to HTTPS (443)</strong></li>
+          <li>Status code: 301 (Permanent)</li>
+          <li>Save changes</li>
+          <li>Test: Visit <code>http://[ALB-DNS]</code> — it should redirect to HTTPS automatically</li>
+        </ol>
+      </div>
+
+      <div class="warning-box">
+        <strong>Health Check Warning:</strong> If your ALB target group shows targets as Unhealthy, check: (1) EC2 security group allows HTTP from ALB security group, (2) Apache is running on the instance, (3) Health check path / returns HTTP 200.
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 8 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Screenshot of ALB created with internet-facing scheme</li>
+          <li>☐ Screenshot of Target Group showing targets as <strong>Healthy</strong></li>
+          <li>☐ Screenshot of HTTPS listener (443) configured</li>
+          <li>☐ Browser screenshot accessing BME site via ALB DNS name</li>
+          <li>☐ Screenshot of Auto Scaling Group attached to ALB target group</li>
+          <li>☐ Screenshot showing 2 instances running and registered in target group</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "My ALB target group shows my EC2 instance as Unhealthy. I have Apache running and security groups configured. What are the most common reasons for ALB health check failures and how do I fix each one?"
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Configured Application Load Balancer with HTTPS termination, Auto Scaling, and health checks for a high-availability web application."
+      </div>
+    </div>
+
+    <!-- SESSION 9 -->
+    <div id="session9" class="session-container">
+      <span class="week-badge week-3">Week 3</span>
+      <h2>Session 9: S3, RDS, IAM & Security Stack</h2>
+
+      <div class="step-box">
+        <span class="step-title">Part A: S3 for Assets</span>
+        <ol>
+          <li>S3 Console > Create bucket > Name: <code>bme-assets-[yourname]</code></li>
+          <li>Region: us-east-1</li>
+          <li><strong>Block all public access:</strong> Checked (Security Best Practice)</li>
+          <li><strong>Bucket Versioning:</strong> Enable</li>
+          <li>Encryption: SSE-S3 (Default)</li>
+          <li>Create. Upload a sample image <code>logo.png</code>.</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Part B: RDS Database</span>
+        <ol>
+          <li>RDS Console > Create database > Standard create > MySQL</li>
+          <li>Template: Dev/Test (Free tier eligible if needed, otherwise Production)</li>
+          <li>
+            Identifier: <code>bme-db</code> | Master username: <code>admin</code> | Password: <code>Password123!</code>
+          </li>
+          <li>Instance class: <code>db.t3.micro</code></li>
+          <li>Connectivity: <code>bme-vpc</code> | Public access: <strong>No</strong></li>
+          <li>VPC Security Group: Create new <code>bme-db-sg</code> (Allow MySQL 3306 from <code>bme-web-sg</code>)</li>
+          <li>Create database.</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Part C: IAM Role for EC2</span>
+        <ol>
+          <li>IAM Console > Roles > Create Role</li>
+          <li>Trusted entity: AWS Service > <strong>EC2</strong></li>
+          <li>Permissions: Search and add <code>AmazonS3ReadOnlyAccess</code></li>
+          <li>Name: <code>bme-ec2-role</code></li>
+          <li>Create.</li>
+          <li>
+            Go to EC2 > Select <code>bme-web-01</code> > Actions > Security > Modify IAM Role > Attach
+            <code>bme-ec2-role</code>.
+          </li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Part D: SNS Alerts Setup</span>
+        <ol>
+          <li>Go to <strong>SNS Console</strong> > Topics > Create topic</li>
+          <li>Type: <strong>Standard</strong> | Name: <code>bme-alerts</code></li>
+          <li>Create topic</li>
+          <li>Create Subscription: Protocol: <strong>Email</strong> | Endpoint: your email address</li>
+          <li>Click Create subscription — check your email and click the <strong>Confirm subscription</strong> link</li>
+          <li>Go to <strong>CloudWatch</strong> > Alarms > Create Alarm</li>
+          <li>Select metric: EC2 > Per-Instance Metrics > CPUUtilization</li>
+          <li>Set threshold: <strong>Greater than 70%</strong> for 1 datapoint in 1 minute</li>
+          <li>Notification: Send to <code>bme-alerts</code> SNS topic</li>
+          <li>Alarm name: <code>bme-high-cpu-alarm</code></li>
+          <li>Create alarm</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Part E: CloudTrail Setup</span>
+        <ol>
+          <li>Go to <strong>CloudTrail Console</strong> > Create trail</li>
+          <li>Trail name: <code>bme-audit-trail</code></li>
+          <li>Storage: Create new S3 bucket <code>bme-cloudtrail-logs-[yourname]</code></li>
+          <li>CloudWatch Logs: Enable to stream audit logs to CloudWatch</li>
+          <li>Create trail</li>
+          <li>Verify: Go to S3 bucket and confirm log files appear (may take 5–15 minutes)</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Part F: CloudFront Distribution</span>
+        <ol>
+          <li>Go to <strong>CloudFront Console</strong> > Create Distribution</li>
+          <li>Origin domain: Select your <code>bme-alb</code> DNS name</li>
+          <li>Protocol: <strong>HTTPS only</strong></li>
+          <li>Viewer protocol policy: <strong>Redirect HTTP to HTTPS</strong></li>
+          <li>Create distribution — wait ~5 minutes for deployment</li>
+          <li>Copy the CloudFront domain name (e.g., d1abc123.cloudfront.net)</li>
+          <li>Test in browser — you should see the BME web page</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Part G: Verify RDS Connectivity from EC2</span>
+        <p>Use EC2 Instance Connect to SSH into your web server, then run:</p>
+        <pre>
+# Install MySQL client
+sudo yum install mysql -y
+
+# Connect to RDS (replace endpoint with yours from RDS Console)
+mysql -h bme-db.xxxxxxxx.us-east-1.rds.amazonaws.com -u admin -p
+
+# When prompted enter: Password123!
+
+# Inside MySQL shell:
+SHOW DATABASES;
+EXIT;</pre>
+        <p><strong>Expected Output:</strong> You see a list of MySQL system databases — confirming EC2 can reach RDS over the private network using port 3306.</p>
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 9 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Screenshot of S3 bucket created with versioning enabled</li>
+          <li>☐ Screenshot of test file uploaded to S3 bucket</li>
+          <li>☐ Screenshot of RDS instance — Status: Available</li>
+          <li>☐ Screenshot of EC2 terminal showing SHOW DATABASES; output</li>
+          <li>☐ Screenshot of IAM Role attached to EC2 instance</li>
+          <li>☐ Screenshot of SNS topic + confirmed email subscription</li>
+          <li>☐ Screenshot of CloudWatch alarm configured</li>
+          <li>☐ Screenshot of CloudTrail trail created</li>
+          <li>☐ Screenshot of CloudFront distribution deployed (Status: Enabled)</li>
+          <li>☐ Browser screenshot of BME platform via CloudFront URL</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "I am trying to connect to my RDS MySQL database from my EC2 instance and getting 'ERROR 2003 (HY000): Can't connect to MySQL server'. I verified the security group allows port 3306. What are the other things I should check?"
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Deployed and integrated S3, RDS MySQL, IAM, CloudTrail, SNS, and CloudFront into a secure, monitored AWS web application environment."
+      </div>
+    </div>
+
+    <!-- SESSION 10 -->
+    <div id="session10" class="session-container">
+      <span class="week-badge week-3">Week 3</span>
+      <h2>Session 10: UAT Recommendations + Terraform Introduction</h2>
+
+      <div class="client-brief">
+        <strong>Client Brief:</strong> BME is ready to move toward User Acceptance Testing (UAT). The team needs updated technical recommendations for the UAT environment and a first hands-on test with Terraform by deploying a simple EC2 instance via code.
+      </div>
+
+      <div class="role-card">
+        <strong>Your Role:</strong> Prepare the UAT environment service recommendations AND deploy your first EC2 instance using Terraform Infrastructure as Code.
+      </div>
+
+      <h3>Part 1: UAT Technical Recommendations</h3>
+
+      <div class="step-box">
+        <span class="step-title">UAT-Specific Service Recommendations</span>
+        <p>UAT mirrors production as closely as possible while minimizing cost. Update your recommendations:</p>
+        <table>
+          <thead>
+            <tr><th>Domain</th><th>UAT Service</th><th>UAT-Specific Justification</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Region</td><td>us-east-1 (same as Prod)</td><td>Consistent environment ensures UAT reflects production behavior</td></tr>
+            <tr><td>Compute</td><td>EC2 t3.micro</td><td>UAT traffic is limited; cost efficiency is the priority</td></tr>
+            <tr><td>Database</td><td>RDS MySQL — Single AZ</td><td>UAT doesn't need failover; reduces cost while matching schema</td></tr>
+            <tr><td>Monitoring</td><td>CloudWatch basic + SNS</td><td>Alert on errors during testing; full enhanced monitoring in prod only</td></tr>
+            <tr><td>Security</td><td>Security Groups + WAF (test rules)</td><td>Validate WAF rules don't block legitimate traffic before prod</td></tr>
+            <tr><td>Networking</td><td>VPC with public + private subnets</td><td>Same structure as prod to catch networking issues early</td></tr>
+            <tr><td>Storage</td><td>S3 (test data only)</td><td>Test S3 integration without using production data</td></tr>
+            <tr><td>IAM</td><td>Separate IAM roles for UAT account</td><td>Prevent UAT access from touching production resources</td></tr>
+            <tr><td>Cost</td><td>AWS Budgets (lower threshold)</td><td>UAT should cost less than prod; alert if UAT costs exceed threshold</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Part 2: First Terraform Deployment</h3>
+
+      <div class="step-box">
+        <span class="step-title">STEP 1: Install &amp; Configure Tools</span>
+        <p>In AWS CloudShell or on your local machine:</p>
+        <pre>
+# Install Terraform (Amazon Linux / CloudShell)
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+sudo yum -y install terraform
+
+# Verify
+terraform -version
+
+# Configure AWS CLI (if not done already)
+aws configure
+# Enter: Access Key ID, Secret Key, us-east-1, json
+
+# Test
+aws sts get-caller-identity</pre>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 2: Create main.tf</span>
+        <p>Create folder <code>bme-terraform-intro</code>, then inside create <code>main.tf</code>:</p>
+        <pre>
+provider "aws" {
+  region = "us-east-1"
+}
+
+resource "aws_instance" "bme_test" {
+  ami           = "ami-0c02fb55956c7d316"  # Amazon Linux 2 — us-east-1
+  instance_type = "t3.micro"
+
+  tags = {
+    Name        = "bme-terraform-test"
+    Environment = "UAT"
+    Project     = "BME-Platform"
+  }
+}
+
+output "instance_id" {
+  value = aws_instance.bme_test.id
+}
+
+output "public_ip" {
+  value = aws_instance.bme_test.public_ip
+}</pre>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 3: Initialize, Plan, Apply, Destroy</span>
+        <pre>
+# Initialize — downloads AWS provider
+terraform init
+
+# Preview what will be created
+terraform plan
+
+# Create the EC2 instance
+terraform apply
+# Type "yes" when prompted
+
+# Verify: Check AWS Console — EC2 instance "bme-terraform-test" should be running
+
+# Destroy to avoid cost
+terraform destroy
+# Type "yes" when prompted</pre>
+        <p><strong>Expected outputs after apply:</strong></p>
+        <pre>
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+instance_id = "i-0abc12345678"
+public_ip = "54.x.x.x"</pre>
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 10 Evidence Checklist</strong>
+        <ul>
+          <li>☐ UAT recommendations document saved (all 9 domains)</li>
+          <li>☐ Screenshot of <code>terraform init</code> — "Terraform initialized in this directory"</li>
+          <li>☐ Screenshot of <code>terraform plan</code> — "Plan: 1 to add"</li>
+          <li>☐ Screenshot of <code>terraform apply</code> — "Apply complete! Resources: 1 added"</li>
+          <li>☐ Screenshot of EC2 Console showing <code>bme-terraform-test</code> instance</li>
+          <li>☐ Screenshot of <code>terraform destroy</code> — "Destroy complete! Resources: 1 destroyed"</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "Explain what terraform init, terraform plan, and terraform apply do in simple terms. Also explain what happens to the real AWS resources when I run terraform destroy."
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Wrote and executed first Terraform Infrastructure as Code deployment to AWS, provisioning and destroying EC2 resources programmatically using HCL."
+      </div>
+    </div>
+
+    <!-- SESSION 11 -->
+    <div id="session11" class="session-container">
+      <span class="week-badge week-3">Week 3</span>
+      <h2>Session 11: Terraform Multi-Environment Setup</h2>
+
+      <div class="client-brief">
+        <strong>Client Brief:</strong> BME requires separate environments for Development (Dev), User Acceptance Testing
+        (UAT), and Production. We will use Terraform to manage this.
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 1: Folder Structure Setup</span>
+        <p>Create the following directory structure in VS Code:</p>
+        <pre>
+bme-terraform-project/
+├── dev/
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── terraform.tfvars
+│   └── backend.tf
+├── uat/
+│   └── ... (same files)
+└── prod/
+    └── ... (same files)
+</pre
+        >
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 2: Define Main.tf (Example for Dev)</span>
+        <p>In <code>dev/main.tf</code>:</p>
+        <pre>
+provider "aws" {
+  region = var.region
+}
+
+resource "aws_vpc" "main" {
+  cidr_block = var.vpc_cidr
+  tags = {
+    Name = "${var.environment}-vpc"
+  }
+}
+
+resource "aws_subnet" "public" {
+  vpc_id     = aws_vpc.main.id
+  cidr_block = "10.0.1.0/24"
+  tags = {
+    Name = "${var.environment}-public-subnet"
+  }
+}
+
+resource "aws_instance" "app_server" {
+  ami           = "ami-0c02fb55956c7d316" # Amazon Linux 2 (us-east-1)
+  instance_type = "t3.micro"
+  subnet_id     = aws_subnet.public.id
+  
+  tags = {
+    Name = "${var.environment}-web-server"
+  }
+}
+</pre
+        >
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 3: Configure Backend (S3 State)</span>
+        <p>In <code>dev/backend.tf</code> (Ensure bucket exists first!):</p>
+        <pre>
+terraform {
+  backend "s3" {
+    bucket = "bme-terraform-state-[yourname]"
+    key    = "dev/terraform.tfstate"
+    region = "us-east-1"
+  }
+}
+</pre
+        >
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 4: Initialize &amp; Apply All Environments</span>
+        <p>Run inside each environment folder (dev, uat, prod):</p>
+        <pre>
+# Inside dev/ folder
+cd dev
+terraform init
+terraform plan
+terraform apply --auto-approve
+
+# Then repeat for uat/ and prod/
+cd ../uat
+terraform init
+terraform plan
+terraform apply --auto-approve</pre>
+        <p><strong>Expected:</strong> Each environment creates its own isolated VPC, subnet, EC2 instance, and saves state to its own S3 backend.</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 5: Add variables.tf for All Environments</span>
+        <p>In <code>dev/variables.tf</code>:</p>
+        <pre>
+variable "region" {
+  default = "us-east-1"
+}
+
+variable "environment" {
+  default = "dev"
+}
+
+variable "vpc_cidr" {
+  default = "10.0.0.0/16"
+}
+
+variable "instance_type" {
+  default = "t3.micro"
+}</pre>
+        <p>For UAT: change <code>environment</code> to <code>"uat"</code>. For Prod: change to <code>"prod"</code> and <code>instance_type</code> to <code>"t3.medium"</code>.</p>
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 11 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Screenshot of Terraform project folder structure (dev/, uat/, prod/)</li>
+          <li>☐ Screenshot of Dev <code>terraform init</code> — "Terraform initialized"</li>
+          <li>☐ Screenshot of Dev <code>terraform apply</code> — "Apply complete"</li>
+          <li>☐ Screenshot of UAT deployment success</li>
+          <li>☐ Screenshot of S3 bucket showing terraform.tfstate file for each environment</li>
+          <li>☐ AWS Console showing resources tagged with environment name</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "I have a Terraform project with separate folders for dev, uat, and prod. Explain how using a different backend.tf key for each environment prevents state conflicts. Also, why do I need DynamoDB for state locking?"
+      </div>
+    </div>
+
+    <!-- SESSION 12 -->
+    <div id="session12" class="session-container">
+      <span class="week-badge week-3">Week 3</span>
+      <h2>Session 12: Production Terraform Deployment</h2>
+
+      <div class="role-card">
+        <strong>Task:</strong> Deploy the full 3-tier architecture to the Production environment using Terraform.
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Prod Environment Configuration</span>
+        <p>Update <code>prod/variables.tf</code> to reflect production sizing:</p>
+        <pre>
+variable "instance_type" {
+  default = "t3.medium" # Larger for prod
+}
+
+variable "environment" {
+  default = "prod"
+}
+
+variable "db_multi_az" {
+  default = true
+}
+</pre
+        >
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">Execution</span>
+        <ol>
+          <li>Navigate to <code>prod/</code> directory.</li>
+          <li>Run <code>terraform init</code></li>
+          <li>Run <code>terraform plan</code> (Review resources: VPC, 4 Subnets, IGW, NAT, ASG, ALB, RDS)</li>
+          <li>Run <code>terraform apply</code></li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 2: Full Production main.tf</span>
+        <p>In <code>prod/main.tf</code>, build a complete 3-tier infrastructure:</p>
+        <pre>
+provider "aws" {
+  region = var.region
+}
+
+# VPC
+resource "aws_vpc" "prod_vpc" {
+  cidr_block           = "10.2.0.0/16"
+  enable_dns_support   = true
+  enable_dns_hostnames = true
+  tags = { Name = "prod-bme-vpc" }
+}
+
+# Public Subnets
+resource "aws_subnet" "public_1" {
+  vpc_id            = aws_vpc.prod_vpc.id
+  cidr_block        = "10.2.1.0/24"
+  availability_zone = "us-east-2a"
+  map_public_ip_on_launch = true
+  tags = { Name = "prod-public-1a" }
+}
+
+resource "aws_subnet" "public_2" {
+  vpc_id            = aws_vpc.prod_vpc.id
+  cidr_block        = "10.2.2.0/24"
+  availability_zone = "us-east-2b"
+  map_public_ip_on_launch = true
+  tags = { Name = "prod-public-1b" }
+}
+
+# Internet Gateway
+resource "aws_internet_gateway" "igw" {
+  vpc_id = aws_vpc.prod_vpc.id
+  tags   = { Name = "prod-igw" }
+}
+
+# Route Table
+resource "aws_route_table" "public_rt" {
+  vpc_id = aws_vpc.prod_vpc.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+  tags = { Name = "prod-public-rt" }
+}
+
+resource "aws_route_table_association" "rta1" {
+  subnet_id      = aws_subnet.public_1.id
+  route_table_id = aws_route_table.public_rt.id
+}
+
+# Security Group
+resource "aws_security_group" "web_sg" {
+  name   = "prod-web-sg"
+  vpc_id = aws_vpc.prod_vpc.id
+
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+# EC2 Instance
+resource "aws_instance" "web" {
+  ami                    = "ami-0c55b159cbfafe1f0"  # Amazon Linux 2 us-east-2
+  instance_type          = var.instance_type
+  subnet_id              = aws_subnet.public_1.id
+  vpc_security_group_ids = [aws_security_group.web_sg.id]
+
+  user_data = &lt;&lt;-EOF
+              #!/bin/bash
+              yum update -y
+              yum install httpd -y
+              systemctl start httpd
+              systemctl enable httpd
+              echo "&lt;h1&gt;BME Production Platform&lt;/h1&gt;" &gt; /var/www/html/index.html
+              EOF
+
+  tags = { Name = "prod-web-server", Environment = "prod" }
+}
+
+output "web_server_ip" {
+  value = aws_instance.web.public_ip
+}</pre>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 3: Deploy and Validate Production</span>
+        <pre>
+cd prod
+terraform init
+terraform plan    # Review carefully — this is production!
+terraform apply
+
+# Copy the output: web_server_ip = "xx.xx.xx.xx"
+# Visit in browser to confirm it works
+
+# IMPORTANT: Destroy immediately after validation
+terraform destroy</pre>
+      </div>
+
+      <div class="warning-box">
+        <strong>Cost Warning:</strong> This production deployment creates resources that cost money (ALB, NAT Gateway, RDS if included). Run <code>terraform destroy</code> immediately after validation. Never leave unused resources running.
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 12 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Screenshot of <code>terraform plan</code> showing all resources to be created</li>
+          <li>☐ Screenshot of <code>terraform apply</code> — "Apply complete! Resources: X added"</li>
+          <li>☐ Screenshot of AWS Console (us-east-2) showing VPC, subnets, EC2</li>
+          <li>☐ Browser screenshot of production web page via public IP</li>
+          <li>☐ Screenshot of <code>terraform destroy</code> — "Destroy complete!"</li>
+          <li>☐ Confirm via AWS Console: all resources terminated</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "Explain the difference between running Terraform for a dev environment vs a production environment. What extra precautions should I take before running terraform apply in production?"
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Deployed production-ready three-tier AWS infrastructure using Terraform, including VPC, EC2, Security Groups, and Internet Gateway across multiple availability zones."
+      </div>
+    </div>
+
+    <!-- SESSION 11 evidence + SESSION 12 evidence added inline -->
+    <!-- SESSION 13 -->
+    <div id="session13" class="session-container">
+      <span class="week-badge week-4">Week 4</span>
+      <h2>Session 13: GitHub Actions CI/CD Setup</h2>
+
+      <div class="client-brief">
+        <strong>Client Brief:</strong> Manual terraform runs are risky. BME wants an automated pipeline that deploys
+        infrastructure when code is pushed to GitHub.
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 1: Create IAM User for CI/CD</span>
+        <ol>
+          <li>IAM Console > Users > Create User <code>github-actions-user</code>.</li>
+          <li>Attach Policy: <code>AdministratorAccess</code> (For training purposes; restrict in real life).</li>
+          <li>Security Credentials > Create Access Key.</li>
+          <li><strong>Copy Access Key ID and Secret Access Key.</strong></li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 2: Configure GitHub Secrets</span>
+        <ol>
+          <li>Go to your GitHub Repository > Settings > Secrets and variables > Actions.</li>
+          <li>
+            Add New Repository Secret:
+            <ul>
+              <li><code>AWS_ACCESS_KEY_ID_DEV</code></li>
+              <li><code>AWS_SECRET_ACCESS_KEY_DEV</code></li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 3: Create Workflow File</span>
+        <p>Create file <code>.github/workflows/terraform-dev.yml</code>:</p>
+        <pre>
+name: "Terraform Deploy Dev"
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'dev/**'
+
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        run: terraform init
+        working-directory: ./dev
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+          AWS_REGION: "us-east-1"
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        working-directory: ./dev
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+          AWS_REGION: "us-east-1"
+</pre
+        >
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 4: Trigger &amp; Verify</span>
+        <ol>
+          <li>Commit and push the change to GitHub:
+            <pre>
+git add .
+git commit -m "Add GitHub Actions Terraform pipeline for Dev"
+git push origin main</pre>
+          </li>
+          <li>Go to your GitHub repo > <strong>Actions</strong> tab</li>
+          <li>Watch the workflow run — it should show a <strong>green checkmark</strong> (Success)</li>
+          <li>Go to AWS Console > EC2 to verify resources created by the pipeline</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 5: Add UAT and Prod Secrets &amp; Workflows</span>
+        <p>Repeat Steps 1–4 for UAT and Prod environments. Add secrets:</p>
+        <ul>
+          <li><code>AWS_ACCESS_KEY_ID_UAT</code> / <code>AWS_SECRET_ACCESS_KEY_UAT</code></li>
+          <li><code>AWS_ACCESS_KEY_ID_PROD</code> / <code>AWS_SECRET_ACCESS_KEY_PROD</code></li>
+        </ul>
+        <p>Create <code>.github/workflows/terraform-uat.yml</code> and <code>terraform-prod.yml</code> — identical to the dev workflow but with UAT/Prod secrets and <code>working-directory: ./uat</code> / <code>./prod</code>.</p>
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 13 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Screenshot of IAM user created with access key</li>
+          <li>☐ Screenshot of GitHub repo Secrets page showing AWS secrets added</li>
+          <li>☐ Screenshot of GitHub Actions tab showing workflow running</li>
+          <li>☐ Screenshot of workflow completed with <strong>green checkmark</strong></li>
+          <li>☐ Screenshot of AWS Console showing resources created by the pipeline</li>
+          <li>☐ Your GitHub repo link (with Actions visible)</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "My GitHub Actions workflow for Terraform is failing with 'Error: No valid credential sources found for AWS Provider'. I have added secrets to the repo. Explain the most common causes of this error and how to fix them."
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Built GitHub Actions CI/CD pipelines for automated Terraform deployments to AWS across Dev, UAT, and Production environments."
+      </div>
+    </div>
+
+    <!-- SESSION 14 -->
+    <div id="session14" class="session-container">
+      <span class="week-badge week-4">Week 4</span>
+      <h2>Session 14: CI/CD Pipeline Completion &amp; Validation</h2>
+
+      <div class="client-brief">
+        <strong>Client Brief:</strong> BME's engineering team needs a fully tested, personalized Terraform CI/CD pipeline that successfully deploys and destroys infrastructure in all three environments: Dev, UAT, and Production.
+      </div>
+
+      <div class="role-card">
+        <strong>Your Role:</strong> Complete your GitHub repository configuration, personalize all backend and variable files, trigger and validate all three environment pipelines, and document the results.
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 1: Set Up Your Unique Backend Configuration</span>
+        <p>Each environment needs a unique S3 backend. S3 bucket names must be globally unique.</p>
+        <p>In <code>dev/backend.tf</code>:</p>
+        <pre>
+terraform {
+  backend "s3" {
+    bucket         = "bme-tf-state-[yourfirstname]-dev"
+    key            = "dev/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "bme-tf-lock-dev"
+    encrypt        = true
+  }
+}</pre>
+        <p>In <code>uat/backend.tf</code>:</p>
+        <pre>
+terraform {
+  backend "s3" {
+    bucket         = "bme-tf-state-[yourfirstname]-uat"
+    key            = "uat/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "bme-tf-lock-uat"
+    encrypt        = true
+  }
+}</pre>
+        <p>In <code>prod/backend.tf</code>:</p>
+        <pre>
+terraform {
+  backend "s3" {
+    bucket         = "bme-tf-state-[yourfirstname]-prod"
+    key            = "prod/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "bme-tf-lock-prod"
+    encrypt        = true
+  }
+}</pre>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 2: Create S3 Buckets and DynamoDB Tables for State</span>
+        <pre>
+# Create S3 buckets for state storage (run once manually)
+aws s3 mb s3://bme-tf-state-[yourname]-dev --region us-east-1
+aws s3 mb s3://bme-tf-state-[yourname]-uat --region us-east-1
+aws s3 mb s3://bme-tf-state-[yourname]-prod --region us-east-1
+
+# Enable versioning on each bucket
+aws s3api put-bucket-versioning --bucket bme-tf-state-[yourname]-dev --versioning-configuration Status=Enabled
+
+# Create DynamoDB tables for state locking
+aws dynamodb create-table \
+  --table-name bme-tf-lock-dev \
+  --attribute-definitions AttributeName=LockID,AttributeType=S \
+  --key-schema AttributeName=LockID,KeyType=HASH \
+  --billing-mode PAY_PER_REQUEST \
+  --region us-east-1
+
+# Repeat for uat and prod</pre>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 3: Personalize Your terraform.tfvars</span>
+        <p>In <code>dev/terraform.tfvars</code>:</p>
+        <pre>
+environment    = "dev"
+region         = "us-east-1"
+instance_type  = "t3.micro"
+project_name   = "bme-platform"</pre>
+        <p>In <code>prod/terraform.tfvars</code>:</p>
+        <pre>
+environment    = "prod"
+region         = "us-east-2"
+instance_type  = "t3.medium"
+project_name   = "bme-platform"</pre>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 4: Commit, Push, and Trigger All Pipelines</span>
+        <pre>
+git add .
+git commit -m "Complete backend config and personalize all environments"
+git push origin main</pre>
+        <ol>
+          <li>Go to GitHub > Actions tab</li>
+          <li>Verify all 3 pipelines run (Dev, UAT, Prod workflows)</li>
+          <li>All 3 should show green checkmarks</li>
+          <li>Go to AWS Console and verify resources created in each environment</li>
+        </ol>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 5: Add a Destroy Workflow</span>
+        <p>Create <code>.github/workflows/terraform-destroy-dev.yml</code>:</p>
+        <pre>
+name: "Terraform Destroy Dev"
+
+on:
+  workflow_dispatch:  # Manual trigger only
+
+jobs:
+  destroy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve
+        working-directory: ./dev
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+          AWS_REGION: "us-east-1"</pre>
+        <p>Trigger manually: GitHub > Actions > Select "Terraform Destroy Dev" > Run workflow</p>
+      </div>
+
+      <div class="step-box">
+        <span class="step-title">STEP 6: Validate Complete Results</span>
+        <p>Your final validation checklist:</p>
+        <ul>
+          <li>All 3 deploy pipelines show green in GitHub Actions</li>
+          <li>AWS Console shows resources in Dev, UAT, and Prod accounts/regions</li>
+          <li>S3 state buckets contain terraform.tfstate files</li>
+          <li>DynamoDB lock tables exist</li>
+          <li>Destroy workflow works without errors</li>
+        </ul>
+      </div>
+
+      <div class="checklist">
+        <strong>✅ Session 14 Evidence Checklist</strong>
+        <ul>
+          <li>☐ Screenshot of all 6 GitHub repository secrets (3 environments × 2 keys)</li>
+          <li>☐ Screenshot of backend.tf for each environment with unique bucket names</li>
+          <li>☐ Screenshot of S3 buckets created (dev, uat, prod)</li>
+          <li>☐ Screenshot of DynamoDB tables created for state locking</li>
+          <li>☐ Screenshot of GitHub Actions — all 3 deploy pipelines showing green</li>
+          <li>☐ Screenshot of AWS Console showing resources in Dev environment</li>
+          <li>☐ Screenshot of AWS Console showing resources in UAT environment</li>
+          <li>☐ Screenshot of AWS Console showing resources in Prod environment</li>
+          <li>☐ Screenshot of Destroy workflow triggered and completed</li>
+          <li>☐ Your GitHub repository link (public)</li>
+        </ul>
+      </div>
+
+      <div class="ai-prompt">
+        <div class="ai-title">🟣 Claude AI Support Prompt</div>
+        "I have a Terraform backend configured with S3 and DynamoDB. When I run terraform init, I get 'Error: Failed to get existing workspaces: S3 bucket does not exist.' What steps should I take to create the backend resources manually before running terraform init?"
+      </div>
+
+      <div class="portfolio-note">
+        <strong>Portfolio Addition:</strong> "Built and validated a fully automated Terraform CI/CD pipeline using GitHub Actions with multi-environment (Dev/UAT/Prod) deployment, S3 remote state management, and DynamoDB state locking on AWS."
+      </div>
+    </div>
+
+    <!-- END OF REGULAR LABS -->
+    <div class="session-container" style="background-color:#1a2744; color:white; text-align:center;">
+      <h2 style="color:white; border-color:#3b82f6;">🎓 End of Regular Lab Sessions (1–14)</h2>
+      <p style="font-size:1.1rem;">You have completed all core infrastructure, security, IaC, and CI/CD labs.</p>
+      <p>Your next phase is the <strong>Final Capstone Project</strong> — deploying a production-ready containerized application using ECS or EKS.</p>
+      <p style="margin-top:20px; font-weight:bold; color:#93c5fd;">Resources to keep: your VPC, your GitHub repo, your Terraform files, and all screenshots.</p>
+    </div>
+
+    <!-- APPENDIX: QUICK REFERENCE -->
+    <div class="session-container">
+      <h2>📋 Quick Reference: Common Commands</h2>
+
+      <h3>Apache on Amazon Linux</h3>
+      <pre>
+sudo yum update -y
+sudo yum install httpd -y
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl status httpd
+echo "&lt;h1&gt;BME Platform&lt;/h1&gt;" | sudo tee /var/www/html/index.html</pre>
+
+      <h3>Apache on Ubuntu</h3>
+      <pre>
+sudo apt update -y
+sudo apt install apache2 -y
+sudo systemctl start apache2
+sudo systemctl enable apache2
+echo "&lt;h1&gt;BME Platform&lt;/h1&gt;" | sudo tee /var/www/html/index.html</pre>
+
+      <h3>Terraform Commands</h3>
+      <pre>
+terraform init      # Initialize and download providers
+terraform fmt       # Format code
+terraform validate  # Validate syntax
+terraform plan      # Preview changes
+terraform apply     # Apply changes (confirm with yes)
+terraform apply -auto-approve  # Apply without confirmation
+terraform destroy   # Destroy all resources
+terraform show      # Show current state
+terraform output    # Show output values</pre>
+
+      <h3>AWS CLI Essentials</h3>
+      <pre>
+aws configure                          # Set up credentials
+aws sts get-caller-identity            # Check who you are logged in as
+aws ec2 describe-instances             # List EC2 instances
+aws s3 ls                              # List S3 buckets
+aws s3 cp file.txt s3://bucket-name/   # Copy file to S3
+aws rds describe-db-instances          # List RDS instances
+aws iam list-users                     # List IAM users</pre>
+
+      <h3>OpenSSL Self-Signed Certificate (for HTTPS Lab)</h3>
+      <pre>
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+  -keyout bme.key -out bme.crt \
+  -subj "/CN=bme.local/O=BME/C=US"
+
+# View the certificate
+cat bme.crt
+cat bme.key</pre>
+
+      <h3>MySQL Client (from EC2 to RDS)</h3>
+      <pre>
+# Install MySQL client
+sudo yum install mysql -y     # Amazon Linux
+sudo apt install mysql-client -y  # Ubuntu
+
+# Connect to RDS
+mysql -h [RDS_ENDPOINT] -u admin -p
+
+# Commands inside MySQL
+SHOW DATABASES;
+CREATE DATABASE bme_app;
+USE bme_app;
+EXIT;</pre>
+
+      <h3>GitHub / Git Commands</h3>
+      <pre>
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/[your-username]/[repo-name].git
+git push -u origin main
+
+# For subsequent pushes
+git add .
+git commit -m "Update message"
+git push</pre>
+    </div>
+
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
