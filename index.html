@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" style=""><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
     <title>Phase 2 AWS Cloud Architect — Student Workbook 2026 | ZICT</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    
     <style>
       :root {
         --zict-blue: #1a3c6e;
@@ -672,10 +672,153 @@
         color: var(--zict-gold);
         text-decoration: none;
       }
+      /* LMS enhancement blocks */
+      .lms-banner {
+        border-radius: 10px;
+        padding: 22px 24px;
+        margin: 16px 0 22px;
+        border: 1px solid var(--border);
+        box-shadow: 0 8px 24px rgba(26, 60, 110, 0.08);
+      }
+      .lms-week1 {
+        background: linear-gradient(135deg, #eef7ff 0%, #e1f0ff 100%);
+        border-left: 6px solid var(--week1);
+      }
+      .lms-week2 {
+        background: linear-gradient(135deg, #eefcf4 0%, #e3f8ea 100%);
+        border-left: 6px solid var(--week2);
+      }
+      .lms-week3 {
+        background: linear-gradient(135deg, #fff9ef 0%, #fff4dc 100%);
+        border-left: 6px solid var(--week3);
+      }
+      .lms-week4 {
+        background: linear-gradient(135deg, #f7f0ff 0%, #f1e6ff 100%);
+        border-left: 6px solid var(--week4);
+      }
+      .lms-kicker {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        background: rgba(26, 60, 110, 0.08);
+        color: var(--zict-blue);
+        margin-bottom: 10px;
+      }
+      .lms-title {
+        font-size: 1.15em;
+        font-weight: 800;
+        color: var(--text-dark);
+        margin-bottom: 10px;
+      }
+      .lms-grid {
+        display: grid;
+        gap: 14px;
+        margin-top: 14px;
+      }
+      .lms-grid.two {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+      .lms-grid.three {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+      .lms-card {
+        background: rgba(255, 255, 255, 0.88);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 16px;
+      }
+      .lms-card h4,
+      .lms-card h5 {
+        margin-top: 0;
+        margin-bottom: 8px;
+      }
+      .mini-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .mini-links a {
+        display: inline-block;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #fff;
+        border: 1px solid var(--border);
+        text-decoration: none;
+        font-size: 13px;
+      }
+      .flow-graphic {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin: 14px 0 8px;
+      }
+      .flow-step {
+        flex: 1 1 150px;
+        min-width: 150px;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 14px;
+        text-align: center;
+        font-weight: 700;
+        color: var(--text-dark);
+      }
+      .flow-step small {
+        display: block;
+        margin-top: 6px;
+        font-weight: 400;
+        color: #666;
+        line-height: 1.4;
+      }
+      .flow-arrow {
+        font-size: 22px;
+        font-weight: 800;
+        color: #999;
+        padding: 0 2px;
+      }
+      .env-graphic {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 14px;
+        margin-top: 14px;
+      }
+      .env-stage {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .env-stage img {
+        width: 100%;
+        display: block;
+        border-bottom: 1px solid var(--border);
+      }
+      .env-stage-body {
+        padding: 14px;
+      }
+      .env-stage-body h4 {
+        margin-top: 0;
+      }
+      .resource-note {
+        font-size: 13px;
+        color: #555;
+        margin-top: 8px;
+      }
+      @media (max-width: 640px) {
+        .flow-arrow {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body style="">
-    <!-- ===== COVER ===== -->
+    
     <div class="cover">
       <div class="cover-badge">ZICT Training Program</div>
       <h1>Phase 2 AWS Cloud Architect</h1>
@@ -692,7 +835,7 @@
       </div>
     </div>
 
-    <!-- ===== DAILY SCHEDULE BANNER ===== -->
+    
     <div class="schedule-banner">
       <div class="schedule-slot">
         <span class="time">6:00 PM – 7:00 PM</span>
@@ -715,10 +858,11 @@
       </div>
     </div>
 
-    <!-- ===== TABLE OF CONTENTS ===== -->
+    
     <div class="toc" id="top">
       <h3>Contents</h3>
       <ul>
+        <li><a href="#lms-start">LMS Start Here</a></li>
         <li><a href="#how-it-works">How This Program Works</a></li>
         <li><a href="#client-profile">BME Client Profile</a></li>
         <li><a href="#syllabus">Full Syllabus</a></li>
@@ -734,8 +878,74 @@
         <li><a href="#submission">Assessment &amp; Submission Guide</a></li>
       </ul>
     </div>
+    <div class="hint-box" style="margin-bottom:20px"><span class="box-label">🗂 Program Quick Navigation</span><table><tbody><tr><th>Week</th><th>Assessment Links</th><th>Best Use</th></tr><tr><td>Week 1</td><td><a href="#a1">A1</a> · <a href="#a2">A2</a> · <a href="#a3">A3</a> · <a href="#a4">A4</a></td><td>Discovery, recommendations, diagrams, documentation</td></tr><tr><td>Week 2</td><td><a href="#a5">A5</a> · <a href="#a6">A6</a> · <a href="#a7">A7</a> · <a href="#a8">A8</a></td><td>Infrastructure build, networking, EC2, ALB, HTTPS</td></tr><tr><td>Week 3</td><td><a href="#a9">A9</a> · <a href="#a10">A10</a> · <a href="#a11">A11</a> · <a href="#a12">A12</a></td><td>AWS services, UAT, Terraform, production design</td></tr><tr><td>Week 4</td><td><a href="#a13">A13</a> · <a href="#a14">A14</a> · <a href="#a15-16">A15–16</a></td><td>CI/CD pipelines, documentation, review, capstone planning</td></tr><tr><td>Week 5</td><td><a href="#week5">Capstone Projects 1–3</a></td><td>Independent project delivery</td></tr><tr><td>Week 6</td><td><a href="#week6">Capstone Projects 4–6</a></td><td>Final implementation and presentation</td></tr></tbody></table><ul class="checklist"><li>Use this panel first if you want fast access instead of scrolling</li><li>For career guidance jump to <a href="#career-roles">Career Roles</a></li><li>For tools and setup jump to <a href="#tools">Tools &amp; Setup</a></li><li>For file naming and evidence rules jump to <a href="#submission">Assessment &amp; Submission Guide</a></li></ul></div>
 
-    <!-- ===== HOW IT WORKS ===== -->
+    <div class="lms-banner lms-week1" id="lms-start">
+      <span class="lms-kicker">LMS start here</span>
+      <div class="lms-title">What resources you will use, why they matter, and how the program flows</div>
+      <p>Start here before Week 1. This workbook is strongest when students understand not only <em>what</em> tool to use, but <em>why</em> each resource exists in the workflow from client requirement to job-ready portfolio evidence.</p>
+      <div class="mini-links">
+        <a href="#how-it-works">Program flow</a>
+        <a href="#week1">Week 1</a>
+        <a href="#week2">Week 2</a>
+        <a href="#week3">Week 3</a>
+        <a href="#week4">Week 4</a>
+        <a href="#career-roles">Career roles</a>
+      </div>
+      <div class="flow-graphic">
+        <div class="flow-step">Client need<small>Understand BME business, scale, security and cost requirements</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Design &amp; diagram<small>Use Lucidchart and documentation to justify every service choice</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Build in AWS<small>Create the resources manually so the architecture becomes real</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Automate with Terraform<small>Move from clicks to reusable Infrastructure as Code</small></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">Publish &amp; present<small>Push to GitHub, explain the work, and use it in interviews and job applications</small></div>
+      </div>
+      <div class="lms-grid three">
+        <div class="lms-card">
+          <h4>AWS Console</h4>
+          <p><strong>Usage:</strong> create VPCs, subnets, EC2, RDS, IAM, CloudTrail, SNS, CloudFront and budgets manually.</p>
+          <p><strong>Why:</strong> students must first understand how AWS resources behave before automating them.</p>
+        </div>
+        <div class="lms-card">
+          <h4>Lucidchart</h4>
+          <p><strong>Usage:</strong> draw the Dev, UAT and Production architecture diagrams.</p>
+          <p><strong>Why:</strong> architecture communication is part of real cloud engineering and interviews.</p>
+        </div>
+        <div class="lms-card">
+          <h4>Terraform</h4>
+          <p><strong>Usage:</strong> convert infrastructure into reusable <code>.tf</code> files and promote environments safely.</p>
+          <p><strong>Why:</strong> Infrastructure as Code is a core hiring skill for cloud and DevOps roles.</p>
+        </div>
+        <div class="lms-card">
+          <h4>GitHub</h4>
+          <p><strong>Usage:</strong> store Terraform, workflow YAML, and evidence links in a public or training repository.</p>
+          <p><strong>Why:</strong> recruiters and interviewers want proof of version control and collaboration habits.</p>
+        </div>
+        <div class="lms-card">
+          <h4>VS Code + AWS CLI</h4>
+          <p><strong>Usage:</strong> edit files, run commands, authenticate with AWS, and validate Terraform locally.</p>
+          <p><strong>Why:</strong> this is the day-to-day workstation flow for many cloud engineers.</p>
+        </div>
+        <div class="lms-card">
+          <h4>Claude AI</h4>
+          <p><strong>Usage:</strong> explain errors, improve documentation, and support troubleshooting.</p>
+          <p><strong>Why:</strong> engineers use AI for support, but must still own decisions and hands-on execution.</p>
+        </div>
+      </div>
+      <div class="hint-box" style="margin-top:16px">
+        <span class="box-label">🎯 Outcome of using resources correctly</span>
+        <ul class="checklist">
+          <li>You can explain every major AWS service in business language and technical language</li>
+          <li>You build evidence for GitHub, LinkedIn, presentations, and interviews at the same time</li>
+          <li>You finish the program with portfolio projects, automation skills, and job-search material — not only notes</li>
+        </ul>
+      </div>
+    </div>
+
+    
     <div class="section" id="how-it-works">
       <div class="section-header">
         <div class="section-icon" style="background: #e8f4fd; color: var(--zict-blue)">🎯</div>
@@ -804,7 +1014,7 @@
       </div>
     </div>
 
-    <!-- ===== CLIENT PROFILE ===== -->
+    
     <div class="section" id="client-profile">
       <div class="section-header">
         <div class="section-icon" style="background: #fff3cd; color: #856404">🏢</div>
@@ -865,7 +1075,7 @@
       </ul>
     </div>
 
-    <!-- ===== SYLLABUS ===== -->
+    
     <div class="section" id="syllabus">
       <div class="section-header">
         <div class="section-icon" style="background: #eafaf1; color: #1a7a42">📋</div>
@@ -892,7 +1102,7 @@
         </tr>
         <tr>
           <td><strong>Week 3</strong></td>
-          <td>Services, UAT &amp; Terraform Intro</td>
+          <td>Services, UAT &amp; Terraform Course Guide</td>
           <td>9–12</td>
           <td>S3/RDS/IAM/CloudTrail/SNS/CloudFront, UAT recommendations, Terraform multi-env, Production Terraform</td>
         </tr>
@@ -962,10 +1172,34 @@
       </ul>
     </div>
 
-    <!-- ============================== WEEK 1 ============================== -->
+    
     <div class="week-header week-1" id="week1">📐 Week 1 — Architecture &amp; Design | Assessments 1–4</div>
 
-    <!-- ASSESSMENT 1 -->
+    <div class="lms-banner lms-week1">
+      <span class="lms-kicker">Week 1 interview focus</span>
+      <div class="lms-title">Architecture thinking, requirements gathering and service-selection questions</div>
+      <div class="lms-grid two">
+        <div class="lms-card">
+          <h4>What to be able to explain</h4>
+          <ul>
+            <li>Why BME needs separate Dev, UAT and Production environments</li>
+            <li>Why ALB is preferred over NLB for HTTP/HTTPS workloads</li>
+            <li>Why Route 53, CloudFront, WAF, Shield and Auto Scaling belong in the design</li>
+          </ul>
+        </div>
+        <div class="lms-card">
+          <h4>Possible interview questions</h4>
+          <ul>
+            <li>How do you gather cloud requirements from a non-technical client?</li>
+            <li>What AWS services would you choose for a high-traffic ticketing platform and why?</li>
+            <li>How would you explain high availability and scalability to a stakeholder?</li>
+            <li>What is the difference between a public subnet and a private subnet?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    
     <div class="assessment" id="a1">
       <div class="assessment-header">
         <span class="assessment-badge w1">Week 1 — Day 1</span>
@@ -1101,7 +1335,7 @@
       </div>
     </div>
 
-    <!-- ASSESSMENT 2 -->
+    
     <div class="assessment" id="a2">
       <div class="assessment-header">
         <span class="assessment-badge w1">Week 1 — Day 2</span>
@@ -1194,7 +1428,7 @@
       </div>
     </div>
 
-    <!-- ASSESSMENT 3 — WITH DEVELOPMENT DIAGRAM -->
+    
     <div class="assessment" id="a3">
       <div class="assessment-header">
         <span class="assessment-badge w1">Week 1 — Day 3</span>
@@ -1273,6 +1507,20 @@
         </ol>
       </div>
 
+      <div class="hint-box">
+        <span class="box-label">🗺 Development Diagram Coverage Map</span>
+        <table>
+          <tbody><tr><th>Diagram Component</th><th>Where It Is Built or Covered</th><th>Notes</th></tr>
+          <tr><td>VPC, subnets, IGW, base route tables</td><td>Assessment 7</td><td>Manual AWS Console build</td></tr>
+          <tr><td>NAT Gateway + private route egress</td><td>Assessment 7</td><td>Added to match the Dev diagram private subnet design</td></tr>
+          <tr><td>Validation EC2 web server</td><td>Assessment 7</td><td>Public test server only; final app tier moves private in the target diagram</td></tr>
+          <tr><td>ALB, Auto Scaling, ACM, HTTPS</td><td>Assessment 8</td><td>Manual AWS Console build</td></tr>
+          <tr><td>Route 53</td><td>Assessment 8</td><td>Create alias record if a domain is available in your lab</td></tr>
+          <tr><td>S3, RDS, IAM Role, CloudTrail, SNS, CloudFront, AWS Budgets</td><td>Assessment 9</td><td>Supporting services that complete the Development environment</td></tr>
+          <tr><td>AWS Shield Standard</td><td>Assessment 8 documentation note</td><td>Automatic protection for ALB, Route 53, and CloudFront; no separate creation step</td></tr>
+        </tbody></table>
+      </div>
+
       <div class="evidence-box">
         <span class="box-label">📸 Evidence Required</span>
         <ul class="checklist">
@@ -1293,7 +1541,7 @@
       </div>
     </div>
 
-    <!-- ASSESSMENT 4 -->
+    
     <div class="assessment" id="a4">
       <div class="assessment-header">
         <span class="assessment-badge w1">Week 1 — Day 4</span>
@@ -1382,10 +1630,76 @@
       </div>
     </div>
 
-    <!-- ============================== WEEK 2 ============================== -->
+    
     <div class="week-header week-2" id="week2">🔧 Week 2 — Infrastructure Build | Assessments 5–8</div>
 
-    <!-- ASSESSMENT 5 -->
+    <div class="lms-banner lms-week2">
+      <span class="lms-kicker">Week 2 LMS view</span>
+      <div class="lms-title">Infrastructure build outcomes, interview practice and posting tasks</div>
+      <p>Week 2 is where the design becomes real. Students should leave this week able to explain network design, route flow, internet access, load balancing, scaling, and HTTPS setup in interview language.</p>
+      <div class="lms-grid three">
+        <div class="lms-card">
+          <h4>🎯 Learning outcomes</h4>
+          <ul>
+            <li>Build the Development VPC, subnets, IGW, NAT gateway and route tables correctly</li>
+            <li>Launch EC2 with Apache and validate public reachability</li>
+            <li>Configure ALB, Auto Scaling and HTTPS for a production-style web layer</li>
+          </ul>
+        </div>
+        <div class="lms-card">
+          <h4>💼 Possible interview questions</h4>
+          <ul>
+            <li>Why do private subnets need a NAT gateway?</li>
+            <li>What is the difference between an Internet Gateway and a NAT Gateway?</li>
+            <li>How does an ALB work with an Auto Scaling Group?</li>
+            <li>What common issues stop an EC2 instance from being reachable?</li>
+          </ul>
+        </div>
+        <div class="lms-card">
+          <h4>✅ End-of-week proof</h4>
+          <ul>
+            <li>Students can explain the route path from browser to ALB to EC2</li>
+            <li>Students can justify CIDR and subnet separation choices</li>
+            <li>Students have at least one post-ready achievement from the week</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="solution-box" id="week2-posts">
+      <span class="box-label">📣 Week 2 — Three Ready-to-Post Career Posts</span>
+      <div class="lms-grid three">
+        <div class="lms-card">
+          <h4>Post 1 — Architecture to implementation</h4>
+          <p><strong>Suggested caption:</strong> This week I moved from cloud design into hands-on AWS implementation. I translated architecture recommendations into real infrastructure decisions for a simulated client environment at ZICT, focusing on VPC design, subnets, route flow, and secure deployment planning. This step helped me connect documentation to real engineering work.</p>
+          <p><strong>Best proof to attach:</strong> architecture diagram, requirement table, or service recommendation screenshot.</p>
+        </div>
+        <div class="lms-card">
+          <h4>Post 2 — VPC, EC2 and Apache build</h4>
+          <p><strong>Suggested caption:</strong> Week 2 hands-on win: I built a Development environment in AWS with a custom VPC, public and private subnets, Internet Gateway, NAT Gateway, route tables, security groups, and an EC2 web server running Apache. This was a strong reminder that cloud engineering is not just about tools — it is about understanding traffic flow, access control, and validation.</p>
+          <p><strong>Best proof to attach:</strong> VPC or EC2 screenshot, browser test, or subnet layout evidence.</p>
+        </div>
+        <div class="lms-card">
+          <h4>Post 3 — ALB, Auto Scaling and HTTPS</h4>
+          <p><strong>Suggested caption:</strong> I completed a high-availability web layer build using an Application Load Balancer, Auto Scaling Group, and HTTPS configuration in AWS. I practiced how scalable web delivery works in a more production-like setup and strengthened my understanding of resilience, traffic distribution, and secure access.</p>
+          <p><strong>Best proof to attach:</strong> ALB listener view, target health, HTTPS screenshot, or Auto Scaling screen.</p>
+        </div>
+      </div>
+      <p><strong>Posting rule:</strong> publish at least one Week 2 post with proof, clear AWS keywords, and a short reflection on what you learned.</p>
+      <div class="hint-box" style="margin-top:16px">
+        <span class="box-label">📌 Week 2 LinkedIn Assignment — 3 posts for the week</span>
+        <ul class="checklist">
+          <li><strong>Post 1:</strong> architecture thinking and service-selection insight</li>
+          <li><strong>Post 2:</strong> VPC, subnet, route table, NAT gateway, and EC2 build evidence</li>
+          <li><strong>Post 3:</strong> ALB, Auto Scaling, HTTPS, and production-style availability learning</li>
+          <li>Each post should include 1 proof image, 3–5 cloud keywords, and 1 lesson learned line</li>
+          <li>Use simple hashtags such as <code>#AWS</code>, <code>#CloudEngineering</code>, <code>#DevOps</code>, <code>#Terraform</code>, <code>#ZICT</code></li>
+        </ul>
+        <p><strong>Example weekly posting rhythm:</strong> Tuesday = Post 1, Thursday = Post 2, Saturday = Post 3.</p>
+      </div>
+    </div>
+
+    
     <div class="assessment" id="a5">
       <div class="assessment-header">
         <span class="assessment-badge w2">Week 2 — Day 1</span>
@@ -1455,7 +1769,7 @@
       </div>
     </div>
 
-    <!-- ASSESSMENT 6 -->
+    
     <div class="assessment" id="a6">
       <div class="assessment-header">
         <span class="assessment-badge w2">Week 2 — Day 2</span>
@@ -1497,7 +1811,7 @@
       </div>
     </div>
 
-    <!-- ASSESSMENT 7 -->
+    
     <div class="assessment" id="a7">
       <div class="assessment-header">
         <span class="assessment-badge w2">Week 2 — Day 3</span>
@@ -1566,22 +1880,39 @@
           <li>VPC → Route Tables → Create Route Table → Name: <code>BME-Dev-Public-RT</code> → VPC: BME-Dev-VPC</li>
           <li>Edit Routes → Add Route: Destination <code>0.0.0.0/0</code>, Target: BME-Dev-IGW</li>
           <li>Subnet Associations → Edit → associate both Public subnets</li>
-          <li>Create another RT: <code>BME-Dev-Private-RT</code> → associate both Private subnets</li>
+          <li>Create another RT: <code>BME-Dev-Private-RT</code> → VPC: BME-Dev-VPC</li>
+          <li>Associate <code>BME-Dev-Private-RT</code> with Private-App-1a, Private-App-1b, Private-DB-1a, and Private-DB-1b</li>
         </ol>
 
-        <h4>Step 5: Security Group for EC2</h4>
+        <h4>Step 5: Create Elastic IP and NAT Gateway</h4>
+        <ol class="steps">
+          <li>VPC → Elastic IPs → Allocate Elastic IP address</li>
+          <li>VPC → NAT Gateways → Create NAT Gateway</li>
+          <li>Name: <code>BME-Dev-NAT-1a</code> · Subnet: <code>BME-Dev-Public-1a</code></li>
+          <li>Attach the newly allocated Elastic IP</li>
+          <li>Create NAT Gateway → wait until status shows <strong>Available</strong></li>
+        </ol>
+
+        <h4>Step 6: Update Private Route Table for NAT Egress</h4>
+        <ol class="steps">
+          <li>Open <code>BME-Dev-Private-RT</code> → Edit Routes</li>
+          <li>Add route: Destination <code>0.0.0.0/0</code> → Target: <code>BME-Dev-NAT-1a</code></li>
+          <li>Save changes and verify private subnets now have outbound internet access through the NAT Gateway</li>
+        </ol>
+
+        <h4>Step 7: Security Group for EC2</h4>
         <ol class="steps">
           <li>EC2 → Security Groups → Create → Name: <code>BME-Dev-EC2-SG</code>, VPC: BME-Dev-VPC</li>
           <li>Inbound Rules: SSH (22) from My IP; HTTP (80) from Anywhere (0.0.0.0/0)</li>
           <li>Outbound: All traffic — Anywhere</li>
         </ol>
 
-        <h4>Step 6: Launch EC2 and Install Apache</h4>
+        <h4>Step 8: Launch Public Validation EC2 and Install Apache</h4>
         <ol class="steps">
           <li>EC2 → Launch Instance → Name: <code>BME-Dev-Web-01</code></li>
           <li>AMI: Amazon Linux 2023 · Instance type: t2.micro</li>
           <li>Key Pair: create or select existing</li>
-          <li>Network: BME-Dev-VPC · Subnet: BME-Dev-Public-1a · Enable Auto-assign Public IP</li>
+          <li>Network: BME-Dev-VPC · Subnet: <code>BME-Dev-Public-1a</code> · Enable Auto-assign Public IP</li>
           <li>Security Group: BME-Dev-EC2-SG</li>
           <li>User Data (paste this):</li>
         </ol>
@@ -1603,6 +1934,11 @@ EOF</pre>
           <li>Launch Instance → wait 2-3 minutes for initialization</li>
           <li>Copy Public IP → open in browser — you should see the BME Dev page</li>
         </ol>
+
+        <div class="hint-box">
+          <span class="box-label">🧭 Development Diagram Alignment Note</span>
+          <p>This public EC2 instance is a validation server for early console testing only. In the final Development architecture diagram, the application instances move behind the ALB into the <strong>private app subnets</strong>, while the NAT Gateway provides outbound internet access for private resources.</p>
+        </div>
       </div>
 
       <div class="evidence-box">
@@ -1611,7 +1947,9 @@ EOF</pre>
           <li>Screenshot of VPC created with name BME-Dev-VPC and CIDR 10.0.0.0/16</li>
           <li>Screenshot of 6 subnets created with correct CIDRs</li>
           <li>Screenshot of Internet Gateway attached to VPC</li>
-          <li>Screenshot of route table showing 0.0.0.0/0 → IGW</li>
+          <li>Screenshot of public route table showing <code>0.0.0.0/0</code> → IGW</li>
+          <li>Screenshot of NAT Gateway in <strong>Available</strong> state with Elastic IP attached</li>
+          <li>Screenshot of private route table showing <code>0.0.0.0/0</code> → NAT Gateway</li>
           <li>Screenshot of EC2 running (green check) in public subnet</li>
           <li>Screenshot of browser showing Apache/BME page with EC2 public IP in URL bar</li>
         </ul>
@@ -1627,7 +1965,7 @@ EOF</pre>
       </div>
     </div>
 
-    <!-- ASSESSMENT 8 -->
+    
     <div class="assessment" id="a8">
       <div class="assessment-header">
         <span class="assessment-badge w2">Week 2 — Day 4</span>
@@ -1703,6 +2041,23 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
           Open the ALB DNS name in your browser. You should see the BME page served over HTTPS. (Browser will show
           security warning for self-signed cert — click proceed.)
         </p>
+
+        <h4>Step 7: Route 53 Alias Record for the Dev Entry Point</h4>
+        <ol class="steps">
+          <li>If you control a domain, open Route 53 → Hosted Zones → select your domain</li>
+          <li>Create Record → Name: <code>dev</code> (or <code>bme-dev</code>)</li>
+          <li>Record type: <code>A</code> → turn <strong>Alias</strong> ON</li>
+          <li>Alias target: Application Load Balancer → select <code>BME-Dev-ALB</code></li>
+          <li>Save the record and test using <code>dev.yourdomain.com</code></li>
+        </ol>
+
+        <h4>Step 8: AWS Shield Standard Coverage Note</h4>
+        <p>
+          AWS Shield Standard is automatically included for <strong>CloudFront</strong>, <strong>Route 53</strong>, and the
+          <strong>Application Load Balancer</strong>. There is no separate manual creation step required for this lab. Add a
+          short note in your documentation that the Development environment relies on Shield Standard for baseline DDoS
+          protection on public entry points.
+        </p>
       </div>
 
       <div class="evidence-box">
@@ -1713,6 +2068,8 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
           <li>Screenshot of Target Group showing healthy instances</li>
           <li>Screenshot of ACM certificate imported successfully</li>
           <li>Screenshot of browser with HTTPS ALB URL showing BME page (HTTPS padlock or warning)</li>
+          <li>If domain available: screenshot of Route 53 alias record pointing to <code>BME-Dev-ALB</code></li>
+          <li>Documentation note confirming Shield Standard coverage for ALB, CloudFront, and Route 53</li>
         </ul>
       </div>
 
@@ -1725,10 +2082,95 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
       </div>
     </div>
 
-    <!-- ============================== WEEK 3 ============================== -->
+    
     <div class="week-header week-3" id="week3">☁️ Week 3 — Services, UAT &amp; Terraform | Assessments 9–12</div>
 
-    <!-- ASSESSMENT 9 -->
+    <div class="lms-banner lms-week3">
+      <span class="lms-kicker">LMS module view</span>
+      <div class="lms-title">Week 3 learning outcomes, completion criteria and quick-jump resources</div>
+      <p>This week combines AWS Console service setup, environment architecture thinking, and Terraform promotion from Development to UAT and Production. Use the quick links below like an LMS lesson path instead of scrolling section by section.</p>
+      <div class="mini-links">
+        <a href="#a9">Assessment 9</a>
+        <a href="#a10">Assessment 10</a>
+        <a href="#a11">Assessment 11</a>
+        <a href="#a12">Assessment 12</a>
+        <a href="#a3">Development Diagram</a>
+        <a href="#terraform-course-guide">Terraform Guide</a>
+      </div>
+      <div class="lms-grid three">
+        <div class="lms-card">
+          <h4>🎯 Learning outcomes</h4>
+          <ul>
+            <li>Configure S3, RDS, IAM, CloudTrail, SNS, CloudFront, and AWS Budgets correctly</li>
+            <li>Explain how Dev, UAT, and Prod differ in CIDR, sizing, security, and resilience</li>
+            <li>Understand the full Terraform workflow from setup to promotion</li>
+          </ul>
+        </div>
+        <div class="lms-card">
+          <h4>✅ Completion criteria</h4>
+          <ul>
+            <li>All Week 3 resource sections are reachable by anchor link</li>
+            <li>Diagram evidence and Terraform evidence are both clear to the student</li>
+            <li>Students can describe why Production uses larger resources and Multi-AZ</li>
+          </ul>
+        </div>
+        <div class="lms-card">
+          <h4>👩‍🏫 Delivery notes</h4>
+          <ul>
+            <li>Pause after Assessment 9 to verify screenshots before students move on</li>
+            <li>Use the three environment diagrams as a compare-and-contrast teaching aid</li>
+            <li>Review the quick commands before any live Terraform demo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint-box" style="margin-top:16px">
+      <span class="box-label">💼 Week 3 Interview Questions</span>
+      <ul>
+        <li><strong>What is CloudTrail used for, and how is it different from CloudWatch?</strong><br>CloudTrail records AWS API activity for governance and audit, while CloudWatch focuses on metrics, logs, alarms, and operational monitoring.</li>
+        <li><strong>How does an SNS topic connect to a CloudWatch alarm in a monitoring workflow?</strong><br>CloudWatch detects a threshold breach, the alarm changes state, and the alarm action publishes to an SNS topic which then sends email or other notifications.</li>
+        <li><strong>Why would you move from manual AWS Console work to Terraform?</strong><br>Terraform makes infrastructure repeatable, version-controlled, easier to review, and much faster to promote across Dev, UAT, and Prod.</li>
+        <li><strong>What changes when promoting Terraform from Dev to UAT to Prod?</strong><br>Environment values change such as CIDR blocks, instance sizes, database sizing, cost level, and high-availability settings like Multi-AZ.</li>
+        <li><strong>Why are AWS Budgets and alerts important in a training or lab environment?</strong><br>They help control spend early and show employers that you understand cost governance, not just deployment.</li>
+      </ul>
+      <div class="lms-grid two" style="margin-top:12px">
+        <div class="lms-card">
+          <h4>🎤 Week 3 mock interview session</h4>
+          <ul>
+            <li>Round 1: explain CloudTrail, CloudWatch, SNS, and Budgets in simple language</li>
+            <li>Round 2: explain the Dev → UAT → Prod Terraform promotion path</li>
+            <li>Round 3: answer one troubleshooting question using a real example from this workbook</li>
+          </ul>
+        </div>
+        <div class="lms-card">
+          <h4>🗣 Sample strong answer structure</h4>
+          <p><strong>Format:</strong> define the service, explain where it fits, explain the business value, then give one example from BME.</p>
+          <p><strong>Example:</strong> “CloudTrail gives audit visibility into account activity. In BME it supports governance and investigation, while CloudWatch handles performance metrics and alerting.”</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint-box" style="margin-top:16px">
+      <span class="box-label">🧭 Week 3 Quick Access, Timing &amp; Success Guide</span>
+      <table>
+        <tbody><tr><th>Area</th><th>Quick Link</th><th>Estimated Time</th><th>Success Check</th></tr>
+        <tr><td>Assessment 9 — AWS Console Services</td><td><a href="#a9">Open Assessment 9</a> · <a href="#a9-s3">S3</a> · <a href="#a9-rds">RDS</a> · <a href="#a9-iam">IAM</a> · <a href="#a9-cloudtrail">CloudTrail</a> · <a href="#a9-sns">SNS</a> · <a href="#a9-cloudfront">CloudFront</a> · <a href="#a9-budgets">Budgets</a></td><td>90–120 min</td><td>Create all listed console resources and capture evidence</td></tr>
+        <tr><td>Assessment 10 — UAT + Terraform Guide</td><td><a href="#a10">Open Assessment 10</a> · <a href="#terraform-course-guide">Terraform Guide</a></td><td>75–105 min</td><td>UAT diagram complete and Terraform guide understood end-to-end</td></tr>
+        <tr><td>Assessment 11 — Multi-Environment Terraform</td><td><a href="#a11">Open Assessment 11</a></td><td>60–90 min</td><td>Folder structure, backend, and dev deployment evidence complete</td></tr>
+        <tr><td>Assessment 12 — Production Terraform</td><td><a href="#a12">Open Assessment 12</a></td><td>75–105 min</td><td>Production Terraform design, diagram, and deployment evidence complete</td></tr>
+      </tbody></table>
+      <p><strong>Submission naming standard:</strong> use clear names such as <code>Assessment9_DevServices_[YourName]</code>, <code>Assessment10_UAT_[YourName]</code>, <code>Assessment11_TerraformMultiEnv_[YourName]</code>, and <code>Assessment12_ProdTerraform_[YourName]</code>.</p>
+      <ul class="checklist">
+        <li>Read the scenario first, then complete the guided steps in order</li>
+        <li>Open each quick link above instead of scrolling through the whole workbook</li>
+        <li>Capture at least one AWS Console screenshot per completed resource</li>
+        <li>Use your first name in resource names where required</li>
+        <li>Before submission, confirm screenshots, diagrams, and GitHub links are all accessible</li>
+      </ul>
+    </div>
+
+    
     <div class="assessment" id="a9">
       <div class="assessment-header">
         <span class="assessment-badge w3">Week 3 — Day 1</span>
@@ -1747,10 +2189,50 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         </p>
       </div>
 
+      <div class="diagram-section">
+        <div class="diagram-label">🧩 LMS Graphic — Core AWS Services Map</div>
+        <h4>How the key Assessment 9 services connect in the Development environment</h4>
+        <div class="flow-graphic">
+          <div class="flow-step">EC2 workload<small>Attach <code>BME-Dev-EC2-Role</code> so the instance can read S3 and publish CloudWatch data</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">CloudWatch metric<small>Create the CPUUtilization alarm that watches the instance</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">SNS topic<small>Use <code>BME-Dev-Alerts</code> as the alarm action target</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Email alert<small>Student confirms the subscription and tests the notification path</small></div>
+        </div>
+        <div class="lms-grid two">
+          <div class="lms-card">
+            <h4>IAM Role for EC2</h4>
+            <p><strong>Jump:</strong> <a href="#a9-iam">Section 3</a></p>
+            <p><strong>Why it matters:</strong> gives the instance the right permissions without hard-coding credentials.</p>
+            <p class="resource-note"><strong>Evidence:</strong> role summary + attached policies + EC2 association.</p>
+          </div>
+          <div class="lms-card">
+            <h4>CloudTrail</h4>
+            <p><strong>Jump:</strong> <a href="#a9-cloudtrail">Section 4</a></p>
+            <p><strong>Why it matters:</strong> captures account activity for audit, change tracking, and incident review.</p>
+            <p class="resource-note"><strong>Evidence:</strong> active trail + multi-region enabled + S3 destination visible.</p>
+          </div>
+          <div class="lms-card">
+            <h4>SNS + CloudWatch linkage</h4>
+            <p><strong>Jump:</strong> <a href="#a9-sns">Section 5</a></p>
+            <p><strong>Why it matters:</strong> turns monitoring into a real action path instead of just a dashboard metric.</p>
+            <p class="resource-note"><strong>Evidence:</strong> confirmed subscription + alarm action targeting <code>BME-Dev-Alerts</code>.</p>
+          </div>
+          <div class="lms-card">
+            <h4>AWS Budgets</h4>
+            <p><strong>Jump:</strong> <a href="#a9-budgets">Section 7</a></p>
+            <p><strong>Why it matters:</strong> keeps the Development lab cost-controlled before larger UAT and Prod builds.</p>
+            <p class="resource-note"><strong>Evidence:</strong> monthly budget, notification email, and 80% / 100% thresholds.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="solution-box">
         <span class="box-label">✅ Guided Solution</span>
 
-        <h4>1. S3 Bucket Setup</h4>
+        <h4 id="a9-s3">1. S3 Bucket Setup</h4>
         <ol class="steps">
           <li>S3 → Create Bucket → Name: <code>bme-dev-assets-[your-initials]</code> · Region: us-east-1</li>
           <li>Block all public access: ON</li>
@@ -1760,7 +2242,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
           <li>Upload a test file → verify it appears in bucket</li>
         </ol>
 
-        <h4>2. RDS MySQL Setup</h4>
+        <h4 id="a9-rds">2. RDS MySQL Setup</h4>
         <ol class="steps">
           <li>RDS → Create Database → Standard Create → MySQL 8.0</li>
           <li>Template: Free Tier · DB identifier: <code>bme-dev-db</code></li>
@@ -1772,7 +2254,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
           <li>Click Create database → wait 5-10 minutes</li>
         </ol>
 
-        <h4>3. IAM Role for EC2</h4>
+        <h4 id="a9-iam">3. IAM Role for EC2</h4>
         <ol class="steps">
           <li>IAM → Roles → Create Role → AWS Service → EC2</li>
           <li>Attach policies: AmazonS3ReadOnlyAccess, CloudWatchAgentServerPolicy</li>
@@ -1780,7 +2262,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
           <li>Attach to your EC2 instance: EC2 → Actions → Security → Modify IAM Role</li>
         </ol>
 
-        <h4>4. CloudTrail Setup</h4>
+        <h4 id="a9-cloudtrail">4. CloudTrail Setup</h4>
         <ol class="steps">
           <li>CloudTrail → Create Trail → Name: <code>BME-Dev-Trail</code></li>
           <li>Apply to all regions: Yes</li>
@@ -1789,7 +2271,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
           <li>Create trail</li>
         </ol>
 
-        <h4>5. SNS Alert Topic</h4>
+        <h4 id="a9-sns">5. SNS Alert Topic</h4>
         <ol class="steps">
           <li>SNS → Topics → Create Topic → Standard → Name: <code>BME-Dev-Alerts</code></li>
           <li>Create Subscription → Protocol: Email → Endpoint: your email address</li>
@@ -1798,7 +2280,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
           <li>Set notification: BME-Dev-Alerts SNS topic</li>
         </ol>
 
-        <h4>6. CloudFront Distribution</h4>
+        <h4 id="a9-cloudfront">6. CloudFront Distribution</h4>
         <ol class="steps">
           <li>CloudFront → Create Distribution</li>
           <li>Origin domain: select your S3 bucket (bme-dev-assets)</li>
@@ -1807,6 +2289,69 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
           <li>Create distribution → wait 5-10 minutes to deploy</li>
           <li>Test by accessing the CloudFront URL for a file you uploaded to S3</li>
         </ol>
+
+        <h4 id="a9-budgets">7. AWS Budgets Setup</h4>
+        <ol class="steps">
+          <li>AWS Console → Billing and Cost Management → Budgets → Create Budget</li>
+          <li>Choose <strong>Cost budget</strong> → Monthly</li>
+          <li>Budget name: <code>BME-Dev-Budget</code></li>
+          <li>Budget amount: set a Development lab threshold such as <code>25 USD</code> per month</li>
+          <li>Add alert thresholds at <strong>80%</strong> and <strong>100%</strong></li>
+          <li>Send alerts to your email address and create the budget</li>
+        </ol>
+
+        <div class="hint-box">
+          <span class="box-label">🧩 Development Diagram Coverage</span>
+          <p>CloudTrail, SNS, CloudFront, S3, RDS, IAM Role, and AWS Budgets are the manual-console supporting services that complete the Development diagram. Route 53 is configured in Assessment 8, while Shield Standard is documented as automatic coverage rather than a separately created resource.</p>
+        </div>
+
+        <div class="warn-box" style="margin-top:16px">
+          <span class="box-label">⚠ Common Console Issues to Check Before You Move On</span>
+          <ul>
+            <li><strong>S3:</strong> confirm versioning and encryption are enabled before uploading files</li>
+            <li><strong>RDS:</strong> verify the DB is in private DB subnets and port <code>3306</code> is allowed only from the EC2 security group</li>
+            <li><strong>IAM Role:</strong> confirm the role is attached to the EC2 instance after creation</li>
+            <li><strong>CloudTrail:</strong> check the trail is multi-region and delivering to the correct S3 bucket</li>
+            <li><strong>SNS / CloudWatch:</strong> confirm the email subscription is accepted before testing alarms</li>
+            <li><strong>CloudFront:</strong> allow deployment time and verify the origin points to the correct S3 bucket</li>
+            <li><strong>AWS Budgets:</strong> make sure the alert thresholds and notification email are saved before leaving the console</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <span class="box-label">🖼 Embedded Setup Screens</span>
+        <p>Only screenshots that directly match Assessment 9 resources are kept below. They are organized by resource so students can follow the setup flow without conflicting part numbers.</p>
+        <p><strong>Student naming rule:</strong> replace generic names with the student's first name. Example: <code>sarah-dev-s3</code>, <code>sarah-dev-rds</code>. Do <strong>not</strong> use <code>client-dev-s3</code>.</p>
+
+        <h4>S3 Bucket Setup Screens</h4>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0 20px 0;">
+          <img src="https://images.openai.com/static-rsc-4/S29yxEEkwgTKd-RphWAypztQNReBDwdrWb11PGS1WzO7KYAqHhpW4AGrbCew-JBNbyC_omSZPBA1s2B_15L_EaMDO6qoYcmg7jNDMAPNRGWURw9QfUPF_j0h5huJ9BHXShPxcxbWRImUAx0N7F_sBgIG5CIWCfKTZUttoeSyhLwT3ia5_-X-gy7plkNCxGbW?purpose=fullsize" alt="S3 bucket create screen" style="width:100%;border:1px solid #dde3ea;border-radius:8px;" data-height-listener-added="true">
+          <img src="https://images.openai.com/static-rsc-4/MKszEzSUJT0D2a0Z1a3E64LZBkj41-Hy136i8Q75dErGwiIgvaHHGUiWeB9_K1Ez9lBbmHqTlhv0JeTfLgnX8kwDvqQr-JGcWx3u4qGdhGAqBYC3bqHXorMuOqYTgW6dF1rIA8sfDIksQ7-vIiLda5NzACPfgh7M3X7uzKuH59yxhgV39liIMFB8bXTxirB1?purpose=fullsize" alt="S3 security and versioning screen" style="width:100%;border:1px solid #dde3ea;border-radius:8px;" data-height-listener-added="true">
+          <img src="https://images.openai.com/static-rsc-4/2gFDFpvjZafuGWJpOdq3VkqduJylv2IA59E-ok-6wCVRU4KEKC2XXZc432S6gzAtuYuEvjqS04xBvTpqt34YbMVvBKMV2Zw14-OJgMdsDwC3uarx0S-JGiMhtDu3KqKWlfR61JX2OL0RbkJEKClAnD-DHE5HGfDISC8QmcI-K1InGImhBjPHdklO9kVdSkLi?purpose=fullsize" alt="S3 file upload screen" style="width:100%;border:1px solid #dde3ea;border-radius:8px;" data-height-listener-added="true">
+          <img src="https://images.openai.com/static-rsc-4/UWbDIY8U1iGV7BrZnpVYf94Sx3tgxGMKqMFpFmM-x_gPmMX3BOpqdp6RYG1owuZJfLoINYOappcg4-KEsKUvQhi3eUbLSeg_e06d8Zjs14mjRosNMUOpLdnVrfjo2qkhgr4cer5Lkb0BdlURSuH18jJ5cm6JzNFMmysJ05VlDz3n6WrdssqBx9dF6SFjO1-o?purpose=fullsize" alt="S3 upload complete screen" style="width:100%;border:1px solid #dde3ea;border-radius:8px;" data-height-listener-added="true">
+        </div>
+
+        <h4>RDS MySQL Setup Screens</h4>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0 20px 0;">
+          <img src="https://images.openai.com/static-rsc-4/3wZOZ7DXbx1RTP80YhklC0ZhKHwSejaoCh6tx8LwD5x3R3ji88OKdG7SxDQLJNdtDb7OCSQICfAMBPxEPPMyKMaW5-Pa3EAyf2Td47sU2Ev3GKIpE_2S0C0JtCjxfwh1RoOMllCSCRqwmgY3rZC3aUNjefIl0ddhrmSMY2VfIB5JtUwb8DH0V9i3sfjZwnhT?purpose=fullsize" alt="RDS create screen" style="width:100%;border:1px solid #dde3ea;border-radius:8px;" data-height-listener-added="true">
+          <img src="https://images.openai.com/static-rsc-4/dmmMXp4VDsFP79ur2AcjcD6Ue2EznRHefV6UyDT5zYdxD7sbwHS4g50WRU3oSZ06zOBXtxs7hIdpHczAOqXoUKJJkOgJlXnSNGp5PzYDw3RvNeneQjObT_uYHuIkvqQR7ka0x0ZJOMiNZFRHUk1d5QW1yYT3hM6EL_Oo2YlhZ2Msra9iSv6OCqglkc5KajAg?purpose=fullsize" alt="RDS available screen" style="width:100%;border:1px solid #dde3ea;border-radius:8px;" data-height-listener-added="true">
+        </div>
+
+        <h4>CloudFront Distribution Screens</h4>
+        <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0 20px 0;">
+          <img src="https://images.openai.com/static-rsc-4/EOjP7DsVG3BdnN1aiJxXlLmzmEGdtcoVbqWaj-nXCMGaKWIiso458A2KsIktl3bsWWTiQkqLk_zWGfD-6b5NuJ2oeFEcnt7TG2B26aAmR__3sRjp0iJEHEVq1Znz3sBy9A4KFcbbIRrG4ej2Kyg9h056haFTCh0Fx8YJ2uyU5Jf1Rgl7qPsbS5KACmV4BOQA?purpose=fullsize" alt="CloudFront dashboard" style="width:100%;border:1px solid #dde3ea;border-radius:8px;" data-height-listener-added="true">
+          <img src="https://images.openai.com/static-rsc-4/6tY9p_atc41KGOa-rwsYB55DllIF676pU8gEEL7BiyF-dIQ5A7HiYuIfSKBHrxNB8_j5zJtqjeYkA-JfSZVwLu2Ml5xVs0C7trdoE_5qb1w4xClSyIUv-zI9g0NbrNzt-C2PebhtZA1_W4p04yGVCdvkztvvFY85Cm4Ov9vI7PuFoMFKcbk425riO5DBNS-L?purpose=fullsize" alt="CloudFront deployed screen" style="width:100%;border:1px solid #dde3ea;border-radius:8px;" data-height-listener-added="true">
+        </div>
+
+        <h4>Quick Access — Remaining AWS Console Resources</h4>
+        <ul class="checklist">
+          <li><strong>IAM Role for EC2</strong> — return to <a href="#a9-iam">Section 3</a> and capture the role summary plus EC2 attachment screen</li>
+          <li><strong>CloudTrail Setup</strong> — return to <a href="#a9-cloudtrail">Section 4</a> and capture trail status, S3 destination, and multi-region setting</li>
+          <li><strong>SNS Alert Topic and CloudWatch alarm linkage</strong> — return to <a href="#a9-sns">Section 5</a> and capture both the subscription confirmation and alarm action</li>
+          <li><strong>AWS Budgets setup</strong> — return to <a href="#a9-budgets">Section 7</a> and capture budget amount plus 80% and 100% alerts</li>
+        </ul>
+        <p>This section keeps every remaining resource easy to find even where an uploaded screenshot is not yet embedded. Use the evidence checklist below to capture the final AWS Console proof for each item.</p>
       </div>
 
       <div class="evidence-box">
@@ -1818,6 +2363,9 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
           <li>CloudTrail screenshot — trail active, delivering to S3</li>
           <li>SNS subscription — confirmed status</li>
           <li>CloudFront distribution — Deployed status, domain name visible</li>
+          <li>AWS Budgets screenshot — monthly budget and alert thresholds visible</li>
+          <li>At least one <strong>AWS Console screenshot</strong> for each completed resource in this assessment</li>
+          <li>Resource names must use the student's first name, not generic placeholders like <code>client-dev-s3</code></li>
         </ul>
       </div>
 
@@ -1827,13 +2375,13 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
       </div>
     </div>
 
-    <!-- ===== ASSESSMENT 10 — UAT DIAGRAM ===== -->
+    
     <div class="assessment" id="a10">
       <div class="assessment-header">
         <span class="assessment-badge w3">Week 3 — Day 2</span>
         <div>
-          <div class="assessment-title">Assessment 10 — UAT Recommendations &amp; Terraform Intro</div>
-          <div class="assessment-subtitle">UAT Architecture Diagram + First Terraform EC2 Deployment</div>
+          <div class="assessment-title">Assessment 10 — UAT Recommendations &amp; Complete Terraform Course Guide</div>
+          <div class="assessment-subtitle">UAT Architecture Diagram + Complete End-to-End Terraform Course Guide for Dev, UAT, and Production</div>
         </div>
       </div>
 
@@ -1873,58 +2421,305 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         </ol>
       </div>
 
-      <div class="solution-box">
-        <span class="box-label">✅ Guided Solution — Terraform EC2 Deployment</span>
-        <p>Reference: <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">github.com/zicttraining/DevOps-cloud-training-</a></p>
-
-        <h4>Folder Structure</h4>
-        <pre>bme-terraform/
-└── dev/
-    ├── main.tf
-    ├── variables.tf
-    └── outputs.tf</pre>
-
-        <h4>main.tf</h4>
-        <pre>terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~&gt; 5.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = "us-east-1"
-}
-
-resource "aws_instance" "bme_dev_web" {
-  ami           = "ami-0c02fb55956c7d316"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name        = "BME-Dev-Terraform-Web"
-    Environment = "Development"
-    Client      = "BME"
-    ManagedBy   = "Terraform"
-  }
-}
-
-output "instance_public_ip" {
-  value = aws_instance.bme_dev_web.public_ip
-}</pre>
-
-        <h4>Deploy Steps</h4>
-        <ol class="steps">
-          <li>Configure AWS CLI: <code>aws configure</code> — enter your Access Key, Secret Key, region us-east-1</li>
-          <li><code>terraform init</code></li>
-          <li><code>terraform plan</code> — review the plan output</li>
-          <li><code>terraform apply</code> — type <code>yes</code> to confirm</li>
-          <li>Verify in AWS Console: EC2 → check for BME-Dev-Terraform-Web instance</li>
-          <li>Clean up after verification: <code>terraform destroy</code></li>
-        </ol>
+      <div class="diagram-section">
+        <div class="diagram-label">🚦 LMS Graphic — Dev to UAT to Prod Promotion Path</div>
+        <h4>Use the three environment visuals together while studying the Terraform promotion flow</h4>
+        <div class="env-graphic">
+          <div class="env-stage">
+            <img src="https://www.genspark.ai/api/files/s/FipOxUSm" alt="Development environment diagram quick view" loading="lazy" data-height-listener-added="true">
+            <div class="env-stage-body">
+              <h4>Development</h4>
+              <p><strong>Focus:</strong> learning, validation, low-cost build</p>
+              <p><strong>CIDR:</strong> <code>10.0.0.0/16</code> · <strong>EC2:</strong> <code>t3.micro</code> · <strong>DB:</strong> <code>db.t3.micro</code></p>
+              <p><a href="#a3">Open Dev diagram</a> · <a href="#terraform-deploy-dev">Open Deploy Dev</a></p>
+            </div>
+          </div>
+          <div class="env-stage">
+            <img src="https://www.genspark.ai/api/files/s/NsLbWka6" alt="UAT environment diagram quick view" loading="lazy" data-height-listener-added="true">
+            <div class="env-stage-body">
+              <h4>UAT / Staging</h4>
+              <p><strong>Focus:</strong> realistic testing, three-tier separation, stronger controls</p>
+              <p><strong>CIDR:</strong> <code>10.1.0.0/16</code> · <strong>EC2:</strong> <code>t3.small</code> · <strong>DB:</strong> <code>db.t3.small</code></p>
+              <p><a href="#a10">Open UAT section</a> · <a href="#terraform-dev-to-uat">Open Dev to UAT</a></p>
+            </div>
+          </div>
+          <div class="env-stage">
+            <img src="https://www.genspark.ai/api/files/s/x8ij1euU" alt="Production environment diagram quick view" loading="lazy" data-height-listener-added="true">
+            <div class="env-stage-body">
+              <h4>Production</h4>
+              <p><strong>Focus:</strong> high availability, scale, Multi-AZ resilience</p>
+              <p><strong>CIDR:</strong> <code>10.2.0.0/16</code> · <strong>EC2:</strong> <code>c5.large</code> · <strong>DB:</strong> <code>db.r5.large</code></p>
+              <p><a href="#a12">Open Prod section</a> · <a href="#terraform-uat-to-prod">Open UAT to Prod</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="flow-graphic">
+          <div class="flow-step">Dev<small>Build cheaply, validate naming, confirm command order and state basics</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">UAT<small>Increase sizing, change CIDR, test a more production-like topology</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Prod<small>Add resilience, Multi-AZ, higher capacity, stricter operational discipline</small></div>
+        </div>
       </div>
 
+      <div class="hint-box" style="margin-bottom:16px"><span class="box-label">📘 Terraform Study Guide — Quick Access &amp; Pass Criteria</span><table><tbody><tr><th>Area</th><th>Jump Link</th><th>What to Finish</th></tr><tr><td>Tools and setup</td><td><a href="#terraform-tools-overview">Tools Overview</a> · <a href="#terraform-install-tools">Install Tools</a> · <a href="#terraform-github-setup">GitHub Setup</a></td><td>Understand the tools and complete local setup</td></tr><tr><td>Terraform basics</td><td><a href="#terraform-what-is">What is Terraform</a> · <a href="#terraform-files">Terraform Files</a></td><td>Explain IaC and identify what each file does</td></tr><tr><td>Environment deployment path</td><td><a href="#terraform-deploy-dev">Deploy Dev</a> · <a href="#terraform-dev-to-uat">Dev to UAT</a> · <a href="#terraform-uat-to-prod">UAT to Prod</a></td><td>Show the promotion path from Dev to Production</td></tr><tr><td>Version control and editor workflow</td><td><a href="#terraform-github-push">GitHub Push</a> · <a href="#terraform-vs-code">VS Code</a> · <a href="#terraform-quick-commands">Quick Commands</a></td><td>Save, push, edit, and validate Terraform work correctly</td></tr></tbody></table><p><strong>Learning objectives:</strong> explain Infrastructure as Code, clone the GitHub repository, identify the purpose of key Terraform files, deploy Dev, promote Dev to UAT, promote UAT to Prod, and push updates back to GitHub.</p><p><strong>Pass criteria:</strong> the student can describe the environment differences, run the correct Terraform commands in order, explain why Production uses bigger resources and Multi-AZ, and show evidence of deployment plus GitHub workflow understanding.</p><p><strong>Final readiness check:</strong> before submission, confirm the UAT diagram, Terraform guide understanding, command flow, environment comparison, and GitHub workflow are all clear and accessible from this section.</p></div>
+
+      <div class="solution-box"><span class="box-label">✅ Guided Solution — COMPLETE TERRAFORM COURSE GUIDE</span><h3 id="terraform-course-guide">COMPLETE TERRAFORM COURSE GUIDE</h3><p><strong>GitHub Repository:</strong> <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">https://github.com/zicttraining/DevOps-cloud-training-</a></p><h4>TABLE OF CONTENTS</h4><ol class="steps"><li><a href="#terraform-tools-overview">Tools Overview</a></li><li><a href="#terraform-what-is">What is Terraform</a></li><li><a href="#terraform-install-tools">Install Tools</a></li><li><a href="#terraform-github-setup">GitHub Setup</a></li><li><a href="#terraform-files">Terraform Files</a></li><li><a href="#terraform-deploy-dev">Deploy Dev</a></li><li><a href="#terraform-dev-to-uat">Dev to UAT</a></li><li><a href="#terraform-uat-to-prod">UAT to Prod</a></li><li><a href="#terraform-github-push">GitHub Push</a></li><li><a href="#terraform-vs-code">VS Code</a></li><li><a href="#terraform-quick-commands">Quick Commands</a></li></ol><h4 id="terraform-tools-overview">TOOLS OVERVIEW</h4><h5>Terraform</h5><p><strong>Short:</strong> Infrastructure as Code tool<br><strong>What it does:</strong> Write code to create infrastructure<br><strong>Why:</strong> Automate instead of clicking buttons<br><strong>File type:</strong> .tf files</p><h5>AWS CLI (Command Line Interface)</h5><p><strong>Short:</strong> Command-line tool to control AWS<br><strong>What it does:</strong> Manage AWS from terminal/PowerShell<br><strong>Why:</strong> Terraform needs credentials to connect to AWS<br><strong>Command:</strong> <code>aws configure</code></p><h5>Git</h5><p><strong>Short:</strong> Version control system<br><strong>What it does:</strong> Track code changes, backup, collaborate<br><strong>Why:</strong> Know who changed what<br><strong>Key actions:</strong> Commit (save), Push (upload), Pull (download)</p><h5>GitHub</h5><p><strong>Short:</strong> Cloud storage for code<br><strong>What it does:</strong> Store code in the cloud<br><strong>Why:</strong> Backup, share, collaborate<br><strong>Repository:</strong> <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">https://github.com/zicttraining/DevOps-cloud-training-</a></p><h5>Chocolatey (choco)</h5><p><strong>Short:</strong> Windows package manager<br><strong>What it does:</strong> Install software via command (Windows app store)<br><strong>Why:</strong> One command instead of clicking installers<br><strong>Command:</strong> <code>choco install [software-name]</code></p><h5 id="terraform-vs-code">VS Code (Visual Studio Code)</h5><p><strong>Short:</strong> Code editor<br><strong>What it does:</strong> Edit .tf and .md files<br><strong>Why:</strong> Better than Notepad - syntax highlighting, error checking<br><strong>Command:</strong> <code>code .</code></p><h5>PowerShell</h5><p><strong>Short:</strong> Windows command-line interface<br><strong>What it does:</strong> Run commands and scripts<br><strong>Why:</strong> Terminal for Windows<br><strong>How to open:</strong> Search "PowerShell" → Run as Administrator</p><h5>Tools Quick Table</h5><table><tbody><tr><th>Tool</th><th>What</th><th>Why</th></tr><tr><td>Terraform</td><td>Write infrastructure code</td><td>Automate infrastructure</td></tr><tr><td>AWS CLI</td><td>Control AWS from terminal</td><td>Terraform needs credentials</td></tr><tr><td>Git</td><td>Track code changes</td><td>Version control</td></tr><tr><td>GitHub</td><td>Cloud code storage</td><td>Backup &amp; collaborate</td></tr><tr><td>Chocolatey</td><td>Install software easily</td><td>Windows package manager</td></tr><tr><td>VS Code</td><td>Edit code files</td><td>Better editor</td></tr><tr><td>PowerShell</td><td>Run commands</td><td>Windows terminal</td></tr></tbody></table><h4 id="terraform-what-is">WHAT IS TERRAFORM?</h4><h5>Terraform Definition</h5><p>Infrastructure as Code (IaC) - Write code to create AWS resources</p><p><strong>Instead of clicking AWS Console:</strong></p><pre>❌ Manual (BAD):
+  → Click AWS Console
+  → Create VPC
+  → Create EC2
+  → Create RDS
+  → (Takes hours, easy to miss steps)
+
+✅ Terraform (GOOD):
+  → Write code
+  → Run terraform apply
+  → Everything created automatically
+  → (Takes minutes, reproducible)</pre><h5>Why Terraform?</h5><ul><li><strong>Automation:</strong> One command creates everything</li><li><strong>Reproducible:</strong> Same code = same infrastructure every time</li><li><strong>Version Control:</strong> Track infrastructure changes like code</li><li><strong>Reusable:</strong> Copy code to Dev/UAT/Prod, change variables only</li><li><strong>Teamwork:</strong> Share infrastructure as code with team</li></ul><h4 id="terraform-install-tools">INSTALL TOOLS</h4><h5>Step 1: Install Chocolatey (Windows Package Manager)</h5><p>Open PowerShell as Administrator:</p><pre>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm https://community.chocolatey.org/install.ps1 | iex</pre><h5>Step 2: Install Terraform</h5><pre>choco install terraform</pre><p>Verify:</p><pre>terraform --version</pre><h5>Step 3: Install AWS CLI</h5><pre>choco install awscli</pre><p>Verify:</p><pre>aws --version</pre><h5>Step 4: Install Git</h5><pre>choco install git</pre><p>Verify:</p><pre>git --version</pre><h5>Step 5: Install VS Code (Optional but recommended)</h5><pre>choco install vscode</pre><h5>Installation Summary</h5><p>You've installed:</p><ul class="checklist"><li>✅ Terraform - write infrastructure code</li><li>✅ AWS CLI - connect to AWS</li><li>✅ Git - version control</li><li>✅ VS Code - edit files</li></ul><h4 id="terraform-github-setup">GITHUB SETUP</h4><h5>What is GitHub?</h5><ul><li>Cloud storage for your code</li><li>Version control - track changes</li><li>Collaboration - share with team</li><li>Our course code is here: <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">https://github.com/zicttraining/DevOps-cloud-training-</a></li></ul><h5>Clone the Repository</h5><p>Open PowerShell and run:</p><pre># Go to a folder where you want the code
+cd C:\Users\YourName\Documents
+
+# Clone (download) the repository
+git clone https://github.com/zicttraining/DevOps-cloud-training-
+
+# Go into the folder
+cd DevOps-cloud-training-</pre><h5>What You Just Downloaded</h5><pre>DevOps-cloud-training-/
+├── Dev/      (Learning environment - 10 .tf files)
+├── UAT/      (Staging environment - 10 .tf files)
+├── Prod/     (Production environment - 10 .tf files)
+└── README.md (Instructions)</pre><h4 id="terraform-files">TERRAFORM FILES EXPLAINED</h4><p>Each environment (Dev/UAT/Prod) has these files:</p><h5>provider.tf</h5><pre># WHAT: Tells Terraform to use AWS
+# WHY: You need to connect to your AWS account
+
+provider "aws" {
+  region = "us-east-1"  # Which AWS region to use
+}</pre><h5>variable.tf</h5><pre># WHAT: Variables you can change
+# WHY: Same code for Dev/UAT/Prod - just change variables
+
+variable "environment" {
+  default = "dev"  # Change to "uat" or "prod"
+}
+
+variable "instance_type" {
+  default = "t3.micro"  # Dev uses micro, Prod uses larger
+}
+
+variable "db_instance_class" {
+  default = "db.t3.micro"  # Database size
+}</pre><h5>vpc.tf</h5><pre># WHAT: Creates VPC (Virtual Private Cloud)
+# WHY: You need a network for your servers
+
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"  # Dev uses 10.0, UAT uses 10.1, Prod uses 10.2
+}</pre><h5>compute.tf</h5><pre># WHAT: Creates EC2 instances (servers)
+# WHY: You need servers to run your app
+
+resource "aws_instance" "web" {
+  ami           = "ami-0c55b159cbfafe1f0"
+  instance_type = var.instance_type  # Uses variable (t3.micro, t3.small, c5.large)
+  count         = 2  # Create 2 instances
+}</pre><h5>database.tf</h5><pre># WHAT: Creates RDS database
+# WHY: You need a database to store data
+
+resource "aws_db_instance" "main" {
+  instance_class = var.db_instance_class  # Changes by environment
+  engine         = "mysql"
+  allocated_storage = 20
+}</pre><h5>Each File Does One Thing</h5><ul><li><code>provider.tf</code> → AWS setup</li><li><code>variable.tf</code> → Reusable values</li><li><code>vpc.tf</code> → Networking (VPC, subnets)</li><li><code>compute.tf</code> → Servers (EC2)</li><li><code>database.tf</code> → Database (RDS)</li><li><code>security.tf</code> → Firewalls (security groups)</li><li><code>storage.tf</code> → S3 buckets, EBS</li><li><code>monitoring.tf</code> → CloudWatch, logs</li><li><code>networking.tf</code> → ALB, Route 53</li><li><code>backend.tf</code> → Remote state</li></ul><h4 id="terraform-deploy-dev">DEPLOY DEV</h4><h5>Step 1: Navigate to Dev</h5><pre>cd Dev</pre><h5>Step 2: Setup AWS Credentials</h5><pre>aws configure</pre><p>Enter:</p><pre>AWS Access Key: (your key)
+AWS Secret Key: (your secret)
+Region: us-east-1
+Format: json</pre><h5>Step 3: Initialize Terraform</h5><pre>terraform init</pre><p>What it does: Downloads Terraform plugins and prepares workspace</p><h5>Step 4: Plan (Preview changes)</h5><pre>terraform plan</pre><p>What it does: Shows what Terraform will create (preview before applying)</p><h5>Step 5: Apply (Create resources)</h5><pre>terraform apply</pre><p>What it does: Actually creates resources in AWS</p><h5>Step 6: Verify in AWS Console</h5><p>Go to AWS Console and see your:</p><ul class="checklist"><li>✅ VPC created (10.0.0.0/16)</li><li>✅ EC2 instances running (2× t3.micro)</li><li>✅ RDS database (db.t3.micro)</li><li>✅ Everything!</li></ul><h4 id="terraform-dev-to-uat">DEV TO UAT</h4><h5>Copy Dev to UAT</h5><pre># Go back to root
+cd ..
+
+# Copy all files from Dev to UAT
+cp Dev/* UAT/</pre><h5>What Changes in UAT?</h5><p>Open <code>UAT/variable.tf</code> and change:</p><pre>environment = "uat"              # was "dev"
+instance_type = "t3.small"       # was "t3.micro" (BIGGER!)
+db_instance_class = "db.t3.small"  # was "db.t3.micro" (BIGGER!)</pre><p>Also change in <code>UAT/vpc.tf</code></p><pre>Find: 10.0.    Replace: 10.1.
+Find: dev      Replace: uat</pre><h5>Deploy UAT</h5><pre>cd UAT
+terraform init
+terraform plan
+terraform apply</pre><h5>Why These Changes?</h5><pre>DEV: Learning (small = cheap)
+  → 2× t3.micro EC2 instances
+  → db.t3.micro database
+  → Cost: ~$100/month
+
+UAT: Testing at production scale (medium = realistic)
+  → 2× t3.small EC2 instances (BIGGER to test)
+  → db.t3.small database
+  → Cost: ~$150/month</pre><h4 id="terraform-uat-to-prod">UAT TO PROD</h4><h5>Copy UAT to Prod</h5><pre>cd ..
+cp UAT/* Prod/</pre><h5>What Changes in Prod?</h5><p>Open <code>Prod/variable.tf</code> and change:</p><pre>environment = "prod"             # was "uat"
+instance_type = "c5.large"       # was "t3.small" (MUCH bigger!)
+instance_count = 3               # was 2 (redundancy!)
+db_instance_class = "db.r5.large"  # was "db.t3.small"
+db_multi_az = true               # was false (automatic failover!)</pre><p>Also change in <code>Prod/vpc.tf</code></p><pre>Find: 10.1.    Replace: 10.2.
+Find: uat      Replace: prod</pre><p>Also change in <code>Prod/database.tf</code></p><pre>multi_az = true                   # Automatic failover!
+backup_retention_period = 30      # was 7 (longer history)</pre><h5>Deploy Prod</h5><pre>cd Prod
+terraform init
+terraform plan
+terraform apply</pre><h5>Why These Big Changes?</h5><pre>PROD: Real Business (MUST be reliable!)
+  → 3× c5.large EC2 instances (LARGEST + redundancy!)
+  → db.r5.large database
+  → Multi-AZ = automatic failover if datacenter fails
+  → Cost: ~$500+/month
+
+If 1 EC2 fails → 2 still running
+If primary database fails → automatic switch to standby
+= ZERO downtime!</pre><h5>Environment Comparison</h5><table><tbody><tr><th>Item</th><th>Dev</th><th>UAT</th><th>Prod</th></tr><tr><td>Purpose</td><td>Learning</td><td>Testing</td><td>Business</td></tr><tr><td>EC2 Size</td><td>t3.micro</td><td>t3.small</td><td>c5.large</td></tr><tr><td>EC2 Count</td><td>2</td><td>2</td><td>3</td></tr><tr><td>DB Size</td><td>db.t3.micro</td><td>db.t3.small</td><td>db.r5.large</td></tr><tr><td>Multi-AZ</td><td>NO</td><td>NO</td><td>YES</td></tr><tr><td>VPC CIDR</td><td>10.0.0.0/16</td><td>10.1.0.0/16</td><td>10.2.0.0/16</td></tr><tr><td>Cost/Month</td><td>~$100</td><td>~$150</td><td>~$500+</td></tr></tbody></table><h4 id="terraform-github-push">GITHUB PUSH</h4><h5>What is Git?</h5><ul><li>Version control - track who changed what</li><li>Backup - your code in the cloud</li><li>Collaboration - team can see your changes</li></ul><h5>Basic Git Commands</h5><pre># Check what changed
+git status
+
+# Add files to save
+git add .
+
+# Save with a message
+git commit -m "Deploy Dev environment"
+
+# Upload to GitHub
+git push origin main</pre><h5>Example Workflow</h5><pre># Make changes to variable.tf
+# Save changes
+git add variable.tf
+git commit -m "Change Dev to UAT environment"
+git push origin main
+
+# Your teammates can see the changes on GitHub!</pre><h5>Step by Step Push</h5><pre># 1. Check what changed
+git status
+
+# 2. Add all changes
+git add .
+
+# 3. Save with message
+git commit -m "Deploy Dev/UAT/Prod environments"
+
+# 4. Upload to GitHub
+git push origin main</pre><h4>VS CODE</h4><h5>Why VS Code?</h5><ul><li>Edit .tf files with syntax highlighting</li><li>Easy to see errors</li><li>Built-in Git commands</li><li>Better than Notepad</li></ul><h5>Open in VS Code</h5><pre>code .</pre><h5>Edit Files</h5><pre>Click on a .tf file
+Make changes
+Save (Ctrl+S)
+Run terraform again</pre><h4 id="terraform-quick-commands">QUICK COMMANDS</h4><h5>Terraform Commands</h5><pre># Setup (one time only)
+terraform init
+
+# Preview changes
+terraform plan
+
+# Create resources
+terraform apply
+
+# Delete resources
+terraform destroy
+
+# Validate code
+terraform validate</pre><h5>Git Commands</h5><pre># Clone repo
+git clone https://github.com/zicttraining/DevOps-cloud-training-
+
+# Check changes
+git status
+
+# Add files
+git add .
+
+# Save changes
+git commit -m "Message"
+
+# Upload to GitHub
+git push origin main
+
+# Download latest
+git pull</pre><h5>AWS CLI Commands</h5><pre># Configure credentials
+aws configure
+
+# Check S3 buckets
+aws s3 ls
+
+# List EC2 instances
+aws ec2 describe-instances</pre><h5>Installation Commands</h5><pre># Install Chocolatey
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm https://community.chocolatey.org/install.ps1 | iex
+
+# Install tools
+choco install terraform
+choco install awscli
+choco install git
+choco install vscode</pre><h4>FILE STRUCTURE</h4><pre>https://github.com/zicttraining/DevOps-cloud-training-
+│
+├── Dev/                          (Learning environment)
+│   ├── README.md
+│   ├── provider.tf               (AWS setup)
+│   ├── variable.tf               (Dev variables)
+│   ├── vpc.tf                    (10.0.0.0/16)
+│   ├── networking.tf             (ALB, Route 53)
+│   ├── compute.tf                (2× t3.micro)
+│   ├── database.tf               (db.t3.micro)
+│   ├── security.tf               (security groups)
+│   ├── storage.tf                (S3, EBS)
+│   └── monitoring.tf             (CloudWatch)
+│
+├── UAT/                          (Validation environment)
+│   ├── README.md
+│   ├── variable.tf               (UAT variables - t3.small)
+│   ├── vpc.tf                    (10.1.0.0/16)
+│   └── ... (same files as Dev)
+│
+└── Prod/                         (Production environment)
+    ├── README.md
+    ├── variable.tf               (Prod variables - c5.large, Multi-AZ)
+    ├── vpc.tf                    (10.2.0.0/16)
+    └── ... (same files as Dev)</pre><h4>LEARNING PATH</h4><pre>1. Install tools (Terraform, AWS CLI, Git, VS Code)
+   ↓
+2. Clone repo from GitHub
+   ↓
+3. Read the .tf files - understand what each does
+   ↓
+4. Deploy Dev (terraform apply)
+   ↓
+5. Verify in AWS Console (see 96 resources created)
+   ↓
+6. Copy Dev → UAT, change variables
+   ↓
+7. Deploy UAT (terraform apply)
+   ↓
+8. Copy UAT → Prod, change variables
+   ↓
+9. Deploy Prod (terraform apply with Multi-AZ)
+   ↓
+10. Push changes to GitHub (git push)
+    ↓
+11. Done! You built infrastructure with code! 🚀</pre><h4>EXAMPLE: CREATE YOUR FIRST VARIABLE</h4><p>Create a new variable in <code>Dev/variable.tf</code>:</p><pre># Add this line:
+variable "instance_count" {
+  default = 2
+}</pre><p>Use it in <code>Dev/compute.tf</code>:</p><pre>resource "aws_instance" "web" {
+  count         = var.instance_count  # Uses the variable!
+  instance_type = var.instance_type
+  ami           = "ami-0c55b159cbfafe1f0"
+}</pre><p>Test it:</p><pre>terraform plan     # See 2 instances will be created
+terraform apply    # Create them</pre><p>Deploy to UAT:</p><pre># Change the variable in UAT/variable.tf
+variable "instance_count" {
+  default = 2  # Same as Dev, but could be different
+}
+
+# Or change to 3:
+variable "instance_count" {
+  default = 3  # More for UAT testing
+}
+
+# Then deploy
+cd UAT
+terraform apply</pre><h4>TROUBLESHOOTING</h4><h5>terraform command not found</h5><pre># Reinstall Terraform
+choco install terraform -force
+
+# Verify
+terraform --version</pre><h5>AWS credentials not working</h5><pre># Re-configure
+aws configure
+
+# Enter your AWS Access Key
+# Enter your AWS Secret Key
+# Region: us-east-1
+# Format: json</pre><h5>GitHub clone fails</h5><pre>git clone https://github.com/zicttraining/DevOps-cloud-training-
+# Make sure you have internet connection</pre><h5>Terraform apply fails</h5><pre># Check error message
+# Common issues:
+# - Wrong AWS credentials
+# - AWS quota exceeded
+# - Invalid resource configuration
+
+# Debug:
+terraform plan   # Shows what will be created
+terraform validate  # Check syntax errors</pre><h4>SUMMARY</h4><p>You Now Know:</p><ul class="checklist"><li>✅ What Terraform is (Infrastructure as Code)</li><li>✅ What each tool does (Terraform, AWS CLI, Git, GitHub, etc)</li><li>✅ How to install tools (Chocolatey commands)</li><li>✅ How to clone from GitHub (git clone)</li><li>✅ How Terraform files work (provider.tf, variable.tf, etc)</li><li>✅ How to deploy Dev (terraform apply)</li><li>✅ How to copy Dev → UAT (change variables)</li><li>✅ How to copy UAT → Prod (bigger, Multi-AZ)</li><li>✅ How to push to GitHub (git push)</li><li>✅ Why environments differ (Dev learning, UAT testing, Prod business)</li></ul><h5>Ready to Start?</h5><ul><li>Install tools using Chocolatey</li><li>Clone the repo: <code>https://github.com/zicttraining/DevOps-cloud-training-</code></li><li>Deploy Dev environment</li><li>Follow the progression to UAT and Prod</li><li>Push changes to GitHub</li></ul></div>
       <div class="evidence-box">
         <span class="box-label">📸 Evidence Required</span>
         <ul class="checklist">
@@ -1941,7 +2736,7 @@ output "instance_public_ip" {
       </div>
     </div>
 
-    <!-- ===== ASSESSMENT 11 ===== -->
+    
     <div class="assessment" id="a11">
       <div class="assessment-header">
         <span class="assessment-badge w3">Week 3 — Day 3</span>
@@ -2027,7 +2822,7 @@ terraform apply</pre>
       </div>
     </div>
 
-    <!-- ===== ASSESSMENT 12 — PRODUCTION DIAGRAM ===== -->
+    
     <div class="assessment" id="a12">
       <div class="assessment-header">
         <span class="assessment-badge w3">Week 3 — Day 4</span>
@@ -2233,10 +3028,58 @@ terraform apply prod.tfplan</pre>
       </div>
     </div>
 
-    <!-- ===== WEEK 4 HEADER ===== -->
+    
     <div class="week-header week-4" id="week4">⚙️ Week 4 — GitHub Actions CI/CD Pipelines | Assessments 13–16</div>
 
-    <!-- ===== ASSESSMENT 13 ===== -->
+    <div class="lms-banner lms-week4">
+      <span class="lms-kicker">LMS module view</span>
+      <div class="lms-title">Week 4 pipeline outcomes, success checks and teaching sequence</div>
+      <p>This week shifts students from manual infrastructure work to controlled GitHub Actions delivery. Treat this section like an LMS lab: first explain the flow, then show the YAML, then verify the run in GitHub and AWS.</p>
+      <div class="mini-links">
+        <a href="#a13">Assessment 13</a>
+        <a href="#a14">Assessment 14</a>
+        <a href="#a15-16">Assessments 15–16</a>
+        <a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">Training Repo</a>
+      </div>
+      <div class="lms-grid three">
+        <div class="lms-card">
+          <h4>🎯 Learning outcomes</h4>
+          <ul>
+            <li>Explain PR plan versus merge-to-main apply behaviour</li>
+            <li>Configure required repository secrets safely</li>
+            <li>Trace infrastructure change flow from GitHub to AWS</li>
+          </ul>
+        </div>
+        <div class="lms-card">
+          <h4>✅ Success checks</h4>
+          <ul>
+            <li>Workflow file is easy to find and copy into the repo</li>
+            <li>Students can point to the exact GitHub Actions run used as evidence</li>
+            <li>Secrets names are visible in screenshots but values remain hidden</li>
+          </ul>
+        </div>
+        <div class="lms-card">
+          <h4>👩‍🏫 Instructor emphasis</h4>
+          <ul>
+            <li>Teach the difference between validation, plan, and apply</li>
+            <li>Reinforce environment promotion discipline before Prod automation</li>
+            <li>Use the workflow graphic below as the speaking guide for demos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="hint-box" style="margin-top:16px">
+      <span class="box-label">💼 Week 4 Interview Questions</span>
+      <ul>
+        <li>What is the purpose of running <code>terraform validate</code> and <code>terraform plan</code> in CI/CD before <code>terraform apply</code>?</li>
+        <li>Why should AWS credentials be stored as GitHub Actions secrets instead of directly in the workflow file?</li>
+        <li>How would you explain the difference between a pull request workflow and a merge-to-main deployment workflow?</li>
+        <li>What are the biggest risks of automating Production infrastructure without proper review gates?</li>
+      </ul>
+    </div>
+
+    
     <div class="assessment" id="a13">
       <div class="assessment-header">
         <span class="assessment-badge w4">Week 4 — Day 1</span>
@@ -2249,6 +3092,42 @@ terraform apply prod.tfplan</pre>
       <div class="scenario-box">
         <span class="box-label">📧 Client Scenario</span>
         <p><em>"BME requires that all infrastructure changes go through an automated pipeline — no more manual Terraform applies. Set up GitHub Actions to run terraform plan on every PR and terraform apply on merge to main. Use the ZICT training repo as your starting point."</em></p>
+      </div>
+
+      <div class="diagram-section">
+        <div class="diagram-label">🔁 LMS Graphic — GitHub Actions Delivery Flow</div>
+        <h4>Teach the CI/CD pipeline as a five-stage movement from edit to verified deployment</h4>
+        <div class="flow-graphic">
+          <div class="flow-step">Local edit<small>Student updates Terraform code in VS Code and commits the change</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Pull request<small>GitHub triggers <code>terraform init</code>, <code>validate</code>, and <code>plan</code></small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Review gate<small>Instructor or reviewer checks output before approving the merge</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Merge to main<small>Apply job runs with repository secrets and AWS credentials</small></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">AWS verification<small>Confirm the run is green and the EC2 resources exist in AWS Console</small></div>
+        </div>
+        <div class="lms-grid two">
+          <div class="lms-card">
+            <h4>Required access points</h4>
+            <ul>
+              <li><a href="https://github.com/zicttraining/DevOps-cloud-training-" target="_blank">GitHub training repository</a></li>
+              <li><code>.github/workflows/terraform-deploy.yml</code></li>
+              <li>GitHub → Settings → Secrets and Variables → Actions</li>
+              <li>GitHub → Actions tab for run history</li>
+            </ul>
+          </div>
+          <div class="lms-card">
+            <h4>Common mistakes to stop early</h4>
+            <ul>
+              <li>Wrong secret names in workflow YAML</li>
+              <li>Incorrect working directory for Terraform commands</li>
+              <li>Expecting apply on pull request instead of on merge to <code>main</code></li>
+              <li>Capturing screenshots with secret values visible</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div class="solution-box">
@@ -2359,7 +3238,7 @@ git push origin main</pre>
       </div>
     </div>
 
-    <!-- ===== ASSESSMENT 14 ===== -->
+    
     <div class="assessment" id="a14">
       <div class="assessment-header">
         <span class="assessment-badge w4">Week 4 — Day 2</span>
@@ -2409,7 +3288,7 @@ git push origin main</pre>
       </div>
     </div>
 
-    <!-- ===== ASSESSMENTS 15-16 ===== -->
+    
     <div class="assessment" id="a15-16">
       <div class="assessment-header">
         <span class="assessment-badge w4">Week 4 — Days 3 &amp; 4</span>
@@ -2446,7 +3325,7 @@ git push origin main</pre>
       </div>
     </div>
 
-    <!-- ===== WEEK 5 HEADER ===== -->
+    
     <div class="week-header week-5" id="week5">🚀 Week 5 — Capstone Projects 1–3 | Assessments 17–20</div>
 
     <div class="section" style="background:#fff0f0; border-top: 4px solid var(--week5); margin-bottom:20px; padding:20px 30px; border-radius:8px;">
@@ -2458,7 +3337,7 @@ git push origin main</pre>
       </ul>
     </div>
 
-    <!-- Project 1 -->
+    
     <div class="project-card" id="proj1">
       <div class="project-card-header week-5">Project 1 — GitHub Account Setup &amp; Repository Push | Week 5 Day 1 (Assessment 17)</div>
       <div class="project-card-body">
@@ -2495,7 +3374,7 @@ git push origin main</pre>
       </div>
     </div>
 
-    <!-- Project 2 -->
+    
     <div class="project-card" id="proj2">
       <div class="project-card-header week-5">Project 2 — Docker Build, Push &amp; Deploy to Amazon ECS | Week 5 Day 2 (Assessment 18)</div>
       <div class="project-card-body">
@@ -2531,7 +3410,7 @@ git push origin main</pre>
       </div>
     </div>
 
-    <!-- Project 3 -->
+    
     <div class="project-card" id="proj3">
       <div class="project-card-header week-5">Project 3 — ECS Production Project | Week 5 Days 3–4 (Assessments 19–20)</div>
       <div class="project-card-body">
@@ -2567,10 +3446,10 @@ git push origin main</pre>
       </div>
     </div>
 
-    <!-- ===== WEEK 6 HEADER ===== -->
+    
     <div class="week-header week-6" id="week6">🏆 Week 6 — Capstone Projects 4–6 &amp; Final Demo | Assessments 21–24</div>
 
-    <!-- Project 4 -->
+    
     <div class="project-card" id="proj4">
       <div class="project-card-header week-6">Project 4 — Amazon EKS Production Deployment | Week 6 Day 1 (Assessment 21)</div>
       <div class="project-card-body">
@@ -2606,7 +3485,7 @@ git push origin main</pre>
       </div>
     </div>
 
-    <!-- Project 5 -->
+    
     <div class="project-card" id="proj5">
       <div class="project-card-header week-6">Project 5 — EKS Production with Full Observability | Week 6 Day 2 (Assessment 22)</div>
       <div class="project-card-body">
@@ -2640,7 +3519,7 @@ git push origin main</pre>
       </div>
     </div>
 
-    <!-- Project 6 -->
+    
     <div class="project-card" id="proj6">
       <div class="project-card-header week-6">Project 6 — Terraform CI/CD: Dev → UAT → Prod with GitHub Actions | Week 6 Days 3–4 (Assessments 23–24)</div>
       <div class="project-card-body">
@@ -2678,7 +3557,7 @@ git push origin main</pre>
       </div>
     </div>
 
-    <!-- ===== CAREER ROLES ===== -->
+    
     <div class="section" id="career-roles">
       <div class="section-header">
         <div class="section-icon" style="background:#e8f4fd; color:var(--zict-blue)">💼</div>
@@ -2703,9 +3582,77 @@ git push origin main</pre>
         <span class="box-label">💡 Portfolio Advice</span>
         <p>Every deliverable you produced in this program — diagrams, Terraform code, GitHub repos, CI/CD pipelines, written documentation — is portfolio evidence. Publish your GitHub repository, export your diagrams, write a LinkedIn post about each project. You have done real engineering work. Show it.</p>
       </div>
+      <div class="lms-banner lms-week2" style="margin-top:20px">
+        <span class="lms-kicker">Career sprint</span>
+        <div class="lms-title">Weekly job-search goal: 10–15 applications with targeted interview preparation</div>
+        <div class="lms-grid two">
+          <div class="lms-card">
+            <h4>Weekly goal</h4>
+            <ul>
+              <li>Apply to <strong>10–15 jobs every week</strong> after program completion</li>
+              <li>Prioritize Cloud Engineer, DevOps Engineer, Infrastructure Engineer, Platform Engineer, and Cloud Support roles</li>
+              <li>Customize GitHub links, project evidence, and one matching project example for each application batch</li>
+            </ul>
+          </div>
+          <div class="lms-card">
+            <h4>Possible final interview questions</h4>
+            <ul>
+              <li>Walk me through an AWS project you designed and built end-to-end.</li>
+              <li>How have you used Terraform to manage multiple environments?</li>
+              <li>Tell me about a cloud issue you troubleshot and how you fixed it.</li>
+              <li>How do you balance security, availability, and cost in AWS?</li>
+              <li>What proof can you show of your GitHub, CI/CD, and architecture work?</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hint-box" style="margin-top:16px">
+          <span class="box-label">📅 Suggested weekly routine</span>
+          <ul class="checklist">
+            <li>Monday–Tuesday: apply to 4–6 roles</li>
+            <li>Wednesday: publish or refresh one portfolio or LinkedIn item</li>
+            <li>Thursday–Friday: apply to 4–6 more roles and rehearse interview answers</li>
+            <li>Weekend: review responses, tailor CV, and prepare stories from this workbook</li>
+          </ul>
+        </div>
+        <div class="solution-box" style="margin-top:16px">
+          <span class="box-label">🎯 Interview Session Planner</span>
+          <div class="lms-grid two">
+            <div class="lms-card">
+              <h4>Session structure</h4>
+              <ul>
+                <li>10 min — introduce yourself and your cloud background</li>
+                <li>15 min — architecture and AWS service questions</li>
+                <li>15 min — Terraform and CI/CD questions</li>
+                <li>10 min — troubleshooting story and lessons learned</li>
+              </ul>
+            </div>
+            <div class="lms-card">
+              <h4>What to prepare before each session</h4>
+              <ul>
+                <li>1 architecture example from Week 1 or 2</li>
+                <li>1 Terraform example from Week 3</li>
+                <li>1 CI/CD example from Week 4</li>
+                <li>1 problem you fixed and how you fixed it</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="solution-box" style="margin-top:16px">
+          <span class="box-label">📋 Weekly Job Tracker</span>
+          <table>
+            <tbody><tr><th>Week</th><th>Target Jobs</th><th>Applied</th><th>Interview Prep Focus</th><th>LinkedIn / Portfolio Action</th><th>Status Notes</th></tr>
+            <tr><td>Week 1</td><td>10–15</td><td>____</td><td>AWS basics, networking, architecture language</td><td>Post one project or diagram insight</td><td>_____</td></tr>
+            <tr><td>Week 2</td><td>10–15</td><td>____</td><td>VPC, NAT, ALB, EC2, HTTPS</td><td>Publish 3 Week 2 LinkedIn posts</td><td>_____</td></tr>
+            <tr><td>Week 3</td><td>10–15</td><td>____</td><td>CloudTrail, CloudWatch, SNS, Budgets, Terraform promotion</td><td>Share Terraform or environment comparison learning</td><td>_____</td></tr>
+            <tr><td>Week 4</td><td>10–15</td><td>____</td><td>GitHub Actions, secrets, plan vs apply</td><td>Share CI/CD workflow screenshot or lesson</td><td>_____</td></tr>
+            <tr><td>Week 5</td><td>10–15</td><td>____</td><td>Containers, ECS, deployment stories</td><td>Post one capstone progress update</td><td>_____</td></tr>
+            <tr><td>Week 6</td><td>10–15</td><td>____</td><td>Capstone storytelling, end-to-end project walkthrough</td><td>Post graduation / completion summary</td><td>_____</td></tr>
+          </tbody></table>
+        </div>
+      </div>
     </div>
 
-    <!-- ===== WHY SIMULATION ===== -->
+    
     <div class="section" id="why-simulation">
       <div class="section-header">
         <div class="section-icon" style="background:#eafaf1; color:#1a7a42">🧠</div>
@@ -2721,7 +3668,7 @@ git push origin main</pre>
       </tbody></table>
     </div>
 
-    <!-- ===== TOOLS ===== -->
+    
     <div class="section" id="tools">
       <div class="section-header">
         <div class="section-icon" style="background:#f3e5f5; color:#6c3483">🛠</div>
@@ -2742,7 +3689,7 @@ git push origin main</pre>
       </tbody></table>
     </div>
 
-    <!-- ===== SUBMISSION ===== -->
+    
     <div class="section" id="submission">
       <div class="section-header">
         <div class="section-icon" style="background:#fff3cd; color:#856404">📤</div>
@@ -2776,7 +3723,7 @@ git push origin main</pre>
       </ul>
     </div>
 
-    <!-- ===== FOOTER ===== -->
+    
     <footer>
       <strong>© 2026 ZICT | Phase 2 AWS Cloud Architect</strong><br>
       Student Simulation Workbook — All Assessments, Guided Solutions &amp; Projects<br>
